@@ -10,6 +10,9 @@ int main()
     int resultado;
     int flagNumeroA=0;
     int flagNumeroB=0;
+    int suma;
+    int resta;
+    int multiplicacion;
     float division;
     char seguir='s';
 
@@ -34,39 +37,49 @@ int main()
         case 3:
             if(flagNumeroA==1 && flagNumeroB==1){
                 resultado=numeroA+numeroB;
-                system("cls");
+                suma=resultado;
+                printf("Suma es:%d\n",suma);
+
+
             }
             else{
-                printf("Ingrese ambos operandos.");
+                printf("Ingrese ambos operandos.\n");
+                system("pause");
+                system("cls");
             }
 
             break;
         case 4:
             if(flagNumeroA==1 && flagNumeroB==1){
                resultado=numeroA-numeroB;
-               system("cls");
+               resta=resultado;
+               printf("Resta es:%d\n",resta);
+
             }
             else{
-                printf("Ingrese ambos operandos.");
+                printf("Ingrese ambos operandos.\n");
             }
 
             break;
         case 5:
             if(flagNumeroA==1 && flagNumeroB==1){
                 resultado=numeroA*numeroB;
-                system("cls");
+                multiplicacion=resultado;
+                printf("Multiplicacion es:%d\n",multiplicacion);
+
             }
 
              else{
-                printf("Ingrese ambos operandos.");
+                printf("Ingrese ambos operandos.\n");
             }
             break;
         case 6:
-            if(numeroB!=0 && flagNumeroB==1){
-                division=numeroA/numeroB;
+            if(numeroB!=0 && flagNumeroB==1 && flagNumeroA==1){
+                division=(float)numeroA/numeroB;
+                printf("Division:%.2f\n",division);
             }
             else{
-                printf("No se puede dividir por cero.");
+                printf("No se puede dividir por cero.\n");
             }
 
             break;
@@ -75,7 +88,10 @@ int main()
             break;
         default:
             break;
+
         }
+        system("pause");
+        system("cls");
 
     }while(seguir == 's');
 
