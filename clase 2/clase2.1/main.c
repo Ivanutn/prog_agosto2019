@@ -1,10 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "funciones.h"
 
-int funcionSuma(int,int);
-int funcionResta(int,int);
-int funcionMultiplicar(int,int);
-float funcionDividir(int,int);
 int main()
 {
     //uso del switch
@@ -18,7 +15,7 @@ int main()
     char seguir='s';
 
     do{
-        printf("1.Ingrese el primer operando A=%d\n2.Ingrese el segundo operando B=%d\n3.Suma\n4.Resta\n5.Multiplicacion\n6.Division\n7.Salir\n",numeroA,numeroB);
+        printf("1.Ingrese el primer operando A=%d\n2.Ingrese el segundo operando B=%d\n3.Suma\n4.Resta\n5.Multiplicacion\n6.Division\n7.Factorial\n8.Salir\n",numeroA,numeroB);
         scanf("%d",&opcion);
 
         switch(opcion)
@@ -92,6 +89,10 @@ int main()
 
             break;
         case 7:
+            resultado=funcionFactorial(numeroA);
+            printf("factorial de %d es:%d\n",numeroA,resultado);
+            break;
+        case 8:
             seguir ='a';
             break;
         default:
@@ -105,39 +106,4 @@ int main()
     }while(seguir == 's');
 
     return 0;
-}
-int funcionSuma(int num1,int num2)
-{
-    int resultado;
-    return resultado=num1+num2;
-
-}
-int funcionResta(int num1,int num2)
-{
-     int resultado;
-     return resultado=num1-num2;
-
-}
-int funcionMultiplicar(int num1,int num2)
-{
-     int resultado;
-     return resultado=num1*num2;
-
-}
-float funcionDividir(int num1,int num2)
-{
-     float resultado;
-     float retorno;
-     if(num2!=0){
-         resultado=(float)num1/num2;
-         retorno=resultado;
-     }
-     else{
-        retorno=0;
-     }
-     return retorno;
-
-
-
-
 }
