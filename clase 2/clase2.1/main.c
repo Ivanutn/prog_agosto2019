@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int funcionSuma(int,int);
+int funcionResta(int,int);
+int funcionMultiplicar(int,int);
+float funcionDividir(int,int);
 int main()
 {
     //uso del switch
@@ -10,14 +14,11 @@ int main()
     int resultado;
     int flagNumeroA=0;
     int flagNumeroB=0;
-    int suma;
-    int resta;
-    int multiplicacion;
-    float division;
+    float resulDivision;
     char seguir='s';
 
     do{
-        printf("1.Ingrese el primer operando:%d\n2.Ingrese el segundo operando:%d\n3.Suma\n4.Resta\n5.Multiplicacion\n6.Division\n7.Salir\n",numeroA,numeroB);
+        printf("1.Ingrese el primer operando A=%d\n2.Ingrese el segundo operando B=%d\n3.Suma\n4.Resta\n5.Multiplicacion\n6.Division\n7.Salir\n",numeroA,numeroB);
         scanf("%d",&opcion);
 
         switch(opcion)
@@ -36,9 +37,9 @@ int main()
             break;
         case 3:
             if(flagNumeroA==1 && flagNumeroB==1){
-                resultado=numeroA+numeroB;
-                suma=resultado;
-                printf("Suma es:%d\n",suma);
+
+                resultado=funcionSuma(numeroA,numeroB);
+                printf("Suma es:%d\n",resultado);
 
 
             }
@@ -51,9 +52,9 @@ int main()
             break;
         case 4:
             if(flagNumeroA==1 && flagNumeroB==1){
-               resultado=numeroA-numeroB;
-               resta=resultado;
-               printf("Resta es:%d\n",resta);
+
+               resultado=funcionResta(numeroA,numeroB);
+               printf("Resta es:%d\n",resultado);
 
             }
             else{
@@ -63,9 +64,9 @@ int main()
             break;
         case 5:
             if(flagNumeroA==1 && flagNumeroB==1){
-                resultado=numeroA*numeroB;
-                multiplicacion=resultado;
-                printf("Multiplicacion es:%d\n",multiplicacion);
+
+                resultado=funcionMultiplicar(numeroA,numeroB);
+                printf("Multiplicacion es:%d\n",resultado);
 
             }
 
@@ -74,19 +75,27 @@ int main()
             }
             break;
         case 6:
-            if(numeroB!=0 && flagNumeroB==1 && flagNumeroA==1){
-                division=(float)numeroA/numeroB;
-                printf("Division:%.2f\n",division);
+            if(flagNumeroB==1 && flagNumeroA==1){
+                resulDivision=funcionDividir(numeroA,numeroB);
+                if(resulDivision!=0){
+                    printf("Division:%.2f\n",resulDivision);
+                }
+                else{
+                    printf("No se puede dividir por cero.\n");
+                }
+
             }
             else{
-                printf("No se puede dividir por cero.\n");
+                printf("Ingrese ambos operandos.\n");
             }
+
 
             break;
         case 7:
             seguir ='a';
             break;
         default:
+            printf("Error.Ingrese una de las opciones.\n");
             break;
 
         }
@@ -96,4 +105,39 @@ int main()
     }while(seguir == 's');
 
     return 0;
+}
+int funcionSuma(int num1,int num2)
+{
+    int resultado;
+    return resultado=num1+num2;
+
+}
+int funcionResta(int num1,int num2)
+{
+     int resultado;
+     return resultado=num1-num2;
+
+}
+int funcionMultiplicar(int num1,int num2)
+{
+     int resultado;
+     return resultado=num1*num2;
+
+}
+float funcionDividir(int num1,int num2)
+{
+     float resultado;
+     float retorno;
+     if(num2!=0){
+         resultado=(float)num1/num2;
+         retorno=resultado;
+     }
+     else{
+        retorno=0;
+     }
+     return retorno;
+
+
+
+
 }
