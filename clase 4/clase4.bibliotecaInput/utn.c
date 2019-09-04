@@ -14,7 +14,7 @@ int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit)
         retorno=1;
     }
     else{
-        *input=numero;
+        *input=numero;//valor por referencia, modifico el original.
     }
 
     return retorno;
