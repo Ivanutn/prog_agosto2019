@@ -6,3 +6,5 @@ int isEmptyArray(int* pArray,int cantidad,int valor);
 int mostrarUnElemento(int array);
 int mostrarArrayElemento(int array[],int cantidad);
 int cargaArray(int* pArray,int cantidad);
+int vectorMaximo(int* array,int cantidad,int* max);
+int vectorMinimo(int* array,int cantidad,int* min);

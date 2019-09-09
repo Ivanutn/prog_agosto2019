@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1568039188 source:c:\users\alumno\desktop\prog_agosto2019\clase 6\main.c
+1568041338 source:c:\users\alumno\desktop\prog_agosto2019\clase 6\main.c
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
@@ -7,9 +7,9 @@
 
 1568039765 c:\users\alumno\desktop\prog_agosto2019\clase 6\utn.h
 
-1568038145 c:\users\alumno\desktop\prog_agosto2019\clase 6\utn_array.h
+1568040444 c:\users\alumno\desktop\prog_agosto2019\clase 6\utn_array.h
 
-1568038633 source:c:\users\alumno\desktop\prog_agosto2019\clase 6\utn_array.c
+1568041474 source:c:\users\alumno\desktop\prog_agosto2019\clase 6\utn_array.c
 	<stdio.h>
 	<stdlib.h>
 

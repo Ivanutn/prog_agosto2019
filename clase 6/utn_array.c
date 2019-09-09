@@ -1,8 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int vectorMaximo(int* array,int cantidad);
-int vectorMinimo(int* array,int cantidad);
+int vectorMaximo(int* array,int cantidad,int* max)
+{
+    int flag=0;
+    int retorno=1;
+    int maximo=0;
+
+         for(int i=1;i<cantidad;i++)
+        {
+            if(flag=0 || array[i]>maximo)
+            {
+                maximo=array[i];
+                flag=1;
+            }
+        }
+        *max=maximo;
+    return *max;
+}
 
 int sumaVector(int* array,int cantidad)
 {
