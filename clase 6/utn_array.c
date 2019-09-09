@@ -7,7 +7,7 @@ int vectorMaximo(int* array,int cantidad,int* max)
     int retorno=1;
     int maximo=0;
 
-         for(int i=1;i<cantidad;i++)
+         for(int i=0;i<cantidad;i++)
         {
             if(flag=0 || array[i]>maximo)
             {
