@@ -8,6 +8,7 @@ int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit)
     int numero;
     int retorno=0;
     printf("%s",message);
+    fflush(stdin);
     scanf("%d",&numero);
     if(numero<lowLimit || numero>highLimit){
         printf("%s",eMessage);
@@ -43,6 +44,7 @@ int getCharacter(char* input,char message[],char eMessage[],char lowChar,char hi
     char letra;
     int retorno=0;
     printf("%s",message);
+    fflush(stdin);
     scanf("%c",&letra);
     letra=tolower(letra);
     if(letra<lowChar || letra>highChar){
