@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1568165939 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\clase 6\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"utn.h"
+
+1568165939 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\clase 6\utn.h
+
+1568169216 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\clase 6\utn_array.c
+	<stdio.h>
+	<stdlib.h>
+
+1568173008 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\clase 6.1\arraysparalelos\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"utn_array.h"
+
+1568171168 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\clase 6.1\arraysparalelos\utn.h
+
+1568172484 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\clase 6.1\arraysparalelos\utn_array.h
+
+1568171593 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\clase 6.1\arraysparalelos\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"utn.h"
+
+1568173333 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\clase 6.1\arraysparalelos\utn_array.c
+	<stdio.h>
+	<stdlib.h>
+
