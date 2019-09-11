@@ -4,12 +4,11 @@
 int vectorMaximo(int* array,int cantidad,int* max)
 {
     int flag=0;
-    int retorno=1;
     int maximo=0;
 
          for(int i=0;i<cantidad;i++)
         {
-            if(flag=0 || array[i]>maximo)
+            if(flag==0 || array[i]>maximo)
             {
                 maximo=array[i];
                 flag=1;
@@ -17,6 +16,23 @@ int vectorMaximo(int* array,int cantidad,int* max)
         }
         *max=maximo;
     return *max;
+}
+
+int vectorMinimo(int* array,int cantidad,int* min)
+{
+    int flag=0;
+    int minimo=0;
+    for(int i=0; i<cantidad; i++)
+    {
+        if(flag==0 || array[i]<minimo)
+        {
+            minimo=array[i];
+            flag=1;
+        }
+    }
+
+    *min=minimo;
+    return *min;
 }
 
 int sumaVector(int* array,int cantidad)
