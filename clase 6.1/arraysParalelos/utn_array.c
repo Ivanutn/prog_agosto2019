@@ -220,6 +220,7 @@ int CargaVectorParalelo(int* legajo,int* edad,int* nota1,int* nota2,float* prome
                 printf("para seguir ingresando datos, pulse S: ");
                 fflush(stdin);
                 scanf("%c",&seguir);
+                system("cls");
 
         }
 

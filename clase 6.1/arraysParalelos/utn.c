@@ -16,6 +16,8 @@ int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit,
     {
         printf("%s",eMessage);
         intentosAux++;
+        system("pause");
+        system("cls");
 
         if(intentosAux==intentos)
         {
@@ -46,6 +48,8 @@ int getFloat(float* input,char message[],char eMessage[],float lowLimit,float hi
     scanf("%f",&numero);
     if(numero<lowLimit || numero>highLimit){
         printf("%s",eMessage);
+        system("pause");
+        system("cls");
         retorno=1;
     }
     else{
@@ -104,9 +108,12 @@ int getSex(char* input,char message[],char eMessage[],int intentos)
     while(letra!='f' && letra!='m')
     {
         printf("%s",eMessage);
+        system("pause");
+        system("cls");
         intentosAux++;
         if(intentosAux==intentos)
         {
+            printf("Superado la cantidad de intentos.\n");
             exit(1);
         }
         else
