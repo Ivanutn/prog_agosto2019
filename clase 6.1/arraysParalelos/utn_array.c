@@ -169,6 +169,7 @@ int CargaVectorParalelo(int* legajo,int* edad,int* nota1,int* nota2,float* prome
     int edadAux;
     int nota1Aux;
     int nota2Aux;
+    int sumaAux;
     float promedioAux;
     char sexoAux;
     int pos;
@@ -206,6 +207,12 @@ int CargaVectorParalelo(int* legajo,int* edad,int* nota1,int* nota2,float* prome
             {
                 nota2[pos]=nota2Aux;
             }
+            if(nota1Aux !=0 && nota2Aux !=0)
+            {
+               sumaAux=nota1[pos]+nota2[pos];
+               promedioAux=(float)sumaAux/2;
+               promedio[pos]=promedioAux;
+            }
             if(getSex(&sexoAux,"Ingrese su sexo, debe ser la letra [F] o [M]:","Error. debe ser la letra [F] o [M]")==0)
             {
                 sexo[pos]=sexoAux;
@@ -236,7 +243,7 @@ int mostrarArrayParalelo(int* legajo,int* edad,int* nota1,int* nota2,float* prom
     int retorno=0;
     for(int i=0;i<cantidad;i++)
     {
-      printf("Legajo:%d\nEdad:%d\nNota1:%d\nNota2:%d\nSexo:%c\n",legajo[i],edad[i],nota1[i],nota2[i],sexo[i]);
+      printf("Legajo:%d\nEdad:%d\nNota1:%d\nNota2:%d\nPromedio:%.2f\nSexo:%c\n",legajo[i],edad[i],nota1[i],nota2[i],promedio[i],sexo[i]);
 
     }
     return retorno;

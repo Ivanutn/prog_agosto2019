@@ -5,8 +5,6 @@
 #define TOTAL 2
 int main()
 {
-    int ok;
-    int ok2;
 
     int legajo[TOTAL];
     int edad[TOTAL];
@@ -15,9 +13,7 @@ int main()
     float promedio[TOTAL];
     char sexo[TOTAL];
 
-    ok=CargaVectorParalelo(legajo,edad,nota1,nota2,promedio,sexo,TOTAL);
-    printf("deOK:%d",ok);
-    ok2=mostrarArrayParalelo(legajo,edad,nota1,nota2,promedio,sexo,TOTAL);
-     printf("deOK2:%d",ok2);
+    CargaVectorParalelo(legajo,edad,nota1,nota2,promedio,sexo,TOTAL);
+    mostrarArrayParalelo(legajo,edad,nota1,nota2,promedio,sexo,TOTAL);
     return 0;
 }
