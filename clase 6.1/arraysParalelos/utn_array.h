@@ -9,5 +9,6 @@ int cargaArray(int* pArray,int cantidad);
 int vectorMaximo(int* array,int cantidad,int* max);
 int vectorMinimo(int* array,int cantidad,int* min);
 int CargaVectorParalelo(int*,int*,int*,int*,float*,char*,int);
+int mostrarUnParalelo(int legajo,int edad,int nota1,int nota2,float promedio,char sexo);
 int mostrarArrayParalelo(int* legajo,int* edad,int* nota1,int* nota2,float* promedio,char* sexo,int cantidad);
 int bubbleSort(int* array,int cantidad);

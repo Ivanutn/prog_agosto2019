@@ -3,20 +3,36 @@
 #include <ctype.h>
 #include <string.h>
 #include "utn.h"
-int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit)
+int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit,int intentos)
 {
     int numero;
     int retorno=0;
+    int intentosAux=0;
     printf("%s",message);
     fflush(stdin);
     scanf("%d",&numero);
-    if(numero<lowLimit || numero>highLimit){
+
+    while(numero<lowLimit || numero>highLimit)
+    {
         printf("%s",eMessage);
-        retorno=1;
+        intentosAux++;
+
+        if(intentosAux==intentos)
+        {
+            printf("superado el limite de intentos.\n");
+            exit(1);
+        }
+        else
+        {
+            printf("%s",message);
+            fflush(stdin);
+            scanf("%d",&numero);
+        }
+
     }
-    else{
-        *input=numero;//valor por referencia, modifico el original.
-    }
+
+    *input=numero;//valor por referencia, modifico el original.
+
 
     return retorno;
 
@@ -76,14 +92,31 @@ int getString(char* input,char message[],char eMessage[],int lowLimit,int highLi
     return retorno;
 
 }
-int getSex(char* input,char message[],char eMessage[])
+int getSex(char* input,char message[],char eMessage[],int intentos)
 {
     char letra;
     int retorno=0;
+    int intentosAux=0;
     printf("%s",message);
     fflush(stdin);
     scanf("%c",&letra);
     letra=tolower(letra);
+    while(letra!='f' && letra!='m')
+    {
+        printf("%s",eMessage);
+        intentosAux++;
+        if(intentosAux==intentos)
+        {
+            exit(1);
+        }
+        else
+        {
+            printf("%s",message);
+            fflush(stdin);
+            scanf("%c",&letra);
+            letra=tolower(letra);
+        }
+    }
     if(letra=='m')
     {
         *input=letra;
@@ -93,10 +126,7 @@ int getSex(char* input,char message[],char eMessage[])
     {
         *input=letra;
     }
-    else
-    {
-         printf("%s",eMessage);
-         retorno=1;
-    }
+
+
     return retorno;
 }

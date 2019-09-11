@@ -3,7 +3,7 @@
 #include "utn.h"
 #include "utn_array.h"
 #define TOTAL 2
-
+#include <string.h>
 
 int main()
 {

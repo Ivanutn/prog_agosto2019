@@ -191,19 +191,19 @@ int CargaVectorParalelo(int* legajo,int* edad,int* nota1,int* nota2,float* prome
         pos=buscarEspacioLibre(legajo,cantidad);
         if(buscarEspacioLibre(legajo,cantidad)!=-1)
         {
-            if(getInt(&legajoAux,"Ingrese su legajo. Debe estar entre 1 y 100:","Error. El legajo debe estar entre 1 y 100",1,100)==0)
+            if(getInt(&legajoAux,"Ingrese su legajo. Debe estar entre 1 y 100:","Error. El legajo debe estar entre 1 y 100\n",1,100,3)==0)
             {
                 legajo[pos]=legajoAux;
             }
-            if(getInt(&edadAux,"Ingrese su edad:","Error. edad entre 0 y 100",0,100)==0)
+            if(getInt(&edadAux,"Ingrese su edad:","Error. edad entre 0 y 100\n",0,100,3)==0)
             {
                 edad[pos]=edadAux;
             }
-            if(getInt(&nota1Aux,"Ingrese su nota de primer parcial:","Error. nota entre 1 y 10",1,10)==0)
+            if(getInt(&nota1Aux,"Ingrese su nota de primer parcial:","Error. nota entre 1 y 10\n",1,10,3)==0)
             {
                 nota1[pos]=nota1Aux;
             }
-            if(getInt(&nota2Aux,"Ingrese su nota de segundo parcial:","Error. nota entre 1 y 10",1,10)==0)
+            if(getInt(&nota2Aux,"Ingrese su nota de segundo parcial:","Error. nota entre 1 y 10\n",1,10,3)==0)
             {
                 nota2[pos]=nota2Aux;
             }
@@ -213,11 +213,11 @@ int CargaVectorParalelo(int* legajo,int* edad,int* nota1,int* nota2,float* prome
                promedioAux=(float)sumaAux/2;
                promedio[pos]=promedioAux;
             }
-            if(getSex(&sexoAux,"Ingrese su sexo, debe ser la letra [F] o [M]:","Error. debe ser la letra [F] o [M]")==0)
+            if(getSex(&sexoAux,"Ingrese su sexo, debe ser la letra [F] o [M]:","Error. debe ser la letra [F] o [M]\n",3)==0)
             {
                 sexo[pos]=sexoAux;
             }
-                printf("para seguir pulse S: ");
+                printf("para seguir ingresando datos, pulse S: ");
                 fflush(stdin);
                 scanf("%c",&seguir);
 
@@ -238,12 +238,21 @@ int CargaVectorParalelo(int* legajo,int* edad,int* nota1,int* nota2,float* prome
 
 
 }
+int mostrarUnParalelo(int legajo,int edad,int nota1,int nota2,float promedio,char sexo)
+{
+    int retorno=0;
+
+    //printf("Legajo:%d\nEdad:%d\nNota1:%d\nNota2:%d\nPromedio:%.2f\nSexo:%c\n\n",legajo,edad,nota1,nota2,promedio,sexo);
+    printf("%3d %6d %7d %7d %10.2f %6c\n",legajo,edad,nota1,nota2,promedio,sexo);
+    return retorno;
+}
 int mostrarArrayParalelo(int* legajo,int* edad,int* nota1,int* nota2,float* promedio,char* sexo,int cantidad)
 {
     int retorno=0;
+    printf("Legajo\tEdad\tNota1\tNota2\tPromedio Sexo\n");
     for(int i=0;i<cantidad;i++)
     {
-      printf("Legajo:%d\nEdad:%d\nNota1:%d\nNota2:%d\nPromedio:%.2f\nSexo:%c\n",legajo[i],edad[i],nota1[i],nota2[i],promedio[i],sexo[i]);
+      mostrarUnParalelo(legajo[i],edad[i],nota1[i],nota2[i],promedio[i],sexo[i]);
 
     }
     return retorno;
@@ -273,4 +282,5 @@ int bubbleSort(int* array,int cantidad)
         }
     }
     array=pAux;
+    return 0;
 }

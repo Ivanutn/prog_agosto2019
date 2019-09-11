@@ -33,24 +33,25 @@
 	<stdio.h>
 	<stdlib.h>
 
-1568212672 source:c:\users\alumno\desktop\prog_agosto2019\clase 6.1\arraysparalelos\utn.c
+1568206323 source:c:\users\alumno\desktop\prog_agosto2019\clase 6.1\arraysparalelos\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	<string.h>
 	"utn.h"
 
-1568212672 c:\users\alumno\desktop\prog_agosto2019\clase 6.1\arraysparalelos\utn.h
+1568205391 c:\users\alumno\desktop\prog_agosto2019\clase 6.1\arraysparalelos\utn.h
 
-1568202511 source:c:\users\alumno\desktop\prog_agosto2019\clase 6.1\arraysparalelos\main.c
+1568208820 source:c:\users\alumno\desktop\prog_agosto2019\clase 6.1\arraysparalelos\main.c
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
 	"utn_array.h"
+	<string.h>
 
-1568212672 c:\users\alumno\desktop\prog_agosto2019\clase 6.1\arraysparalelos\utn_array.h
+1568207454 c:\users\alumno\desktop\prog_agosto2019\clase 6.1\arraysparalelos\utn_array.h
 
-1568203971 source:c:\users\alumno\desktop\prog_agosto2019\clase 6.1\arraysparalelos\utn_array.c
+1568208889 source:c:\users\alumno\desktop\prog_agosto2019\clase 6.1\arraysparalelos\utn_array.c
 	<stdio.h>
 	<stdlib.h>
 
