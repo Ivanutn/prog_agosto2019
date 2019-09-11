@@ -3,6 +3,8 @@
 #include "utn.h"
 #include "utn_array.h"
 #define TOTAL 2
+
+
 int main()
 {
 
@@ -15,5 +17,6 @@ int main()
 
     CargaVectorParalelo(legajo,edad,nota1,nota2,promedio,sexo,TOTAL);
     mostrarArrayParalelo(legajo,edad,nota1,nota2,promedio,sexo,TOTAL);
+
     return 0;
 }

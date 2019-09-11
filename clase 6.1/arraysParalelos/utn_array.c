@@ -249,3 +249,28 @@ int mostrarArrayParalelo(int* legajo,int* edad,int* nota1,int* nota2,float* prom
     return retorno;
 
 }
+
+int bubbleSort(int* array,int cantidad)
+{
+
+    int flag=-1;
+    int auxInt;
+    int* pAux=array;
+
+    while(flag==-1)
+    {
+        flag=0;
+        for(int i=0; i<cantidad-1; i++)
+        {
+            if(pAux[i]>pAux[i+1])
+            {
+                auxInt=pAux[i];
+                pAux[i]=pAux[i+1];
+                pAux[i+1]=auxInt;
+
+                flag=-1;
+            }
+        }
+    }
+    array=pAux;
+}
