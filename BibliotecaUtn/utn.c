@@ -4,10 +4,11 @@
 #include <string.h>
 #include "utn.h"
 
-int valNumber(char* string)
+int valNumber(char* string,int cant)
 {
     int retorno=1;//si retorna 1 hubo un error. 0 todo bien.
-    for(int i=0;string[i]!='\0';i++)
+
+    for(int i=0;string[i]!='\0' && i<cant;i++)
     {
         if(string[i]<'0' || string[i]>'9')
         {
@@ -27,9 +28,15 @@ int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit)
 {
     int numero;
     int retorno=0;
+    char auxNum[30];
     printf("%s",message);
     fflush(stdin);
-    scanf("%d",&numero);
+    gets(auxNum);
+
+    if(valNumber(auxNum,30)==0)
+    {
+        numero=atoi(auxNum);
+    }
 
     if(numero<lowLimit || numero>highLimit){
         printf("%s",eMessage);

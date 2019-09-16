@@ -6,19 +6,13 @@
 
 int main()
 {
-    char num[]="168";
+
+    int numero;
     /** fgets(cant,sizeof,stdin) cant de elementos del array, si se trabaja con arrays, sizeof(del tipo de dato),origne o ingreso de la informacion, si no se trabaja con
     archivos se usa el stdin (standar input)
-    fgets coloca un '\0' al final de la cadena.*/
+    fgets coloca un '\n' al final de la cadena. se debe pisar con un '\0' */
 
-    if(valNumber(num)==0)
-    {
-        printf("se ingreso un numero de forma correcta.\n");
-    }
-    else
-    {
-        printf("No se ingreso un numero.\n");
-    }
+
 
     return 0;
 }
