@@ -7,20 +7,46 @@
 int valNumber(char* string,int cant)
 {
     int retorno=1;//si retorna 1 hubo un error. 0 todo bien.
-
-    for(int i=0;string[i]!='\0' && i<cant;i++)
+    if(string!=NULL)
     {
-        if(string[i]<'0' || string[i]>'9')
+        for(int i=0; string[i]!='\0' && i<cant; i++)
         {
-            retorno=1;
-            break;
-        }
-        else
-        {
-            retorno=0;
+            if(string[i]<'0' || string[i]>'9')
+            {
+                retorno=1;
+                break;
+            }
+            else
+            {
+                retorno=0;
 
+            }
         }
     }
+
+    return retorno;
+}
+
+int valCharacter(char* string,int cant)
+{
+    int retorno=1;// 1 todo mal, 0 todo bien
+
+    if(string!=NULL)
+    {
+        for(int i=0; i<cant && string[i]!='\0'; i++)
+        {
+            if((string[i]<'a' || string[i]>'z') && (string[i]<' '|| string[i]>' ') && (string[i]<'A' || string[i]>'Z') )
+            {
+                retorno=1;
+                break;
+            }
+            else
+            {
+                retorno=0;
+            }
+        }
+    }
+
     return retorno;
 }
 
