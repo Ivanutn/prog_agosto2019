@@ -6,7 +6,7 @@
 
 int valNumber(char* string,int cant)
 {
-    int retorno=1;//si retorna 1 hubo un error. 0 todo bien.
+    int retorno=1;
     if(string!=NULL)
     {
         for(int i=0; string[i]!='\0' && i<cant; i++)
@@ -29,7 +29,7 @@ int valNumber(char* string,int cant)
 
 int valCharacter(char* string,int cant)
 {
-    int retorno=1;// 1 todo mal, 0 todo bien
+    int retorno=1;//
 
     if(string!=NULL)
     {
