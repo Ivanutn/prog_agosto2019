@@ -3,6 +3,26 @@
 #include <ctype.h>
 #include <string.h>
 #include "utn.h"
+
+int valNumber(char* string)
+{
+    int retorno=1;//si retorna 1 hubo un error. 0 todo bien.
+    for(int i=0;string[i]!='\0';i++)
+    {
+        if(string[i]<'0' || string[i]>'9')
+        {
+            retorno=1;
+            break;
+        }
+        else
+        {
+            retorno=0;
+
+        }
+    }
+    return retorno;
+}
+
 int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit)
 {
     int numero;
@@ -10,6 +30,7 @@ int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit)
     printf("%s",message);
     fflush(stdin);
     scanf("%d",&numero);
+
     if(numero<lowLimit || numero>highLimit){
         printf("%s",eMessage);
         retorno=1;
