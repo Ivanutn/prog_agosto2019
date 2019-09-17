@@ -153,13 +153,16 @@ int cargaArray(eAlumno pArray[],int cantidad)
             }
             if(getString(auxNombre,"Ingrese su nombre:","Error. El nombre debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
             {
-                strcpy(pArray[pos].nombre,auxNombre)
+                strcpy(pArray[pos].nombre,auxNombre);
             }
             if(getString(auxApellido,"Ingrese su apellido:","Error. El apellido debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
             {
-                 strcpy(pArray[pos].apellido,auxApellido)
+                 strcpy(pArray[pos].apellido,auxApellido);
             }
-            if()
+            if(getSex(&auxSexo,"Ingrese sexo, [F] o [M]:","Error. Debe ingresar [F] o [M]\n",3)==0)
+            {
+                pArray[pos].sexo=auxSexo;
+            }
 
                 printf("para seguir pulse S: ");
                 fflush(stdin);

@@ -168,7 +168,7 @@ int getString(char* input,char message[],char eMessage[],int lowLimit,int highLi
             {
                 strcpy(nombre,auxiliar);
                 strcpy(input,nombre);
-                retorno;
+                retorno=0;
                 break;
             }
         }
@@ -191,41 +191,59 @@ int getString(char* input,char message[],char eMessage[],int lowLimit,int highLi
 int getSex(char* input,char message[],char eMessage[],int intentos)
 {
     char letra;
+    char auxLetra[2];
+    int rValidar;
     int retorno=0;
     int intentosAux=0;
-    printf("%s",message);
-    fflush(stdin);
-    scanf("%c",&letra);
-    letra=tolower(letra);
-    while(letra!='f' && letra!='m')
+
+    do
     {
-        printf("%s",eMessage);
-        system("pause");
-        system("cls");
-        intentosAux++;
-        if(intentosAux==intentos)
+        printf("%s",message);
+        fflush(stdin);
+        gets(auxLetra);
+        auxLetra[0]=tolower(auxLetra[0]);
+        rValidar=valCharacter(auxLetra,2);
+        if(rValidar==1)
         {
-            printf("Superado la cantidad de intentos.\n");
-            exit(1);
+            printf("%s",eMessage);
+            system("pause");
+            system("cls");
+            intentosAux++;
+
         }
+
         else
         {
-            printf("%s",message);
-            fflush(stdin);
-            scanf("%c",&letra);
-            letra=tolower(letra);
+                if(auxLetra[0]=='m' && auxLetra[1]=='\0')
+                {
+                    letra=auxLetra[0];
+                    *input=letra;
+                    break;
+
+                }
+                else if(auxLetra[0]=='f'&& auxLetra[1]=='\0')
+                {
+                    letra=auxLetra[0];
+                    *input=letra;
+                    break;
+                }
+                else
+                {
+                    printf("%s",eMessage);
+                    intentosAux++;
+                    system("pause");
+                    system("cls");
+                }
+
+
         }
-    }
-    if(letra=='m')
-    {
-        *input=letra;
-
-    }
-    else if(letra=='f')
-    {
-        *input=letra;
-    }
-
+          if(intentosAux==intentos)
+        {
+            printf("Superado la cantidad de intentos.\n");
+            retorno=1;
+            break;
+        }
+    }while(intentosAux!=intentos);
 
     return retorno;
 }

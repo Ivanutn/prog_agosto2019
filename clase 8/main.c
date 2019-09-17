@@ -17,7 +17,12 @@ int main()
     archivos se usa el stdin (standar input)
     fgets coloca un '\n' al final de la cadena. se debe pisar con un '\0' */
     eAlumno vecAlumnos[MAX_QTY];
-
+    char letra;
+    int res;
+    if(getSex(&letra,"Ingrese sexo, [F] o [M]:","Error. Debe ingresar [F] o [M]\n",3)==0)
+    {
+        printf("%c\n",letra);
+    }
     return 0;
 }
 
