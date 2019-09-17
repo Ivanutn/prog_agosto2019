@@ -4,7 +4,7 @@
 #include "utn_array.h"
 #include "utn.h"
 #define MAX_CARACTERES 41
-#define MAX_QTY 1
+#define MAX_QTY 2
 int opcion(void)
 {
     int opcion=0;//Cero es error.

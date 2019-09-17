@@ -152,7 +152,16 @@ int cargaArray(eAlumno pArray[],int cantidad)
         {
            if(getInt(&auxLegajo,"Ingrese legajo, debe estar entre 1 y 100:","Error. El legajo debe estar entre 1 y 100\n",1,100,3)==0)
             {
-                pArray[pos].legajo=auxLegajo;
+                if(buscarLegajo(pArray,cantidad,auxLegajo)==0)
+                {
+                    printf("Ese legajo ya existe.\n");
+                    break;
+                }
+                else
+                {
+                    pArray[pos].legajo=auxLegajo;
+                }
+
 
             }
             else
@@ -231,15 +240,15 @@ int cargaArray(eAlumno pArray[],int cantidad)
             {
                 break;
             }
-            //printf("Nota1:%d\nNota2:%d\n",pArray[pos].nota1,pArray[pos].nota2);
+
             promedio=promedioVector(pArray,cantidad);
             pArray[pos].promedio=promedio;
-            //printf("promedio:%.2f\n",pArray[pos].promedio);
             pArray[pos].estado=1;//estado en 1 implica que esa posicion ya se cargo con datos
 
             printf("para seguir pulse S: ");
             fflush(stdin);
             scanf("%c",&seguir);
+            system("cls");
         }
 
         else
@@ -255,5 +264,27 @@ int cargaArray(eAlumno pArray[],int cantidad)
 
     return retorno;
 
+}
+int buscarLegajo(eAlumno pArray[],int cantidad,int legajo)
+{
+    int retorno=1;//no existe. cero, existe
+    if(pArray!=NULL && cantidad>0)
+    {
+         for(int i=0;i<cantidad;i++)
+        {
+            if(pArray[i].estado==1)
+            {
+                if(pArray[i].legajo==legajo)
+                {
+                    retorno=0;
+                    break;
+                }
+
+            }
+
+        }
+    }
+
+    return retorno;
 }
 

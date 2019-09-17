@@ -51,6 +51,7 @@ int buscarEspacioLibre(eAlumno pArray[],int cantidad);
 void mostrarUnElemento(eAlumno pArray);
 int mostrarArrayDeElementos(eAlumno pArray[],int cantidad);
 int cargaArray(eAlumno pArray[],int cantidad);
+int buscarLegajo(eAlumno[],int,int);
 int vectorMaximo(int* array,int cantidad,int* max);
 int vectorMinimo(int* array,int cantidad,int* min);
 
