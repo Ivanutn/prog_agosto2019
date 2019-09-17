@@ -4,13 +4,13 @@
 #include "utn_array.h"
 #include "utn.h"
 #define MAX_CARACTERES 41
-#define MAX_QTY 3
+#define MAX_QTY 1
 int opcion(void)
 {
     int opcion=0;//Cero es error.
     int auxOpcion;
 
-    if(getInt(&auxOpcion,"1.Alta\n2.Baja\n3.Modificar\n4.Salir\n\nElija una opcion:","Error. Elija una de las opciones dadas.\n",1,4,3)==0)
+    if(getInt(&auxOpcion,"1.Alta\n2.Baja\n3.Modificar\n4.Listar\n5.Salir\n\nElija una opcion:","Error. Elija una de las opciones dadas.\n",1,5,3)==0)
     {
 
         opcion=auxOpcion;
@@ -23,7 +23,9 @@ int opcion(void)
 void menu(void)
 {
     int numero;
+    int ok=0;
     eAlumno vecAlumnos[MAX_QTY];
+
     do
     {
             numero=opcion();
@@ -31,7 +33,16 @@ void menu(void)
             {
             case 1:
                 printf("Alta ok\n");
-                cargaArray(vecAlumnos,MAX_QTY);
+                if(ok==0)
+                {
+                    ok=cargaArray(vecAlumnos,MAX_QTY);
+                }
+                else
+                {
+                    printf("Ya no hay mas espacio para cargar datos.\n");
+                }
+
+
                 break;
             case 2:
                 printf("Baja ok\n");
@@ -40,12 +51,15 @@ void menu(void)
                 printf("Modificar ok\n");
                 break;
             case 4:
+
+                break;
+            case 5:
                 printf("Salir ok\n");
                 break;
             default:
                 break;
             }
-    }while(numero!=4);
+    }while(numero!=5);
 
 }
 

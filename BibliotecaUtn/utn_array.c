@@ -101,7 +101,9 @@ int buscarEspacioLibre(eAlumno pArray[],int cantidad)
 
 void mostrarUnElemento(eAlumno pArray)
 {
-    printf("%s %s %d %d - %d - %d %c %d %d %d %.2f",pArray.nombre,pArray.apellido,pArray.legajo,pArray.fecha_de_ingreso.dia,pArray.fecha_de_ingreso.mes,pArray.fecha_de_ingreso.anio,pArray.sexo,pArray.edad,pArray.nota1,pArray.nota2,pArray.promedio);
+
+    printf("%-10s\t%-10s\t%-12d\t%d/%d/%d%10c %8d %7d %6d %10.2f\n",pArray.nombre,pArray.apellido,pArray.legajo,pArray.fecha_de_ingreso.dia,pArray.fecha_de_ingreso.mes,pArray.fecha_de_ingreso.anio,pArray.sexo,pArray.edad,pArray.nota1,pArray.nota2,pArray.promedio);
+
 
 }
 
@@ -146,9 +148,9 @@ int cargaArray(eAlumno pArray[],int cantidad)
 
     do{
         pos=buscarEspacioLibre(pArray,cantidad);
-        if(buscarEspacioLibre(pArray,cantidad)!=1)
+        if(pArray[pos].estado==0)
         {
-            if(getInt(&auxLegajo,"Ingrese legajo, debe estar entre 1 y 100:","Error. El legajo debe estar entre 1 y 100\n",1,100,3)==0)
+           if(getInt(&auxLegajo,"Ingrese legajo, debe estar entre 1 y 100:","Error. El legajo debe estar entre 1 y 100\n",1,100,3)==0)
             {
                 pArray[pos].legajo=auxLegajo;
 
@@ -229,8 +231,10 @@ int cargaArray(eAlumno pArray[],int cantidad)
             {
                 break;
             }
+            //printf("Nota1:%d\nNota2:%d\n",pArray[pos].nota1,pArray[pos].nota2);
             promedio=promedioVector(pArray,cantidad);
             pArray[pos].promedio=promedio;
+            //printf("promedio:%.2f\n",pArray[pos].promedio);
             pArray[pos].estado=1;//estado en 1 implica que esa posicion ya se cargo con datos
 
             printf("para seguir pulse S: ");

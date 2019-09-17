@@ -196,7 +196,8 @@ int getString(char* input,char message[],char eMessage[],int lowLimit,int highLi
 int getSex(char* input,char message[],char eMessage[],int intentos)
 {
     char letra;
-    char auxLetra[2];
+    char auxLetra[256];
+    int largoCadena;
     int rValidar;
     int retorno=0;
     int intentosAux=0;
@@ -207,14 +208,12 @@ int getSex(char* input,char message[],char eMessage[],int intentos)
         fflush(stdin);
         gets(auxLetra);
         auxLetra[0]=tolower(auxLetra[0]);
-        rValidar=valCharacter(auxLetra,2);
-        if(rValidar==1)
+        largoCadena=strlen(auxLetra);
+        rValidar=valCharacter(auxLetra,256);
+        if(largoCadena>2 || rValidar==1)
         {
             printf("%s",eMessage);
-            system("pause");
-            system("cls");
             intentosAux++;
-
         }
 
         else
