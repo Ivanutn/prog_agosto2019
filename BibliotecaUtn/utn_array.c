@@ -146,10 +146,20 @@ int cargaArray(eAlumno pArray[],int cantidad)
         pos=buscarEspacioLibre(pArray,cantidad);
         if(buscarEspacioLibre(pArray,cantidad)!=1)
         {
-            if(getInt(&auxLegajo,"Ingrese legajo, debe estar entre 1 y 100:","Error. El legajo debe estar entre 1 y 100\n",1,100)==0)
+            if(getInt(&auxLegajo,"Ingrese legajo, debe estar entre 1 y 100:","Error. El legajo debe estar entre 1 y 100\n",1,100,3)==0)
             {
+                pArray[pos].legajo=auxLegajo;
 
             }
+            if(getString(auxNombre,"Ingrese su nombre:","Error. El nombre debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
+            {
+                strcpy(pArray[pos].nombre,auxNombre)
+            }
+            if(getString(auxApellido,"Ingrese su apellido:","Error. El apellido debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
+            {
+                 strcpy(pArray[pos].apellido,auxApellido)
+            }
+            if()
 
                 printf("para seguir pulse S: ");
                 fflush(stdin);

@@ -188,3 +188,44 @@ int getString(char* input,char message[],char eMessage[],int lowLimit,int highLi
 
 }
 
+int getSex(char* input,char message[],char eMessage[],int intentos)
+{
+    char letra;
+    int retorno=0;
+    int intentosAux=0;
+    printf("%s",message);
+    fflush(stdin);
+    scanf("%c",&letra);
+    letra=tolower(letra);
+    while(letra!='f' && letra!='m')
+    {
+        printf("%s",eMessage);
+        system("pause");
+        system("cls");
+        intentosAux++;
+        if(intentosAux==intentos)
+        {
+            printf("Superado la cantidad de intentos.\n");
+            exit(1);
+        }
+        else
+        {
+            printf("%s",message);
+            fflush(stdin);
+            scanf("%c",&letra);
+            letra=tolower(letra);
+        }
+    }
+    if(letra=='m')
+    {
+        *input=letra;
+
+    }
+    else if(letra=='f')
+    {
+        *input=letra;
+    }
+
+
+    return retorno;
+}
