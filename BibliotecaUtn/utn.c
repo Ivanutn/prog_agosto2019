@@ -3,6 +3,8 @@
 #include <ctype.h>
 #include <string.h>
 #include "utn.h"
+#define MAX_CARACTERES 41
+#define QTY 8
 
 int valNumber(char* string,int cant)
 {
@@ -50,27 +52,51 @@ int valCharacter(char* string,int cant)
     return retorno;
 }
 
-int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit)
+int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit,int reintentos)
 {
     int numero;
     int retorno=0;
-    char auxNum[30];
-    printf("%s",message);
-    fflush(stdin);
-    gets(auxNum);
+    int contReintentos=0;
+    int rValidacion;
+    char auxNum[QTY];
 
-    if(valNumber(auxNum,30)==0)
+    do
     {
-        numero=atoi(auxNum);
-    }
+        printf("%s",message);
+        fflush(stdin);
+        gets(auxNum);
+        rValidacion=valNumber(auxNum,QTY);
+        if(rValidacion==1)
+        {
+            contReintentos++;
+            printf("%s\n",eMessage);
+            rValidacion=valNumber(auxNum,QTY);
+        }
+        else
+        {
+             numero=atoi(auxNum);
+             if(numero<lowLimit || numero>highLimit)
+             {
+                printf("%s",eMessage);
+                contReintentos++;
+             }
+             else
+             {
+                 *input=numero;//valor por referencia, modifico el original.
+                 retorno=0;
+                 break;
 
-    if(numero<lowLimit || numero>highLimit){
-        printf("%s",eMessage);
-        retorno=1;
-    }
-    else{
-        *input=numero;//valor por referencia, modifico el original.
-    }
+             }
+
+
+        }
+        if(contReintentos==reintentos)
+        {
+            printf("Alcanzado el maximo de reintentos.\nAdios ! \n");
+            retorno=1;
+        }
+
+    }while(contReintentos!=reintentos);
 
     return retorno;
 
@@ -111,22 +137,53 @@ int getCharacter(char* input,char message[],char eMessage[],char lowChar,char hi
     return retorno;
 }
 
-int getString(char* input,char message[],char eMessage[],int lowLimit,int highLimit)
+int getString(char* input,char message[],char eMessage[],int lowLimit,int highLimit,int reintentos)
 {
-    char nombre[31];
+    char nombre[MAX_CARACTERES];
     char auxiliar[256];
     int retorno=0;
-    printf("%s",message);
-    fflush(stdin);
-    gets(auxiliar);
-    if(strlen(auxiliar)<lowLimit || strlen(auxiliar)>highLimit){
-        printf("%s",eMessage);
-        retorno=1;
-    }
-    else{
-        strcpy(nombre,auxiliar);
-        strcpy(input,nombre);
-    }
+    int contReintentos=0;
+    int rValidar;
+    do
+    {
+        printf("%s",message);
+        fflush(stdin);
+        gets(auxiliar);
+        rValidar=valCharacter(auxiliar,256);
+        if(rValidar==1)
+        {
+            contReintentos++;
+            printf("%s",eMessage);
+
+        }
+        else
+        {
+            if(strlen(auxiliar)<lowLimit || strlen(auxiliar)>highLimit)
+            {
+                printf("%s",eMessage);
+                contReintentos++;
+                //retorno=1;
+            }
+            else
+            {
+                strcpy(nombre,auxiliar);
+                strcpy(input,nombre);
+                retorno;
+                break;
+            }
+        }
+
+        if(contReintentos==reintentos)
+        {
+            printf("Alcanzado el maximo de reintentos.\nAdios ! \n");
+            retorno=1;
+        }
+
+    }while(contReintentos!=reintentos);
+
+
+
+
     return retorno;
 
 }

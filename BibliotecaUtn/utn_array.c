@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "utn_array.h"
 int vectorMaximo(int* array,int cantidad,int* max)
 {
     int flag=0;
@@ -66,28 +66,28 @@ float promedioVector(int* array,int cantidad)
 
 }
 
-int inicializarArray(int* pArray,int cantidad,int valor)
+int inicializarArray(eAlumno pArray[],int cantidad)
 {
     int retorno=-1;
     if(pArray!=NULL && cantidad>0)
     {
         for(int i=0; i<cantidad; i++)
         {
-            pArray[i]=valor;
+            pArray[i].estado=0;
         }
         retorno=0;
     }
     return retorno;
 }
 
-int buscarEspacioLibre(int* pArray,int cantidad)
+int buscarEspacioLibre(eAlumno pArray[],int cantidad)
 {
     int retorno=-1; // es que NO esta vacio el  array
     if(pArray!=NULL && cantidad > 0)
     {
         for(int i=0; i<cantidad; i++)
         {
-            if(pArray[i] == 0)
+            if(pArray[i].estado == 0)
             {
                 retorno=i;
                 break;
@@ -97,61 +97,63 @@ int buscarEspacioLibre(int* pArray,int cantidad)
     return retorno;
 }
 
-int isEmptyArray(int* pArray,int cantidad,int valor)
+void mostrarUnElemento(eAlumno pArray)
 {
-    int retorno=1;//si retorno 1 NO esta vacio
-    for(int i=0; i<cantidad; i++)
-    {
-        if(pArray[i]==valor)
-        {
-            retorno=0;
-        }
-    }
-    return retorno;
+    printf("%s %s %d %d - %d - %d %c %d %d %d %.2f",pArray.nombre,pArray.apellido,pArray.legajo,pArray.fecha_de_ingreso.dia,pArray.fecha_de_ingreso.mes,pArray.fecha_de_ingreso.anio,pArray.sexo,pArray.edad,pArray.nota1,pArray.nota2,pArray.promedio);
+
 }
 
-int mostrarUnElemento(int array)
+int mostrarArrayDeElementos(eAlumno pArray[],int cantidad)
 {
-    printf("%d\n",array);
-    return 0;
-}
 
-int mostrarArrayElemento(int array[],int cantidad)
-{
-    for(int i=0; i<cantidad; i++)
+    if(pArray!=NULL && cantidad>0)
     {
 
-        if(array[i]!=0)
+        for(int i=0; i<cantidad; i++)
         {
-            mostrarUnElemento(array[i]);
+            if(pArray[i].estado!=0)
+            {
+                mostrarUnElemento(pArray[i]);
+            }
         }
     }
+
 
 
     return 0;
 }
 
-int cargaArray(int* pArray,int cantidad)
+int cargaArray(eAlumno pArray[],int cantidad)
 {
     int pos;
-    int auxiliar;
     int retorno=0;
     char seguir='s';
-    inicializarArray(pArray,cantidad,0);
+    char auxNombre[MAX_CARACTERES];
+    char auxApellido[MAX_CARACTERES];
+    int auxLegajo;
+    int auxDia;
+    int auxMes;
+    int auxAnio;
+    char auxSexo;
+    int auxEdad;
+    int auxNota1;
+    int auxNota2;
+    float promedio;
+
+    inicializarArray(pArray,cantidad);
 
     do{
         pos=buscarEspacioLibre(pArray,cantidad);
-        if(buscarEspacioLibre(pArray,cantidad)!=-1)
+        if(buscarEspacioLibre(pArray,cantidad)!=1)
         {
-            if(getInt(&auxiliar,"Num:","Error\n",0,100)==0)
+            if(getInt(&auxLegajo,"Ingrese legajo, debe estar entre 1 y 100:","Error. El legajo debe estar entre 1 y 100\n",1,100)==0)
             {
 
-                pArray[pos]=auxiliar;
+            }
+
                 printf("para seguir pulse S: ");
                 fflush(stdin);
                 scanf("%c",&seguir);
-            }
-
         }
 
         else

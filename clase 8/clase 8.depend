@@ -29,3 +29,35 @@
 
 1568644547 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_menu.h
 
+1568680340 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"utn.h"
+
+1568679902 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn.h
+
+1568666664 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn_menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1568675650 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn_array.c
+	<stdio.h>
+	<stdlib.h>
+	"utn_array.h"
+
+1568674309 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn_array.h
+
+1568680610 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\clase 8\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../BibliotecaUtn/utn.h"
+	"../BibliotecaUtn/utn_array.h"
+	"../BibliotecaUtn/utn_menu.h"
+	"../BibliotecaUtn/utn_menu.h"
+
+1568666664 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn_menu.h
+
