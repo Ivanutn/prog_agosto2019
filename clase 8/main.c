@@ -18,8 +18,6 @@ int main()
     fgets coloca un '\n' al final de la cadena. se debe pisar con un '\0' */
     eAlumno vecAlumnos[MAX_QTY];
 
-
-
     return 0;
 }
 
