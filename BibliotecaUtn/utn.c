@@ -33,8 +33,9 @@ int valCharacter(char* string,int cant)
 {
     int retorno=1;//
 
-    if(string!=NULL)
+    if(string!=NULL && cant >0 )
     {
+
         for(int i=0; i<cant && string[i]!='\0'; i++)
         {
             if((string[i]<'a' || string[i]>'z') && (string[i]<' '|| string[i]>' ') && (string[i]<'A' || string[i]>'Z') )
@@ -93,6 +94,8 @@ int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit,
         if(contReintentos==reintentos)
         {
             printf("Alcanzado el maximo de reintentos.\nAdios ! \n");
+            system("pause");
+            system("cls");
             retorno=1;
         }
 
@@ -176,6 +179,8 @@ int getString(char* input,char message[],char eMessage[],int lowLimit,int highLi
         if(contReintentos==reintentos)
         {
             printf("Alcanzado el maximo de reintentos.\nAdios ! \n");
+            system("pause");
+            system("cls");
             retorno=1;
         }
 
@@ -240,6 +245,8 @@ int getSex(char* input,char message[],char eMessage[],int intentos)
           if(intentosAux==intentos)
         {
             printf("Superado la cantidad de intentos.\n");
+            system("pause");
+            system("cls");
             retorno=1;
             break;
         }

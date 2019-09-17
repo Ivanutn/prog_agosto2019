@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "utn_array.h"
+#include "utn.h"
 int vectorMaximo(int* array,int cantidad,int* max)
 {
     int flag=0;
@@ -47,17 +49,17 @@ int sumaVector(int* array,int cantidad)
     return retorno;
 }
 
-float promedioVector(int* array,int cantidad)
+float promedioVector(eAlumno array[],int cantidad)
 {
     float resultado;
     int suma;
     float retorno=1;//1 es error.
-    if(cantidad>0)
+    if(cantidad>0 && array!=NULL)
     {
         for(int i=0;i<cantidad;i++)
         {
-           suma=sumaVector(array,cantidad);
-           resultado=(float)suma/cantidad;
+           suma=array[i].nota1+array[i].nota2;
+           resultado=(float)suma/2;
            retorno=resultado;
 
         }
@@ -151,27 +153,95 @@ int cargaArray(eAlumno pArray[],int cantidad)
                 pArray[pos].legajo=auxLegajo;
 
             }
+            else
+            {
+                break;
+            }
             if(getString(auxNombre,"Ingrese su nombre:","Error. El nombre debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
             {
                 strcpy(pArray[pos].nombre,auxNombre);
             }
+            else
+            {
+                break;
+            }
             if(getString(auxApellido,"Ingrese su apellido:","Error. El apellido debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
             {
-                 strcpy(pArray[pos].apellido,auxApellido);
+                strcpy(pArray[pos].apellido,auxApellido);
+            }
+            else
+            {
+                break;
             }
             if(getSex(&auxSexo,"Ingrese sexo, [F] o [M]:","Error. Debe ingresar [F] o [M]\n",3)==0)
             {
                 pArray[pos].sexo=auxSexo;
             }
+            else
+            {
+                break;
+            }
+            if(getInt(&auxDia,"Ingrese dia de la fecha de ingreso:","Error. Dias entre 1 y 31\n",1,31,3)==0)
+            {
+                pArray[pos].fecha_de_ingreso.dia=auxDia;
+            }
+            else
+            {
+                break;
+            }
+            if(getInt(&auxMes,"Ingrese mes de la fecha de ingreso:","Error. Mes entre 1 y 12\n",1,12,3)==0)
+            {
+                pArray[pos].fecha_de_ingreso.mes=auxMes;
+            }
+            else
+            {
+                break;
+            }
+            if(getInt(&auxAnio,"Ingrese anio de la fecha de ingreso:","Error. Anio entre 1 y 2010\n",1,2010,3)==0)
+            {
+                pArray[pos].fecha_de_ingreso.anio=auxAnio;
+            }
+            else
+            {
+                break;
+            }
+            if(getInt(&auxEdad,"Ingrese edad:","Error. Edad entre 1 y 100\n",1,100,3)==0)
+            {
+                pArray[pos].edad=auxEdad;
+            }
+            else
+            {
+                break;
+            }
+            if(getInt(&auxNota1,"Ingrese nota primer examen:","Error. nota entre 1 y 10\n",1,10,3)==0)
+            {
+                pArray[pos].nota1=auxNota1;
+            }
+            else
+            {
+                break;
+            }
+            if(getInt(&auxNota2,"Ingrese nota segudno examen:","Error. nota entre 1 y 10\n",1,10,3)==0)
+            {
+                pArray[pos].nota2=auxNota2;
+            }
+            else
+            {
+                break;
+            }
+            promedio=promedioVector(pArray,cantidad);
+            pArray[pos].promedio=promedio;
+            pArray[pos].estado=1;//estado en 1 implica que esa posicion ya se cargo con datos
 
-                printf("para seguir pulse S: ");
-                fflush(stdin);
-                scanf("%c",&seguir);
+            printf("para seguir pulse S: ");
+            fflush(stdin);
+            scanf("%c",&seguir);
         }
 
         else
         {
            printf("ya no hay mas espacio\n");
+           retorno=1;
            break;
         }
 

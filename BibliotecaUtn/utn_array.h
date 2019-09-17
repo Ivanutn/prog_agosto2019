@@ -23,7 +23,7 @@ typedef struct
 
 }eAlumno;
 int sumaVector(int* array,int cantidad);
-float promedioVector(int* array,int cantidad);
+float promedioVector(eAlumno array[],int cantidad);
 /** \brief La funcion inicializa el campo estado del array en 0 para cada elemento, eso indica que
  *         el array de vectores en ese indice se encuentra vacio y que es posible cargar datos
  *
@@ -53,3 +53,4 @@ int mostrarArrayDeElementos(eAlumno pArray[],int cantidad);
 int cargaArray(eAlumno pArray[],int cantidad);
 int vectorMaximo(int* array,int cantidad,int* max);
 int vectorMinimo(int* array,int cantidad,int* min);
+
