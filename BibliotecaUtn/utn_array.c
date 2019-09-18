@@ -134,6 +134,8 @@ int mostrarArrayDeElementos(eAlumno pArray[],int cantidad)
 
 int cargaArray(eAlumno pArray[],int cantidad)
 {
+
+
     int pos;
     int retorno=0;
     char auxNombre[MAX_CARACTERES];
@@ -150,7 +152,7 @@ int cargaArray(eAlumno pArray[],int cantidad)
     int flagNota1=0;
     int flagNota2=0;
 
-        inicializarArray(pArray,cantidad);
+
         pos=buscarEspacioLibre(pArray,cantidad);
 
         if(pArray[pos].estado==0)
@@ -160,86 +162,52 @@ int cargaArray(eAlumno pArray[],int cantidad)
                 if(buscarLegajo(pArray,cantidad,auxLegajo)==0)
                 {
                     printf("Ese legajo ya existe.\n");
-
-                }
-                else
-                {
-                    pArray[pos].legajo=auxLegajo;
+                    return 1;
                 }
 
-
             }
             else
             {
                 return 1;
             }
 
-            if(getString(auxNombre,"Ingrese su nombre:","Error. El nombre debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
-            {
-                strcpy(pArray[pos].nombre,auxNombre);
-            }
-            else
+            if(!getString(auxNombre,"Ingrese su nombre:","Error. El nombre debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
             {
                 return 1;
             }
 
-            if(getString(auxApellido,"Ingrese su apellido:","Error. El apellido debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
-            {
-                strcpy(pArray[pos].apellido,auxApellido);
-            }
-            else
+            if(!getString(auxApellido,"Ingrese su apellido:","Error. El apellido debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
             {
                 return 1;
             }
 
-            if(getSex(&auxSexo,"Ingrese sexo, [F] o [M]:","Error. Debe ingresar [F] o [M]\n",3)==0)
+            if(!getSex(&auxSexo,"Ingrese sexo, [F] o [M]:","Error. Debe ingresar [F] o [M]\n",3)==0)
             {
-                pArray[pos].sexo=auxSexo;
+                 return 1;
             }
-            else
+
+            if(!getInt(&auxDia,"Ingrese dia de la fecha de ingreso:","Error. Dias entre 1 y 31\n",1,31,3)==0)
             {
                 return 1;
             }
 
-            if(getInt(&auxDia,"Ingrese dia de la fecha de ingreso:","Error. Dias entre 1 y 31\n",1,31,3)==0)
-            {
-                pArray[pos].fecha_de_ingreso.dia=auxDia;
-            }
-            else
+            if(!getInt(&auxMes,"Ingrese mes de la fecha de ingreso:","Error. Mes entre 1 y 12\n",1,12,3)==0)
             {
                 return 1;
             }
 
-            if(getInt(&auxMes,"Ingrese mes de la fecha de ingreso:","Error. Mes entre 1 y 12\n",1,12,3)==0)
-            {
-                pArray[pos].fecha_de_ingreso.mes=auxMes;
-            }
-            else
+            if(!getInt(&auxAnio,"Ingrese anio de la fecha de ingreso:","Error. Anio entre 1 y 2010\n",1,2010,3)==0)
             {
                 return 1;
             }
 
-            if(getInt(&auxAnio,"Ingrese anio de la fecha de ingreso:","Error. Anio entre 1 y 2010\n",1,2010,3)==0)
-            {
-                pArray[pos].fecha_de_ingreso.anio=auxAnio;
-            }
-            else
-            {
-                return 1;
-            }
-
-            if(getInt(&auxEdad,"Ingrese edad:","Error. Edad entre 1 y 100\n",1,100,3)==0)
-            {
-                pArray[pos].edad=auxEdad;
-            }
-            else
+            if(!getInt(&auxEdad,"Ingrese edad:","Error. Edad entre 1 y 100\n",1,100,3)==0)
             {
                 return 1;
             }
 
             if(getInt(&auxNota1,"Ingrese nota primer examen:","Error. nota entre 1 y 10\n",1,10,3)==0)
             {
-                pArray[pos].nota1=auxNota1;
                 flagNota1=1;
             }
             else
@@ -249,7 +217,6 @@ int cargaArray(eAlumno pArray[],int cantidad)
 
             if(getInt(&auxNota2,"Ingrese nota segudno examen:","Error. nota entre 1 y 10\n",1,10,3)==0)
             {
-                pArray[pos].nota2=auxNota2;
                 flagNota2=1;
             }
             else
@@ -259,20 +226,18 @@ int cargaArray(eAlumno pArray[],int cantidad)
             if(flagNota1==1 && flagNota2==1)
             {
                 promedio=promedioVector(pArray,cantidad);
-                pArray[pos].promedio=promedio;
             }
-            pArray[pos].estado=1;//estado en 1 implica que esa posicion ya se cargo con datos
+            newAlumno(pArray,pos,auxNombre,auxApellido,auxLegajo,auxDia,auxMes,auxAnio,auxSexo,auxNota1,auxNota2,promedio);
 
+            retorno=0;
         }
 
         else
         {
            printf("ya no hay mas espacio\n");
-           retorno=1;
+           retorno=-1;
+
         }
-
-
-
 
      return retorno;
 }
@@ -332,4 +297,18 @@ int bubbleSort(eAlumno pArray[],int cantidad)
     //array=pAux;
     return 0;
 }
-
+int newAlumno(eAlumno alumno[],int posicion,char nombre[],char apellido[],int legajo,int dia,int mes,int anio,char sexo,int nota1,int nota2,float promedio)
+{
+    strcpy(alumno[posicion].nombre,nombre);
+    strcpy(alumno[posicion].apellido,apellido);
+    alumno[posicion].legajo=legajo;
+    alumno[posicion].fecha_de_ingreso.dia=dia;
+    alumno[posicion].fecha_de_ingreso.mes=mes;
+    alumno[posicion].fecha_de_ingreso.anio=anio;
+    alumno[posicion].sexo=sexo;
+    alumno[posicion].nota1=nota1;
+    alumno[posicion].nota2=nota2;
+    alumno[posicion].promedio=promedio;
+    alumno[posicion].estado=1;
+    return 0;
+}

@@ -25,24 +25,17 @@ void menu(void)
     int numero;
     int ok=0;
     eAlumno vecAlumnos[MAX_QTY];
-
+    inicializarArray(vecAlumnos,MAX_QTY);
     do
     {
             numero=opcion();
             switch (numero)
             {
             case 1:
-                printf("Alta ok\n");
-                if(ok==0)
-                {
-                    ok=cargaArray(vecAlumnos,MAX_QTY);
-                }
-                else
-                {
-                    printf("Ya no hay mas espacio para cargar datos.\n");
-                }
-
-
+                     ok=cargaArray(vecAlumnos,MAX_QTY);
+                     printf("ok:%d\n",ok);
+                     system("pause");
+                    system("cls");
                 break;
             case 2:
                 printf("Baja ok\n");

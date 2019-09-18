@@ -84,3 +84,4 @@ int vectorMinimo(int* array,int cantidad,int* min);
  *
  */
 int bubbleSort(eAlumno pArray[],int cantidad);
+int newAlumno(eAlumno alumno[],int posicion,char nombre[],char apellido[],int legajo,int dia,int mes,int anio,char sexo,int nota1,int nota2,float promedio);
