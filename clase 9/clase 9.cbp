@@ -31,6 +31,18 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../BibliotecaUtn/utn.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../BibliotecaUtn/utn.h" />
+		<Unit filename="../BibliotecaUtn/utn_array.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../BibliotecaUtn/utn_array.h" />
+		<Unit filename="../BibliotecaUtn/utn_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../BibliotecaUtn/utn_menu.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

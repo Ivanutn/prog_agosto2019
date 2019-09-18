@@ -227,6 +227,7 @@ int cargaArray(eAlumno pArray[],int cantidad)
             {
                 promedio=promedioVector(pArray,cantidad);
             }
+
             newAlumno(pArray,pos,auxNombre,auxApellido,auxLegajo,auxDia,auxMes,auxAnio,auxSexo,auxNota1,auxNota2,promedio);
 
             retorno=0;
@@ -311,4 +312,35 @@ int newAlumno(eAlumno alumno[],int posicion,char nombre[],char apellido[],int le
     alumno[posicion].promedio=promedio;
     alumno[posicion].estado=1;
     return 0;
+}
+int bajaLogica(eAlumno array[],int cantidad)
+{
+    int retorno=1;
+    int auxLegajo;
+
+    if(array!=NULL && cantidad>0)
+    {
+        if(!getInt(&auxLegajo,"Ingrese legajo:","Error. El legajo debe ser de 1 a 100.\n",1,100,3)==0)
+        {
+            return 1;
+        }
+        for(int i=0;i<cantidad;i++)
+        {
+            if(array[i].estado==1)
+            {
+                if(array[i].legajo==auxLegajo)
+                {
+                    mostrarUnElemento(array[i]);
+                    printf("[S] para");
+                }
+                else
+                {
+                    printf("No existe el legajo.\n");
+                    break;
+                }
+            }
+        }
+
+    }
+    return retorno;
 }

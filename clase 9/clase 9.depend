@@ -24,9 +24,10 @@
 	"utn_array.h"
 	"utn.h"
 
-1568818449 source:c:\users\alumno\desktop\prog_agosto2019\clase 9\main.c
+1568820340 source:c:\users\alumno\desktop\prog_agosto2019\clase 9\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"../BibliotecaUtn/utn.h"
 	"../BibliotecaUtn/utn_array.h"
 	"../BibliotecaUtn/utn_menu.h"
