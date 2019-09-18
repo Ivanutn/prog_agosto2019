@@ -76,4 +76,11 @@ int cargaArray(eAlumno pArray[],int cantidad);
 int buscarLegajo(eAlumno[],int,int);
 int vectorMaximo(int* array,int cantidad,int* max);
 int vectorMinimo(int* array,int cantidad,int* min);
+/** \brief ordenamiento de burbuja de un solo for
+ *
+ * \param  eAlumno pArray[]
+ * \param  int cantidad
+ * \return int retorna 0 (cero).
+ *
+ */
 int bubbleSort(eAlumno pArray[],int cantidad);
