@@ -102,8 +102,8 @@ int buscarEspacioLibre(eAlumno pArray[],int cantidad)
 void mostrarUnElemento(eAlumno pArray)
 {
 
-    printf("%-10s\t%-10s\t%-12d\t%d/%d/%d%10c %8d %7d %6d %10.2f\n",pArray.nombre,pArray.apellido,pArray.legajo,pArray.fecha_de_ingreso.dia,pArray.fecha_de_ingreso.mes,pArray.fecha_de_ingreso.anio,pArray.sexo,pArray.edad,pArray.nota1,pArray.nota2,pArray.promedio);
-
+   // printf("%-10s\t%-10s\t%-12d\t%d/%d/%d%10c %8d %7d %6d %10.2f\n",pArray.nombre,pArray.apellido,pArray.legajo,pArray.fecha_de_ingreso.dia,pArray.fecha_de_ingreso.mes,pArray.fecha_de_ingreso.anio,pArray.sexo,pArray.edad,pArray.nota1,pArray.nota2,pArray.promedio);
+    printf("%s  %s\n",pArray.nombre,pArray.apellido);
 
 }
 
