@@ -136,7 +136,6 @@ int cargaArray(eAlumno pArray[],int cantidad)
 {
     int pos;
     int retorno=0;
-    char seguir='s';
     char auxNombre[MAX_CARACTERES];
     char auxApellido[MAX_CARACTERES];
     int auxLegajo;
@@ -148,11 +147,12 @@ int cargaArray(eAlumno pArray[],int cantidad)
     int auxNota1;
     int auxNota2;
     float promedio;
+    int flagNota1=0;
+    int flagNota2=0;
 
-    inicializarArray(pArray,cantidad);
-
-    do{
+        inicializarArray(pArray,cantidad);
         pos=buscarEspacioLibre(pArray,cantidad);
+
         if(pArray[pos].estado==0)
         {
            if(getInt(&auxLegajo,"Ingrese legajo, debe estar entre 1 y 100:","Error. El legajo debe estar entre 1 y 100\n",1,100,3)==0)
@@ -160,7 +160,7 @@ int cargaArray(eAlumno pArray[],int cantidad)
                 if(buscarLegajo(pArray,cantidad,auxLegajo)==0)
                 {
                     printf("Ese legajo ya existe.\n");
-                    break;
+
                 }
                 else
                 {
@@ -171,104 +171,110 @@ int cargaArray(eAlumno pArray[],int cantidad)
             }
             else
             {
-                break;
+                return 1;
             }
+
             if(getString(auxNombre,"Ingrese su nombre:","Error. El nombre debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
             {
                 strcpy(pArray[pos].nombre,auxNombre);
             }
             else
             {
-                break;
+                return 1;
             }
+
             if(getString(auxApellido,"Ingrese su apellido:","Error. El apellido debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
             {
                 strcpy(pArray[pos].apellido,auxApellido);
             }
             else
             {
-                break;
+                return 1;
             }
+
             if(getSex(&auxSexo,"Ingrese sexo, [F] o [M]:","Error. Debe ingresar [F] o [M]\n",3)==0)
             {
                 pArray[pos].sexo=auxSexo;
             }
             else
             {
-                break;
+                return 1;
             }
+
             if(getInt(&auxDia,"Ingrese dia de la fecha de ingreso:","Error. Dias entre 1 y 31\n",1,31,3)==0)
             {
                 pArray[pos].fecha_de_ingreso.dia=auxDia;
             }
             else
             {
-                break;
+                return 1;
             }
+
             if(getInt(&auxMes,"Ingrese mes de la fecha de ingreso:","Error. Mes entre 1 y 12\n",1,12,3)==0)
             {
                 pArray[pos].fecha_de_ingreso.mes=auxMes;
             }
             else
             {
-                break;
+                return 1;
             }
+
             if(getInt(&auxAnio,"Ingrese anio de la fecha de ingreso:","Error. Anio entre 1 y 2010\n",1,2010,3)==0)
             {
                 pArray[pos].fecha_de_ingreso.anio=auxAnio;
             }
             else
             {
-                break;
+                return 1;
             }
+
             if(getInt(&auxEdad,"Ingrese edad:","Error. Edad entre 1 y 100\n",1,100,3)==0)
             {
                 pArray[pos].edad=auxEdad;
             }
             else
             {
-                break;
+                return 1;
             }
+
             if(getInt(&auxNota1,"Ingrese nota primer examen:","Error. nota entre 1 y 10\n",1,10,3)==0)
             {
                 pArray[pos].nota1=auxNota1;
+                flagNota1=1;
             }
             else
             {
-                break;
+                return 1;
             }
+
             if(getInt(&auxNota2,"Ingrese nota segudno examen:","Error. nota entre 1 y 10\n",1,10,3)==0)
             {
                 pArray[pos].nota2=auxNota2;
+                flagNota2=1;
             }
             else
             {
-                break;
+                return 1;
             }
-
-            promedio=promedioVector(pArray,cantidad);
-            pArray[pos].promedio=promedio;
+            if(flagNota1==1 && flagNota2==1)
+            {
+                promedio=promedioVector(pArray,cantidad);
+                pArray[pos].promedio=promedio;
+            }
             pArray[pos].estado=1;//estado en 1 implica que esa posicion ya se cargo con datos
 
-            printf("para seguir pulse S: ");
-            fflush(stdin);
-            scanf("%c",&seguir);
-            system("cls");
         }
 
         else
         {
            printf("ya no hay mas espacio\n");
            retorno=1;
-           break;
         }
 
 
-    }while(seguir=='s' || seguir=='S');
 
 
-    return retorno;
-
+     return retorno;
 }
 int buscarLegajo(eAlumno pArray[],int cantidad,int legajo)
 {
@@ -309,7 +315,7 @@ int bubbleSort(eAlumno pArray[],int cantidad)
         flag=0;
         for(int i=0; i<cantidad-1; i++)
         {
-            if( stricmp(copiaAlumno[i].nombre,copiaAlumno[i+1].nombre)>0)
+            if(stricmp(copiaAlumno[i].nombre,copiaAlumno[i+1].nombre)>0)
             {
                 auxAlumno=copiaAlumno[i];
                 copiaAlumno[i]=copiaAlumno[i+1];
