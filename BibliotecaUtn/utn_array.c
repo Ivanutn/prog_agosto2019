@@ -109,7 +109,7 @@ void mostrarUnElemento(eAlumno pArray)
 
 int mostrarArrayDeElementos(eAlumno pArray[],int cantidad)
 {
-
+    int retorno=1;
     if(pArray!=NULL && cantidad>0)
     {
 
@@ -118,13 +118,18 @@ int mostrarArrayDeElementos(eAlumno pArray[],int cantidad)
             if(pArray[i].estado!=0)
             {
                 mostrarUnElemento(pArray[i]);
+                retorno=0;
             }
         }
+    }
+    else
+    {
+        retorno=1;
     }
 
 
 
-    return 0;
+    return retorno;
 }
 
 int cargaArray(eAlumno pArray[],int cantidad)
@@ -286,5 +291,39 @@ int buscarLegajo(eAlumno pArray[],int cantidad,int legajo)
     }
 
     return retorno;
+}
+
+int bubbleSort(eAlumno pArray[],int cantidad)
+{
+
+    int flag=-1;
+    eAlumno auxAlumno;
+    eAlumno copiaAlumno[cantidad];
+    //int* pAux=array;
+    for(int i=0;i<cantidad;i++)
+    {
+        copiaAlumno[i]=pArray[i];
+    }
+    while(flag==-1)
+    {
+        flag=0;
+        for(int i=0; i<cantidad-1; i++)
+        {
+            if( stricmp(copiaAlumno[i].nombre,copiaAlumno[i+1].nombre)>0)
+            {
+                auxAlumno=copiaAlumno[i];
+                copiaAlumno[i]=copiaAlumno[i+1];
+                copiaAlumno[i+1]=auxAlumno;
+
+                flag=-1;
+            }
+        }
+    }
+     for(int i=0;i<cantidad;i++)
+    {
+        pArray[i]=copiaAlumno[i];
+    }
+    //array=pAux;
+    return 0;
 }
 

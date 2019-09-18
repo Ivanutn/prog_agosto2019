@@ -49,9 +49,31 @@ int buscarEspacioLibre(eAlumno pArray[],int cantidad);
  *
  */
 void mostrarUnElemento(eAlumno pArray);
+/** \brief Muestra todos los elementos guardados en el vector estructura, verifica que sea distinto de nulo y que la
+ *         cantidad de elementos sea mayor a 0 (cero).
+ * \param  eAlumno pArray[] array de tipo estructura
+ * \param  int cantidad elementos que tiene el array de estructura
+ * \return int retorna cero. Caso contrario retorna 1;
+ *
+ */
 int mostrarArrayDeElementos(eAlumno pArray[],int cantidad);
+/** \brief Se solicita datos al usuario que van a ser guardados en los campos del array de estructura.
+ *
+ * \param  eAlumno pArray[] array de estructura
+ * \param  int cantidad elementos del array de estructura.
+ * \return int retorna 0 (cero) si la carga fue exitosa. caso contrario retorna 1.
+ *
+ */
 int cargaArray(eAlumno pArray[],int cantidad);
+/** \brief la funcion recibe por parametro el legajo a buscar. se recorre el array para encontrar si existe ese legajo
+ *
+ * \param eAlumno alumno[] vector de estructura
+ * \param int cantidad elementos
+ * \param int legajo se pasa por referencia
+ * \return int si se encuentra el legajo se retorna 0 (cero). caso contrario se retorna 1.
+ *
+ */
 int buscarLegajo(eAlumno[],int,int);
 int vectorMaximo(int* array,int cantidad,int* max);
 int vectorMinimo(int* array,int cantidad,int* min);
-
+int bubbleSort(eAlumno pArray[],int cantidad);

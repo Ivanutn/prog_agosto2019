@@ -9,7 +9,7 @@
 #define MAX_QTY 3
 
 
-int bubbleSort(eAlumno pArray[],int cantidad);
+
 int main()
 {
 
@@ -30,42 +30,4 @@ int main()
 
     return 0;
 }
-/**
-ingresar el legajo
-verificar si existe ese legajo ¿como lo verifico?
-recorres el array, buscando el estado en 1.
 
-*/
-int bubbleSort(eAlumno pArray[],int cantidad)
-{
-
-    int flag=-1;
-    eAlumno auxAlumno;
-    eAlumno copiaAlumno[cantidad];
-    //int* pAux=array;
-    for(int i=0;i<cantidad;i++)
-    {
-        copiaAlumno[i]=pArray[i];
-    }
-    while(flag==-1)
-    {
-        flag=0;
-        for(int i=0; i<cantidad-1; i++)
-        {
-            if( stricmp(copiaAlumno[i].nombre,copiaAlumno[i+1].nombre)>0)
-            {
-                auxAlumno=copiaAlumno[i];
-                copiaAlumno[i]=copiaAlumno[i+1];
-                copiaAlumno[i+1]=auxAlumno;
-
-                flag=-1;
-            }
-        }
-    }
-     for(int i=0;i<cantidad;i++)
-    {
-        pArray[i]=copiaAlumno[i];
-    }
-    //array=pAux;
-    return 0;
-}
