@@ -35,10 +35,19 @@ void menu(void)
                      ok=cargaArray(vecAlumnos,MAX_QTY);
                      printf("ok:%d\n",ok);
                      system("pause");
-                    system("cls");
+                     system("cls");
                 break;
             case 2:
-                printf("Baja ok\n");
+                if(ok==0)
+                {
+                    bajaLogica(vecAlumnos,MAX_QTY);
+                }
+                else
+                {
+                    printf("No hay datos cargados.\n");
+                    system("pause");
+                    system("cls");
+                }
                 break;
             case 3:
                 printf("Modificar ok\n");

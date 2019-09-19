@@ -102,8 +102,8 @@ int buscarEspacioLibre(eAlumno pArray[],int cantidad)
 void mostrarUnElemento(eAlumno pArray)
 {
 
-   // printf("%-10s\t%-10s\t%-12d\t%d/%d/%d%10c %8d %7d %6d %10.2f\n",pArray.nombre,pArray.apellido,pArray.legajo,pArray.fecha_de_ingreso.dia,pArray.fecha_de_ingreso.mes,pArray.fecha_de_ingreso.anio,pArray.sexo,pArray.edad,pArray.nota1,pArray.nota2,pArray.promedio);
-    printf("%s  %s\n",pArray.nombre,pArray.apellido);
+    printf("%-10s\t%-10s\t%-12d\t%d/%d/%d%10c %8d %7d %6d %10.2f\n",pArray.nombre,pArray.apellido,pArray.legajo,pArray.fecha_de_ingreso.dia,pArray.fecha_de_ingreso.mes,pArray.fecha_de_ingreso.anio,pArray.sexo,pArray.edad,pArray.nota1,pArray.nota2,pArray.promedio);
+    //printf("%s  %s\n",pArray.nombre,pArray.apellido);
 
 }
 
@@ -317,7 +317,7 @@ int bajaLogica(eAlumno array[],int cantidad)
 {
     int retorno=1;
     int auxLegajo;
-
+    char seguir[2];
     if(array!=NULL && cantidad>0)
     {
         if(!getInt(&auxLegajo,"Ingrese legajo:","Error. El legajo debe ser de 1 a 100.\n",1,100,3)==0)
@@ -331,7 +331,15 @@ int bajaLogica(eAlumno array[],int cantidad)
                 if(array[i].legajo==auxLegajo)
                 {
                     mostrarUnElemento(array[i]);
-                    printf("[S] para");
+                    if(botonSeguir(seguir,"Para dar de baja pulse [S], caso contrario pulse cualquier tecla:","Ingrese solo una letra.\n",2)==0)
+                    {
+                        printf("Baja dada con exito. Adios !\n");
+                        array[i].estado=0;
+                        system("pause");
+                        system("cls");
+                        break;
+                    }
+
                 }
                 else
                 {

@@ -22,3 +22,4 @@ int getFloat(float* input,char message[],char eMessage[],float lowLimit,float hi
 int getCharacter(char* input,char message[],char eMessage[],char lowChar,char highChar);
 int getString(char* input,char message[],char eMessage[],int lowLimit,int highLimit,int reintentos);
 int getSex(char* input,char message[],char eMessage[],int intentos);
+int botonSeguir(char string[],char* message,char* eMessage,int cantidad);

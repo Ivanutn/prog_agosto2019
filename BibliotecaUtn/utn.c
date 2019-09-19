@@ -253,3 +253,33 @@ int getSex(char* input,char message[],char eMessage[],int intentos)
 
     return retorno;
 }
+
+int botonSeguir(char string[],char* message,char* eMessage,int cantidad)
+{
+    int retorno=1;
+    char auxiliar[256];
+    int rValidar;
+    printf("%s",message);
+    gets(auxiliar);
+    rValidar=valCharacter(auxiliar,256);
+    if(rValidar==0 && strlen(auxiliar)<2)
+    {
+        strcpy(string,auxiliar);
+        strcpy(string,strlwr(string));
+        if(string[0]=='s')
+        {
+            retorno=0;
+        }
+    }
+    else
+    {
+        printf("%s",eMessage);
+        retorno=1;
+        system("pause");
+        system("cls");
+
+    }
+
+
+    return retorno;
+}
