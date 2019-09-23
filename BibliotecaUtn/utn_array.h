@@ -69,7 +69,7 @@ int cargaArray(eAlumno pArray[],int cantidad);
  *
  * \param eAlumno alumno[] vector de estructura
  * \param int cantidad elementos
- * \param int legajo se pasa por referencia
+ * \param int legajo se pasa por valor
  * \return int si se encuentra el legajo se retorna 0 (cero). caso contrario se retorna 1.
  *
  */
@@ -85,3 +85,5 @@ int vectorMinimo(int* array,int cantidad,int* min);
  */
 int bubbleSort(eAlumno pArray[],int cantidad);
 int newAlumno(eAlumno alumno[],int posicion,char nombre[],char apellido[],int legajo,int dia,int mes,int anio,char sexo,int nota1,int nota2,float promedio);
+int modificarArray(eAlumno pArray[],int cantidad);
+int modificacion_de_campos(eAlumno pArray[],int posicion);

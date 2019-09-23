@@ -23,7 +23,7 @@ int opcion(void)
 void menu(void)
 {
     int numero;
-    int ok=0;
+
     eAlumno vecAlumnos[MAX_QTY];
     inicializarArray(vecAlumnos,MAX_QTY);
     do
@@ -32,28 +32,22 @@ void menu(void)
             switch (numero)
             {
             case 1:
-                     ok=cargaArray(vecAlumnos,MAX_QTY);
-                     printf("ok:%d\n",ok);
+                     cargaArray(vecAlumnos,MAX_QTY);
+
                      system("pause");
                      system("cls");
                 break;
             case 2:
-                if(ok==0)
-                {
                     bajaLogica(vecAlumnos,MAX_QTY);
-                }
-                else
-                {
-                    printf("No hay datos cargados.\n");
                     system("pause");
                     system("cls");
-                }
+
                 break;
             case 3:
-                printf("Modificar ok\n");
+                modificarArray(vecAlumnos,MAX_QTY);
                 break;
             case 4:
-
+                mostrarArrayDeElementos(vecAlumnos,MAX_QTY);
                 break;
             case 5:
                 printf("Salir ok\n");

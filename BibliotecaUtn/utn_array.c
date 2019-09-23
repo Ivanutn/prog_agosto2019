@@ -328,7 +328,8 @@ int bajaLogica(eAlumno array[],int cantidad)
         {
             if(array[i].estado==1)
             {
-                if(array[i].legajo==auxLegajo)
+
+                if(buscarLegajo(array,cantidad,auxLegajo)==0)
                 {
                     mostrarUnElemento(array[i]);
                     if(botonSeguir(seguir,"Para dar de baja pulse [S], caso contrario pulse cualquier tecla:","Ingrese solo una letra.\n",2)==0)
@@ -350,5 +351,120 @@ int bajaLogica(eAlumno array[],int cantidad)
         }
 
     }
+    return retorno;
+}
+
+
+int modificarArray(eAlumno pArray[],int cantidad)
+{
+    int retorno=1;
+    int auxLegajo;
+    char seguir[2];
+    if(pArray!=NULL && cantidad>0)
+    {
+        if(!getInt(&auxLegajo,"Ingrese legajo:","Error. El legajo debe ser de 1 a 100.\n",1,100,3)==0)
+        {
+            return 1;
+        }
+        for(int i=0;i<cantidad;i++)
+        {
+            if(pArray[i].estado==1)
+            {
+                if(buscarLegajo(pArray,cantidad,auxLegajo)==0)
+                {
+                    mostrarUnElemento(pArray[i]);
+                    if(botonSeguir(seguir,"Para modificar pulse [S], caso contrario pulse cualquier tecla:","Ingrese solo una letra.\n",2)==0)
+                    {
+                        modificacion_de_campos(pArray,i);
+                        retorno=0;
+                        system("pause");
+                        system("cls");
+                        break;
+                    }
+
+                }
+                else
+                {
+                    printf("No existe el legajo.\n");
+                    break;
+                }
+            }
+        }
+
+    }
+    return retorno;
+
+
+}
+int modificacion_de_campos(eAlumno pArray[],int posicion)
+{
+    int opcion=0;
+    int auxOpcion;
+    int retorno=0;
+    int numero;
+    char auxNombre[MAX_CARACTERES];
+    char auxApellido[MAX_CARACTERES];
+    char auxSexo;
+
+
+    do
+    {
+        if(getInt(&auxOpcion,"1.Nombre\n2.Apellido\n3.Sexo\n4.Salir\n\nElija una opcion:","Error. Elija una de las opciones dadas.\n",1,5,3)==0)
+        {
+            opcion=auxOpcion;
+        }
+        numero=opcion;
+
+        switch (numero)
+        {
+        case 1:
+            if(!getString(auxNombre,"Ingrese su nombre:","Error. El nombre debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
+            {
+                return 1;
+            }
+            else
+            {
+                strcpy(pArray[posicion].nombre,auxNombre);
+                retorno=0;
+                system("cls");
+            }
+
+            break;
+        case 2:
+            if(!getString(auxApellido,"Ingrese su apellido:","Error. El apellido debe contener minimo 2 y maximo 40 caracteres.\n",2,MAX_CARACTERES-1,3)==0)
+            {
+                return 1;
+            }
+            else
+            {
+                strcpy(pArray[posicion].apellido,auxApellido);
+                retorno=0;
+                system("cls");
+            }
+            break;
+        case 3:
+            if(!getSex(&auxSexo,"Ingrese sexo, [F] o [M]:","Error. Debe ingresar [F] o [M]\n",3)==0)
+            {
+                return 1;
+            }
+            else
+            {
+                pArray[posicion].sexo=auxSexo;
+                retorno=0;
+                system("cls");
+            }
+
+            break;
+        case 4:
+
+            break;
+        case 5:
+
+            break;
+        default:
+            break;
+        }
+    } while(numero!=4);
+
     return retorno;
 }
