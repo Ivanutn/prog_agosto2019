@@ -225,10 +225,10 @@ int cargaArray(eAlumno pArray[],int cantidad)
             }
             if(flagNota1==1 && flagNota2==1)
             {
-                promedio=promedioVector(pArray,cantidad);
+                promedio=(float)(auxNota1+auxNota2)/2;
             }
 
-            newAlumno(pArray,pos,auxNombre,auxApellido,auxLegajo,auxDia,auxMes,auxAnio,auxSexo,auxNota1,auxNota2,promedio);
+            newAlumno(pArray,pos,auxNombre,auxApellido,auxLegajo,auxDia,auxMes,auxAnio,auxSexo,auxEdad,auxNota1,auxNota2,promedio);
 
             retorno=0;
         }
@@ -298,7 +298,7 @@ int bubbleSort(eAlumno pArray[],int cantidad)
     //array=pAux;
     return 0;
 }
-int newAlumno(eAlumno alumno[],int posicion,char nombre[],char apellido[],int legajo,int dia,int mes,int anio,char sexo,int nota1,int nota2,float promedio)
+int newAlumno(eAlumno alumno[],int posicion,char nombre[],char apellido[],int legajo,int dia,int mes,int anio,char sexo,int edad,int nota1,int nota2,float promedio)
 {
     strcpy(alumno[posicion].nombre,nombre);
     strcpy(alumno[posicion].apellido,apellido);
@@ -307,6 +307,7 @@ int newAlumno(eAlumno alumno[],int posicion,char nombre[],char apellido[],int le
     alumno[posicion].fecha_de_ingreso.mes=mes;
     alumno[posicion].fecha_de_ingreso.anio=anio;
     alumno[posicion].sexo=sexo;
+    alumno[posicion].edad=edad;
     alumno[posicion].nota1=nota1;
     alumno[posicion].nota2=nota2;
     alumno[posicion].promedio=promedio;
