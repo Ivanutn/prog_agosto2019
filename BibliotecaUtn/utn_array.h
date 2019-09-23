@@ -86,4 +86,11 @@ int vectorMinimo(int* array,int cantidad,int* min);
 int bubbleSort(eAlumno pArray[],int cantidad);
 int newAlumno(eAlumno alumno[],int posicion,char nombre[],char apellido[],int legajo,int dia,int mes,int anio,char sexo,int nota1,int nota2,float promedio);
 int modificarArray(eAlumno pArray[],int cantidad);
+/** \brief La funcion muestra un menu para modiicar los campos de una estructura, recibe el arra de estructura
+ *         y la posicion en la que se van a guardar dichos cambios.
+ * \param  eAlumno pArray[] nombre del array de estructuras
+ * \param  int posicion : indice donde se van a guardar los cambios realizados en los campos de estructura
+ * \return int retorna 0 si todo salio bien. caso contrario retorna 1.
+ *
+ */
 int modificacion_de_campos(eAlumno pArray[],int posicion);
