@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1569247977 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"utn.h"
+
+1569238512 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn.h
+
+1569242329 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_array.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn_array.h"
+	"utn.h"
+
+1569239575 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_array.h
+
+1569249410 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn_estudiante.h"
+
+1569245131 source:c:\users\alumno\desktop\prog_agosto2019\clase 10\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../BibliotecaUtn/utn.h"
+	"../BibliotecaUtn/utn_menu.h"
+	"../BibliotecaUtn/utn_estudiante.h"
+
+1569238512 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_menu.h
+
+1569244321 source:c:\users\alumno\desktop\prog_agosto2019\clase 10\utn_estudiante.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../BibliotecaUtn/utn.h"
+	"utn_estudiante.h"
+
+1569244304 c:\users\alumno\desktop\prog_agosto2019\clase 10\utn_estudiante.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../BibliotecaUtn/utn.h"
+	"../BibliotecaUtn/utn_menu.h"
+
+1569249709 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_estudiante.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../BibliotecaUtn/utn.h"
+	"utn_estudiante.h"
+
+1569247070 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_estudiante.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../BibliotecaUtn/utn.h"
+	"../BibliotecaUtn/utn_menu.h"
+
