@@ -26,3 +26,4 @@ int buscarEspacioLibre(eEstudiante pArray[],int cantidad);
 int cargaArray(eEstudiante pArray[],int cantidad,eCarrera carreras[], int cantCarrera);
 void mostrarUnElemento(eEstudiante pArray,eCarrera pCarrera);
 int mostrarArrayDeElementos(eEstudiante pArray[],int cantidad,eCarrera pCarrera[],int cantCarrera);
+int obtenerDescripcion(eCarrera carrera[],int cantCarrera,int id_encontrar,char* descripcion);

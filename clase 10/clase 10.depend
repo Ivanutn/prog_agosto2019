@@ -47,14 +47,14 @@
 	"../BibliotecaUtn/utn.h"
 	"../BibliotecaUtn/utn_menu.h"
 
-1569249709 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_estudiante.c
+1569251856 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_estudiante.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"../BibliotecaUtn/utn.h"
 	"utn_estudiante.h"
 
-1569247070 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_estudiante.h
+1569251593 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_estudiante.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

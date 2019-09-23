@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../BibliotecaUtn/utn.h" />
+		<Unit filename="../BibliotecaUtn/utn_estudiante.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../BibliotecaUtn/utn_estudiante.h" />
 		<Unit filename="../BibliotecaUtn/utn_menu.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -42,10 +46,6 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="utn_estudiante.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="utn_estudiante.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -93,7 +93,7 @@ int cargaArray(eEstudiante pArray[],int cantidad,eCarrera carreras[], int cantCa
             strcpy(pArray[pos].nombre,auxNombre);
             pArray[pos].legajo=auxLegajo;
             pArray[pos].id_carrera=auxID_carrera;
-            carreras[pos].id_carrera=pArray[pos].id_carrera;
+
             pArray[pos].estado=1;
             carreras[pos].estado=1;
 
@@ -115,6 +115,21 @@ void mostrarUnElemento(eEstudiante pArray,eCarrera pCarrera)
     //printf("%s  %s\n",pArray.nombre,pArray.apellido);
 
 }
+int obtenerDescripcion(eCarrera carrera[],int cantCarrera,int id_encontrar,char* descripcion)
+{
+    int retorno=0;
+    if(carrera!=NULL && cantCarrera>0)
+    {
+        for(int i=0;i<cantCarrera;i++)
+        {
+            if(carrera[i].id_carrera==id_encontrar)
+            {
+                strcpy(descripcion,carrera[i].descripcion);
+            }
+        }
+    }
+    return retorno;
+}
 
 int mostrarArrayDeElementos(eEstudiante pArray[],int cantidad,eCarrera pCarrera[],int cantCarrera)
 {
@@ -126,6 +141,8 @@ int mostrarArrayDeElementos(eEstudiante pArray[],int cantidad,eCarrera pCarrera[
         {
             if(pArray[i].estado!=0)
             {
+                obtenerDescripcion(pCarrera,cantCarrera,pArray[i].id_carrera,pCarrera[i].descripcion);
+                printf("\n\n");
                 mostrarUnElemento(pArray[i],pCarrera[i]);
                 retorno=0;
             }
