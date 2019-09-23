@@ -47,6 +47,7 @@ void menu(void)
                 modificarArray(vecAlumnos,MAX_QTY);
                 break;
             case 4:
+                printf("Nombre\t\tApellido\tLegajo\tFecha de nacimiento\tsexo\tEdad\tNota1\tnota2\tpromedio\n");
                 mostrarArrayDeElementos(vecAlumnos,MAX_QTY);
                 break;
             case 5:

@@ -215,7 +215,7 @@ int cargaArray(eAlumno pArray[],int cantidad)
                 return 1;
             }
 
-            if(getInt(&auxNota2,"Ingrese nota segudno examen:","Error. nota entre 1 y 10\n",1,10,3)==0)
+            if(getInt(&auxNota2,"Ingrese nota segundo examen:","Error. nota entre 1 y 10\n",1,10,3)==0)
             {
                 flagNota2=1;
             }
