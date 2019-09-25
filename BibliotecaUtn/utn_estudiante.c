@@ -181,11 +181,11 @@ int bajaLogica(eEstudiante array[],int cantidad,eCarrera carrera[],int cantCarre
                 {
 
                    mostrarUnElemento(array[posicionLegajo],carrera[posicionLegajo]);
-
+                    printf("posicion de ese elemento:%d\n",posicionLegajo);
                     if(botonSeguir(seguir,"Para dar de baja pulse [S], caso contrario pulse cualquier tecla:","Ingrese solo una letra.\n",2)==0)
                     {
                         printf("Baja dada con exito. Adios !\n");
-                        array[i].estado=0;
+                        array[posicionLegajo].estado=0;
                         system("pause");
                         system("cls");
                         break;
