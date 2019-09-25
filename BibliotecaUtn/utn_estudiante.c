@@ -35,7 +35,7 @@ int buscarEspacioLibre(eEstudiante pArray[],int cantidad)
     return retorno;
 }
 
-int buscarLegajo(eEstudiante pArray[],int cantidad,int legajo)
+int buscarLegajo(eEstudiante pArray[],int cantidad,int legajo,int* posicionLegajo)
 {
     int retorno=1;//no existe. cero, existe
     if(pArray!=NULL && cantidad>0)
@@ -47,6 +47,7 @@ int buscarLegajo(eEstudiante pArray[],int cantidad,int legajo)
                 if(pArray[i].legajo==legajo)
                 {
                     retorno=0;
+                    *posicionLegajo=i;
                     break;
                 }
 
@@ -63,6 +64,7 @@ int cargaArray(eEstudiante pArray[],int cantidad,eCarrera carreras[], int cantCa
     int retorno=0;
     int auxLegajo;
     int auxID_carrera;
+    int posicionLegajo;
     char auxNombre[MAX];
 
      pos=buscarEspacioLibre(pArray,cantidad);
@@ -70,7 +72,7 @@ int cargaArray(eEstudiante pArray[],int cantidad,eCarrera carreras[], int cantCa
      {
          if(getInt(&auxLegajo,"Ingrese legajo, debe estar entre 1 y 100:","Error. El legajo debe estar entre 1 y 100\n",1,100,3)==0)
             {
-                if(buscarLegajo(pArray,cantidad,auxLegajo)==0)
+                if(buscarLegajo(pArray,cantidad,auxLegajo,&posicionLegajo)==0)
                 {
                     printf("Ese legajo ya existe.\n");
                     return 1;
@@ -142,7 +144,7 @@ int mostrarArrayDeElementos(eEstudiante pArray[],int cantidad,eCarrera pCarrera[
             if(pArray[i].estado!=0)
             {
                 obtenerDescripcion(pCarrera,cantCarrera,pArray[i].id_carrera,pCarrera[i].descripcion);
-                printf("\n\n");
+                printf("\n");
                 mostrarUnElemento(pArray[i],pCarrera[i]);
                 retorno=0;
             }
@@ -157,3 +159,52 @@ int mostrarArrayDeElementos(eEstudiante pArray[],int cantidad,eCarrera pCarrera[
 
     return retorno;
 }
+
+int bajaLogica(eEstudiante array[],int cantidad,eCarrera carrera[],int cantCarrera)
+{
+    int retorno=1;
+    int auxLegajo;
+    int posicionLegajo;
+    char seguir[2];
+    if(array!=NULL && cantidad>0)
+    {
+        if(!getInt(&auxLegajo,"Ingrese legajo:","Error. El legajo debe ser de 1 a 100.\n",1,100,3)==0)
+        {
+            return 1;
+        }
+        for(int i=0;i<cantidad;i++)
+        {
+            if(array[i].estado==1)
+            {
+
+                if(buscarLegajo(array,cantidad,auxLegajo,&posicionLegajo)==0)
+                {
+
+                   mostrarUnElemento(array[posicionLegajo],carrera[posicionLegajo]);
+
+                    if(botonSeguir(seguir,"Para dar de baja pulse [S], caso contrario pulse cualquier tecla:","Ingrese solo una letra.\n",2)==0)
+                    {
+                        printf("Baja dada con exito. Adios !\n");
+                        array[i].estado=0;
+                        system("pause");
+                        system("cls");
+                        break;
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                }
+                else
+                {
+                    printf("No existe el legajo.\n");
+                    break;
+                }
+            }
+        }
+
+    }
+    return retorno;
+}
+
