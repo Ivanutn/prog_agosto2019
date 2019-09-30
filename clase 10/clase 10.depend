@@ -17,7 +17,7 @@
 
 1569239575 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_array.h
 
-1569855967 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_menu.c
+1569856367 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_menu.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -47,7 +47,7 @@
 	"../BibliotecaUtn/utn.h"
 	"../BibliotecaUtn/utn_menu.h"
 
-1569855944 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_estudiante.c
+1569856496 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_estudiante.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

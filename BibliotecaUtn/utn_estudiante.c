@@ -226,7 +226,7 @@ int informe_UNO(eEstudiante arrayEstudiante[],int sizeEstudiante,eMateria arrayM
         {
             aux_id_estudiante=arrayEstudiante[i].id_estudiante;
             aux_id_materia=arrayEstudiante[i].id_materia;
-            printf("for de estudiantes.\n");
+            printf("Nombre:%s\nMateria:%s\n",arrayEstudiante[i].nombre,arrayMaterias[i].descripcion);
         }
 
     }

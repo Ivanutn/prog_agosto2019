@@ -23,10 +23,10 @@ void menu(void)
 {
     int numero;
     eEstudiante misEstudiantes[MAX_QTY]={
-        {1,"jose",1,1},
-        {2,"alvaro",2,1},
-        {3,"rambo",1,1},
-        {4,"Zed",2,1},
+        {1,"jose",1,1,1},
+        {2,"alvaro",2,2,1},
+        {3,"rambo",1,2,1},
+        {4,"Zed",2,1,1},
     };
     eEstudiante auxEstudiantes[MAX_QTY];
     eMateria misMaterias[MAX_QTY]={ {1,0,"programacion"},{2,0,"spd"} };
