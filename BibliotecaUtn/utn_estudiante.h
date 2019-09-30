@@ -9,25 +9,20 @@
 
 typedef struct
 {
-    int legajo;
+    int id_estudiante;
     char nombre[MAX];
     int id_carrera;
+    int id_materia;
     int estado;
 
 }eEstudiante;
 
 typedef struct
 {
-    int id_carrera;
+    int id_materia;
     int estado;
     char descripcion[MAX];
 
-}eCarrera;
-
-typedef struct
-{
-  int id_materia;
-  char nombre_materia[MAX];
 }eMateria;
 
 typedef struct
@@ -35,14 +30,25 @@ typedef struct
     int id_materia;
     int id_estudiante;
     int nota;
+    int estado;
     //estructura que relaciona muchos a muchos (estudiantes y materias)
 }eCurso;
+
+typedef struct
+{
+    int id_carrera;
+    char descripcion[MAX];
+    int id_materia;
+    int estado;
+
+}eCarrera;//opciones de carrera
 
 int inicializarArray(eEstudiante pArray[],int cantidad);
 int buscarEspacioLibre(eEstudiante pArray[],int cantidad);
 int buscarLegajo(eEstudiante pArray[],int cantidad,int legajo,int* posicionLegajo);
-int cargaArray(eEstudiante pArray[],int cantidad,eCarrera carreras[], int cantCarrera);
-void mostrarUnElemento(eEstudiante pArray,eCarrera pCarrera);
-int mostrarArrayDeElementos(eEstudiante pArray[],int cantidad,eCarrera pCarrera[],int cantCarrera);
-int obtenerDescripcion(eCarrera carrera[],int cantCarrera,int id_encontrar,char* descripcion);
-int bajaLogica(eEstudiante array[],int cantidad,eCarrera carrera[],int cantCarrera);
+int cargaArray(eEstudiante pArray[],int cantidad,eMateria materias[], int cantCarrera);
+void mostrarUnElemento(eEstudiante pArray,eMateria materias);
+int mostrarArrayDeElementos(eEstudiante pArray[],int cantidad,eMateria materias[],int cantCarrera);
+int obtenerDescripcion(eMateria materias[],int cantCarrera,int id_encontrar,char* descripcion);
+int bajaLogica(eEstudiante array[],int cantidad,eMateria materias[],int cantCarrera);
+int informe_UNO(eEstudiante arrayEstudiante[],int sizeEstudiante,eMateria arrayCarrera[],int sizeCarrera,eCurso arrayCurso[],int sizeCurso);

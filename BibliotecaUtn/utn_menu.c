@@ -9,7 +9,7 @@ int opcion(void)
     int opcion=0;//Cero es error.
     int auxOpcion;
 
-    if(getInt(&auxOpcion,"1.Alta\n2.Baja\n3.Modificar\n4.Listar\n5.Salir\n\nElija una opcion:","Error. Elija una de las opciones dadas.\n",1,5,3)==0)
+    if(getInt(&auxOpcion,"1.Alta\n2.Baja\n3.Modificar\n4.Listar\n5.Informe\n6.Salir\n\nElija una opcion:","Error. Elija una de las opciones dadas.\n",1,6,3)==0)
     {
 
         opcion=auxOpcion;
@@ -29,7 +29,9 @@ void menu(void)
         {4,"Zed",2,1},
     };
     eEstudiante auxEstudiantes[MAX_QTY];
-    eCarrera misCarreras[MAX_QTY]={ {1,0,"Programacion"},{2,0,"SPD"}};
+    eMateria misMaterias[MAX_QTY]={ {1,0,"programacion"},{2,0,"spd"} };
+    eCarrera misCarrera[MAX_QTY]={ {1,"medicina",1,0}, {2,"TSP",2,0} };
+    eCurso misCursos[MAX_QTY];
    // inicializarArray(misEstudiantes,MAX_QTY);
 
 
@@ -41,7 +43,7 @@ void menu(void)
         {
         case 1:
 
-            cargaArray(misEstudiantes,MAX_QTY,misCarreras,MAX_QTY);
+            cargaArray(misEstudiantes,MAX_QTY,misMaterias,MAX_QTY);
             for(int i=0; i<MAX_QTY; i++)
             {
                 auxEstudiantes[i]=misEstudiantes[i];
@@ -50,7 +52,7 @@ void menu(void)
             system("cls");
             break;
         case 2:
-            bajaLogica(misEstudiantes,MAX_QTY,misCarreras,MAX_QTY);
+            bajaLogica(misEstudiantes,MAX_QTY,misMaterias,MAX_QTY);
             for(int i=0; i<MAX_QTY; i++)
             {
                 auxEstudiantes[i]=misEstudiantes[i];
@@ -63,17 +65,20 @@ void menu(void)
 
             break;
         case 4:
-            mostrarArrayDeElementos(misEstudiantes,MAX_QTY,misCarreras,MAX_QTY);
+            mostrarArrayDeElementos(misEstudiantes,MAX_QTY,misMaterias,MAX_QTY);
             system("pause");
             system("cls");
             break;
         case 5:
-            printf("Salir ok\n");
+            informe_UNO(misEstudiantes,MAX_QTY,misMaterias,MAX_QTY,misCursos,MAX_QTY);
+
+            break;
+        case 6:
             break;
         default:
             break;
         }
-    }while(numero!=5);
+    }while(numero!=6);
 
 }
 

@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1569414476 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn.c
+1569854921 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	<string.h>
 	"utn.h"
 
-1569422288 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn.h
+1569854921 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn.h
 
 1569242329 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_array.c
 	<stdio.h>
@@ -17,13 +17,13 @@
 
 1569239575 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_array.h
 
-1569419932 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_menu.c
+1569855967 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_menu.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"utn_estudiante.h"
 
-1569422288 source:c:\users\alumno\desktop\prog_agosto2019\clase 10\main.c
+1569855918 source:c:\users\alumno\desktop\prog_agosto2019\clase 10\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -31,7 +31,7 @@
 	"../BibliotecaUtn/utn_menu.h"
 	"../BibliotecaUtn/utn_estudiante.h"
 
-1569422288 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_menu.h
+1569854921 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_menu.h
 
 1569244321 source:c:\users\alumno\desktop\prog_agosto2019\clase 10\utn_estudiante.c
 	<stdio.h>
@@ -47,14 +47,14 @@
 	"../BibliotecaUtn/utn.h"
 	"../BibliotecaUtn/utn_menu.h"
 
-1569418137 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_estudiante.c
+1569855944 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_estudiante.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"../BibliotecaUtn/utn.h"
 	"utn_estudiante.h"
 
-1569418533 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_estudiante.h
+1569855926 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_estudiante.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

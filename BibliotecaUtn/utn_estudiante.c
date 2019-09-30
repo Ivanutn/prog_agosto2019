@@ -44,7 +44,7 @@ int buscarLegajo(eEstudiante pArray[],int cantidad,int legajo,int* posicionLegaj
         {
             if(pArray[i].estado==1)
             {
-                if(pArray[i].legajo==legajo)
+                if(pArray[i].id_estudiante==legajo)
                 {
                     retorno=0;
                     *posicionLegajo=i;
@@ -58,12 +58,12 @@ int buscarLegajo(eEstudiante pArray[],int cantidad,int legajo,int* posicionLegaj
 
     return retorno;
 }
-int cargaArray(eEstudiante pArray[],int cantidad,eCarrera carreras[], int cantCarrera)
+int cargaArray(eEstudiante pArray[],int cantidad,eMateria materias[], int sizeMateria)
 {
     int pos;
     int retorno=0;
     int auxLegajo;
-    int auxID_carrera;
+    int auxID_materia;
     int posicionLegajo;
     char auxNombre[MAX];
 
@@ -88,16 +88,16 @@ int cargaArray(eEstudiante pArray[],int cantidad,eCarrera carreras[], int cantCa
             {
                 return 1;
             }
-            if(!getInt(&auxID_carrera,"Ingrese id de carrera.\n1-Programacion\n2-SPD\nOpcion:","Error. El la opcion debe estar entre 1 o 2\n",1,2,3)==0)
+            if(!getInt(&auxID_materia,"Ingrese id de materia.\n1-Programacion\n2-SPD\nOpcion:","Error. El la opcion debe estar entre 1 o 2\n",1,2,3)==0)
             {
                 return 1;
             }
             strcpy(pArray[pos].nombre,auxNombre);
-            pArray[pos].legajo=auxLegajo;
-            pArray[pos].id_carrera=auxID_carrera;
+            pArray[pos].id_estudiante=auxLegajo;
+            pArray[pos].id_materia=auxID_materia;
 
             pArray[pos].estado=1;
-            carreras[pos].estado=1;
+            materias[pos].estado=1;
 
      }
      else
@@ -108,32 +108,32 @@ int cargaArray(eEstudiante pArray[],int cantidad,eCarrera carreras[], int cantCa
     return retorno;
 }
 
-void mostrarUnElemento(eEstudiante pArray,eCarrera pCarrera)
+void mostrarUnElemento(eEstudiante pArray,eMateria pCarrera)
 {
 
 
-    printf("%d\n%s\n%s\n",pArray.legajo,pArray.nombre,pCarrera.descripcion);
+    printf("%d\n%s\n%s\n",pArray.id_estudiante,pArray.nombre,pCarrera.descripcion);
    //printf("%d\n%s\%sn",pArray.legajo,pArray.nombre);
     //printf("%s  %s\n",pArray.nombre,pArray.apellido);
 
 }
-int obtenerDescripcion(eCarrera carrera[],int cantCarrera,int id_encontrar,char* descripcion)
+int obtenerDescripcion(eMateria materias[],int cantCarrera,int id_encontrar,char* descripcion)
 {
     int retorno=0;
-    if(carrera!=NULL && cantCarrera>0)
+    if(materias!=NULL && cantCarrera>0)
     {
         for(int i=0;i<cantCarrera;i++)
         {
-            if(carrera[i].id_carrera==id_encontrar)
+            if(materias[i].id_materia==id_encontrar)
             {
-                strcpy(descripcion,carrera[i].descripcion);
+                strcpy(descripcion,materias[i].descripcion);
             }
         }
     }
     return retorno;
 }
 
-int mostrarArrayDeElementos(eEstudiante pArray[],int cantidad,eCarrera pCarrera[],int cantCarrera)
+int mostrarArrayDeElementos(eEstudiante pArray[],int cantidad,eMateria materias[],int cantCarrera)
 {
     int retorno=1;
     if(pArray!=NULL && cantidad>0)
@@ -143,9 +143,9 @@ int mostrarArrayDeElementos(eEstudiante pArray[],int cantidad,eCarrera pCarrera[
         {
             if(pArray[i].estado!=0)
             {
-                obtenerDescripcion(pCarrera,cantCarrera,pArray[i].id_carrera,pCarrera[i].descripcion);
+                obtenerDescripcion(materias,cantCarrera,pArray[i].id_materia,materias[i].descripcion);
                 printf("\n");
-                mostrarUnElemento(pArray[i],pCarrera[i]);
+                mostrarUnElemento(pArray[i],materias[i]);
                 retorno=0;
             }
         }
@@ -160,7 +160,7 @@ int mostrarArrayDeElementos(eEstudiante pArray[],int cantidad,eCarrera pCarrera[
     return retorno;
 }
 
-int bajaLogica(eEstudiante array[],int cantidad,eCarrera carrera[],int cantCarrera)
+int bajaLogica(eEstudiante array[],int cantidad,eMateria materias[],int cantCarrera)
 {
     int retorno=1;
     int auxLegajo;
@@ -168,7 +168,7 @@ int bajaLogica(eEstudiante array[],int cantidad,eCarrera carrera[],int cantCarre
     char seguir[2];
     if(array!=NULL && cantidad>0)
     {
-        if(!getInt(&auxLegajo,"Ingrese legajo:","Error. El legajo debe ser de 1 a 100.\n",1,100,3)==0)
+        if(!getInt(&auxLegajo,"Ingrese ID de estudiante:","Error. El ID debe ser de 1 a 100.\n",1,100,3)==0)
         {
             return 1;
         }
@@ -180,7 +180,7 @@ int bajaLogica(eEstudiante array[],int cantidad,eCarrera carrera[],int cantCarre
                 if(buscarLegajo(array,cantidad,auxLegajo,&posicionLegajo)==0)
                 {
 
-                   mostrarUnElemento(array[posicionLegajo],carrera[posicionLegajo]);
+                   mostrarUnElemento(array[posicionLegajo],materias[posicionLegajo]);
                     printf("posicion de ese elemento:%d\n",posicionLegajo);
                     if(botonSeguir(seguir,"Para dar de baja pulse [S], caso contrario pulse cualquier tecla:","Ingrese solo una letra.\n",2)==0)
                     {
@@ -208,3 +208,30 @@ int bajaLogica(eEstudiante array[],int cantidad,eCarrera carrera[],int cantCarre
     return retorno;
 }
 
+int informe_UNO(eEstudiante arrayEstudiante[],int sizeEstudiante,eMateria arrayMaterias[],int sizeMaterias,eCurso arrayCurso[],int sizeCurso)
+{
+    int retorno=0;
+    int aux_id_estudiante;
+    int aux_id_materia;
+    char auxNombre[MAX];
+
+    if(!getString(auxNombre,"Ingrese nombre a buscar:","error.\n",1,MAX-1,3)==0)
+    {
+        return 1;
+    }
+
+    for(int i=0;i<sizeEstudiante;i++)
+    {
+        if(stricmp(auxNombre,arrayEstudiante[i].nombre)==0)
+        {
+            aux_id_estudiante=arrayEstudiante[i].id_estudiante;
+            aux_id_materia=arrayEstudiante[i].id_materia;
+            printf("for de estudiantes.\n");
+        }
+
+    }
+
+
+    return retorno;
+
+}
