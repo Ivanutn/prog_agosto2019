@@ -23,4 +23,6 @@ int getFreePosition(eEmployee myEmployee[],int sizeEmployee,int* position);
 int addEmployee(eEmployee myEmployee[],int sizeEmployee);
 int myAuxEmployee(eEmployee myEmployee);
 int findEmployeeByID(eEmployee myEmployee[],int sizeEmployee,int id);
-
+int getSectorDescription(eSector mySector[],int sizeSector,int id,char* descripcion);
+void listOneEmployee(eEmployee myEmployee,eSector mySector);
+void listAllEmployees(eEmployee myEmployee[],int sizeEmployee,eSector mySector[],int sizeSector);

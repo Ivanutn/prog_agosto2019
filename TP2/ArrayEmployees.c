@@ -123,3 +123,41 @@ int findEmployeeByID(eEmployee myEmployee[],int sizeEmployee,int id)
     }
     return retorno;
 }
+
+int getSectorDescription(eSector mySector[],int sizeSector,int id,char* descripcion)
+{
+    int retorno=0;
+    if(mySector!=NULL && sizeSector>0 )
+    {
+        for(int i=0;i<sizeSector;i++)
+        {
+            if(mySector[i].id_sector==id)
+            {
+                strcpy(descripcion,mySector[i].descripcion_sector);
+            }
+
+        }
+
+    }
+    return retorno;
+
+}
+void listOneEmployee(eEmployee myEmployee,eSector mySector)
+{
+    printf("%s %s %s %.2f\n",myEmployee.name,myEmployee.lastName,mySector.descripcion_sector,myEmployee.salary);
+}
+
+void listAllEmployees(eEmployee myEmployee[],int sizeEmployee,eSector mySector[],int sizeSector)
+{
+    if(myEmployee!=NULL && sizeEmployee>0 &&mySector!=NULL &&sizeSector>0)
+    {
+        for(int i=0;i<sizeEmployee;i++)
+        {
+            if(myEmployee[i].isEmpty==1)
+            {
+
+            }
+        }
+
+    }
+}
