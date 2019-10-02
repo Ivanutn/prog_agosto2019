@@ -11,8 +11,6 @@ typedef struct
 {
     int id_estudiante;
     char nombre[MAX];
-    int id_carrera;
-    int id_materia;
     int estado;
 
 }eEstudiante;
@@ -52,3 +50,4 @@ int mostrarArrayDeElementos(eEstudiante pArray[],int cantidad,eMateria materias[
 int obtenerDescripcion(eMateria materias[],int cantCarrera,int id_encontrar,char* descripcion);
 int bajaLogica(eEstudiante array[],int cantidad,eMateria materias[],int cantCarrera);
 int informe_UNO(eEstudiante arrayEstudiante[],int sizeEstudiante,eMateria arrayCarrera[],int sizeCarrera,eCurso arrayCurso[],int sizeCurso);
+int altaCurso(eCurso cursos[],int sizeCurso,eEstudiante estudiantes[],int sizeEstudiante,eMateria materias[],int sizeMateria);

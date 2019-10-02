@@ -9,7 +9,7 @@ int opcion(void)
     int opcion=0;//Cero es error.
     int auxOpcion;
 
-    if(getInt(&auxOpcion,"1.Alta\n2.Baja\n3.Modificar\n4.Listar\n5.Informe\n6.Salir\n\nElija una opcion:","Error. Elija una de las opciones dadas.\n",1,6,3)==0)
+    if(getInt(&auxOpcion,"1.Alta\n2.Alta Curso\n3.Modificar\n4.Listar\n5.Informe\n6.Salir\n\nElija una opcion:","Error. Elija una de las opciones dadas.\n",1,6,3)==0)
     {
 
         opcion=auxOpcion;
@@ -29,8 +29,7 @@ void menu(void)
         {4,"Zed",2,1,1},
     };
     eEstudiante auxEstudiantes[MAX_QTY];
-    eMateria misMaterias[MAX_QTY]={ {1,0,"programacion"},{2,0,"spd"} };
-    eCarrera misCarrera[MAX_QTY]={ {1,"medicina",1,0}, {2,"TSP",2,0} };
+    eMateria misMaterias[MAX_QTY]={ {1,0,"programacion"},{2,0,"spd"}};
     eCurso misCursos[MAX_QTY];
    // inicializarArray(misEstudiantes,MAX_QTY);
 
@@ -52,11 +51,8 @@ void menu(void)
             system("cls");
             break;
         case 2:
-            bajaLogica(misEstudiantes,MAX_QTY,misMaterias,MAX_QTY);
-            for(int i=0; i<MAX_QTY; i++)
-            {
-                auxEstudiantes[i]=misEstudiantes[i];
-            }
+
+
             system("pause");
             system("cls");
 
