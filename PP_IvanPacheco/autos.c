@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "marcas.h"
+#include "autos.h"
 #include "utn_validaciones.h"
 
 
@@ -179,7 +179,7 @@ void printOneAutos(eAutos myCar,eMarcas miMarca[],int sizeMarca)
 {
     char descripcion[30];
     getDescripcionMarca(miMarca,sizeMarca,myCar.idMarca,descripcion);
-
+    printf("desc:%s \n",descripcion);
     printf("%d %s %d %s %d\n",myCar.id,myCar.patente,myCar.idMarca,descripcion,myCar.idColor);
 }
 
