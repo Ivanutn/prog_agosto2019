@@ -1,0 +1,10 @@
+ambos informes se buscan desde la estructura cliente
+un auto puede tener un cliente pero un cliente puede tener varios autos.
+
+1) Pedir localidad
+
+-Mostrar los autos de esas localidades.
+
+2) Elegir titular
+
+-Importe a pagar

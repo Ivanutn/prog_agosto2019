@@ -32,3 +32,5 @@ void printOneAutos(eAutos myCar,eMarcas miMarca[],int sizeMarca);
 int printAllCars(eAutos myCar[],int sizeCar,eMarcas misMarcas[],int sizeMarcas);
 
 int removeCar(eAutos myCar[],int sizeCar,eMarcas misMarcas[],int sizeMarca);
+
+eAutos forzarAutos(int id, char* patente, int marca, int color,int dia,int mes,int anio, int estado);

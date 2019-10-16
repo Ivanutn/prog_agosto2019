@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "autos.h"
+#include "marcas.h"
 #include "utn_validaciones.h"
 
 
@@ -80,29 +80,37 @@ int newCar(eAutos myCar[],int sizeAutos,int posicion)
         if(!getString(auxPatente,"ingrese patente:","Error. min de caracteres 1 y maximo 6.\n",1,MAX_PATENTES-1,3)==0)
         {
             return 1;
+
         }
+        pause_and_clearScreen();
         if(!getInt(&aux_id_marca,"Elija Marca.\n1.renault\n2.fiat\n3.ford\n4.chevrolet\n5.peugeot.\nElija una opcion:","Error, ingrese una de las opciones dadas.\n",1,5,3)==0)
         {
             return 1;
+
         }
+        pause_and_clearScreen();
         if(!getInt(&aux_id_color,"Elija Color.\n1.negro\n2.blanco\n3.gris\n4.rojo\n5.azul.\nElija una opcion:","Error, ingrese una de las opciones dadas.\n",1,5,3)==0)
         {
             return 1;
+            pause_and_clearScreen();
         }
+        pause_and_clearScreen();
         if(!getInt(&aux_anio,"ingrese anio:","Error. ingrese anio desde 1900 a 2019",1900,2019,3)==0)
         {
             return 1;
+            pause_and_clearScreen();
         }
+        pause_and_clearScreen();
         if(!getInt(&aux_mes,"ingrese mes:","Error. ingrese mes desde 1 a 12",1,12,3)==0)
         {
             return 1;
         }
+        pause_and_clearScreen();
         if(!getInt(&aux_dia,"ingrese dia:","Error. ingrese dia desde 1 a 31",1,31,3)==0)
         {
             return 1;
         }
-
-
+        pause_and_clearScreen();
 
         strcpy(myCar[posicion].patente,auxPatente);
         myCar[posicion].idMarca=aux_id_marca;
@@ -147,10 +155,15 @@ int getDescripcionMarca(eMarcas miMarca[],int sizeMarca,int id,char* descripcion
     {
         for(int i=0;i<sizeMarca;i++)
         {
-            if(miMarca[i].id==id)
+            if(miMarca[i].estado==1)
             {
-                strcpy(descripcion,miMarca[i].descripcion);
+                if(miMarca[i].id==id)
+                {
+
+                    strcpy(descripcion,miMarca[i].descripcion);
+                }
             }
+
 
         }
 
@@ -240,4 +253,19 @@ int removeCar(eAutos myCar[],int sizeCar,eMarcas misMarcas[],int sizeMarca)
         }
     }
     return retorno;
+}
+
+eAutos forzarAutos(int id, char* patente, int marca, int color,int dia,int mes,int anio, int estado)
+{
+    eAutos aux;
+    aux.id=id;
+    strcpy(aux.patente,patente);
+    aux.idMarca=marca;
+    aux.idColor=color;
+    aux.modelo.dia=dia;
+    aux.modelo.mes=mes;
+    aux.modelo.anio=anio;
+    aux.isEmpty=estado;
+
+    return aux;
 }
