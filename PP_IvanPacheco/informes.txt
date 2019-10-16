@@ -7,4 +7,15 @@ un auto puede tener un cliente pero un cliente puede tener varios autos.
 
 2) Elegir titular
 
--Importe a pagar
+-Importe a pagar de todos los trabajos que tenga ese cliente
+
+
+
+Relacion de ID y patente entre estructuras.
+
+servicios  trabajos        autos        marcas    colores    clientes
+ id ------->idServicio    
+            patente ------> patente
+                            idMarca ----->ID
+			    idColor -----------------ID
+			    idCliente ------------------------->ID           
