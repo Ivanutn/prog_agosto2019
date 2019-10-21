@@ -55,23 +55,28 @@ int valCharacter(char* string,int cant)
 
 int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit,int reintentos)
 {
-    int numero;
+   int numero;
     int retorno=0;
     int contReintentos=0;
-    int rValidacion;
     char auxNum[QTY];
 
     do
     {
         printf("%s",message);
         fflush(stdin);
-        gets(auxNum);
-        rValidacion=valNumber(auxNum,QTY);
-        if(rValidacion==1)
+        fgets(auxNum,QTY,stdin);
+        for(int i=0; i<strlen(auxNum); i++)
+        {
+            if(auxNum[i]=='\n')
+            {
+                auxNum[i]='\0';
+            }
+        }
+
+        if(valNumber(auxNum,QTY)==1)
         {
             contReintentos++;
-            printf("%s\n",eMessage);
-            rValidacion=valNumber(auxNum,QTY);
+            printf("%s",eMessage);
         }
         else
         {
@@ -86,7 +91,6 @@ int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit,
                  *input=numero;//valor por referencia, modifico el original.
                  retorno=0;
                  break;
-
              }
 
 
