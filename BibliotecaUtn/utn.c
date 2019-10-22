@@ -258,7 +258,6 @@ int getString(char* input,char message[],char eMessage[],int lowLimit,int highLi
 
 int getSex(char* input,char message[],char eMessage[],int intentos)
 {
-    char letra;
     char auxLetra[3];
     int retorno=0;
     int intentosAux=0;
@@ -314,18 +313,18 @@ int getSex(char* input,char message[],char eMessage[],int intentos)
     return retorno;
 }
 
-int botonSeguir(char string[],char* message,char* eMessage,int cantidad)
+int botonSeguir(char string[],char* message,char* eMessage)
 {
     int retorno=1;
-    char auxiliar[256];
-    int rValidar;
+    char auxiliar[3];
+
     printf("%s",message);
-    gets(auxiliar);
-    rValidar=valCharacter(auxiliar,256);
-    if(rValidar==0 && strlen(auxiliar)<2)
+    fgets(auxiliar,3,stdin);
+    removerSaltoDeLinea(auxiliar);
+    if((valCharacter(auxiliar,3)==0) && (strlen(auxiliar)<2))
     {
+        auxiliar[0]=tolower(auxiliar[0]);
         strcpy(string,auxiliar);
-        strcpy(string,strlwr(string));
         if(string[0]=='s')
         {
             retorno=0;
