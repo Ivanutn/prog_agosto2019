@@ -28,7 +28,41 @@ int valNumber(char* string,int cant)
 
     return retorno;
 }
+int valFloat(char* string,int cant)
+{
+    int retorno=1;
+    int contadorPuntos=0;
+    if(string!=NULL && cant >0)
+    {
+        for(int i=0; string[i]!='\0' && i<cant; i++)
+        {
+            if( (string[i]<'0' || string[i]>'9') && (string[i]<'.' || string[i]>'.' ))
+            {
 
+                retorno=1;
+                break;
+            }
+            else if(string[i]=='.')
+            {
+                contadorPuntos++;
+            }
+            if(contadorPuntos>1)
+            {
+                retorno=1;
+                break;
+            }
+            else
+            {
+
+                retorno=0;
+
+            }
+        }
+    }
+
+    return retorno;
+
+}
 int valCharacter(char* string,int cant)
 {
     int retorno=1;//
@@ -109,19 +143,60 @@ int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit,
 
 }
 
-int getFloat(float* input,char message[],char eMessage[],float lowLimit,float highLimit)
+int getFloat(float* input,char message[],char eMessage[],float lowLimit,float highLimit,int reintentos)
 {
-    float numero;
+   float numero;
     int retorno=0;
-    printf("%s",message);
-    scanf("%f",&numero);
-    if(numero<lowLimit || numero>highLimit){
-        printf("%s",eMessage);
-        retorno=1;
-    }
-    else{
-        *input=numero;
-    }
+    int intentos=0;
+    char auxFlotante[8];
+
+
+    do{
+
+        printf("%s",message);
+        fflush(stdin);
+        fgets(auxFlotante,8,stdin);
+        for(int i=0; i<strlen(auxFlotante); i++)
+        {
+            if(auxFlotante[i]=='\n')
+            {
+                auxFlotante[i]='\0';
+            }
+        }
+
+        if(valFloat(auxFlotante,8)==1)
+        {
+            printf("%s\n",eMessage);
+            intentos++;
+        }
+        else
+        {
+            numero=atof(auxFlotante);
+            if(numero<lowLimit || numero>highLimit)
+            {
+                printf("%s\n",eMessage);
+                intentos++;
+            }
+            else
+            {
+                *input=numero;
+                break;
+            }
+
+
+        }
+
+
+
+
+        if(intentos==reintentos)
+        {
+            printf("superado cantidad de intentos.\nAdios\n");
+            retorno=1;
+            break;
+        }
+    }while(intentos!=reintentos);
+
 
     return retorno;
 
