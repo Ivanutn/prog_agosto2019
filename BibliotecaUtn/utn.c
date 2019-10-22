@@ -99,13 +99,7 @@ int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit,
         printf("%s",message);
         fflush(stdin);
         fgets(auxNum,QTY,stdin);
-        for(int i=0; i<strlen(auxNum); i++)
-        {
-            if(auxNum[i]=='\n')
-            {
-                auxNum[i]='\0';
-            }
-        }
+        removerSaltoDeLinea(auxNum);
 
         if(valNumber(auxNum,QTY)==1)
         {
@@ -156,13 +150,7 @@ int getFloat(float* input,char message[],char eMessage[],float lowLimit,float hi
         printf("%s",message);
         fflush(stdin);
         fgets(auxFlotante,QTY,stdin);
-        for(int i=0; i<strlen(auxFlotante); i++)
-        {
-            if(auxFlotante[i]=='\n')
-            {
-                auxFlotante[i]='\0';
-            }
-        }
+        removerSaltoDeLinea(auxFlotante);
 
         if(valFloat(auxFlotante,QTY)==1)
         {
@@ -229,13 +217,8 @@ int getString(char* input,char message[],char eMessage[],int lowLimit,int highLi
         printf("%s",message);
         fflush(stdin);
         fgets(nombre,MAX_CARACTERES,stdin);
-        for(int i=0;i<strlen(nombre);i++)
-        {
-            if(nombre[i]=='\n')
-            {
-                nombre[i]='\0';
-            }
-        }
+        removerSaltoDeLinea(nombre);
+
         if(valCharacter(nombre,MAX_CARACTERES)==1)
         {
             contReintentos++;
@@ -276,9 +259,7 @@ int getString(char* input,char message[],char eMessage[],int lowLimit,int highLi
 int getSex(char* input,char message[],char eMessage[],int intentos)
 {
     char letra;
-    char auxLetra[256];
-    int largoCadena;
-    int rValidar;
+    char auxLetra[3];
     int retorno=0;
     int intentosAux=0;
 
@@ -286,11 +267,12 @@ int getSex(char* input,char message[],char eMessage[],int intentos)
     {
         printf("%s",message);
         fflush(stdin);
-        gets(auxLetra);
+        fgets(auxLetra,3,stdin);
+        removerSaltoDeLinea(auxLetra);
         auxLetra[0]=tolower(auxLetra[0]);
-        largoCadena=strlen(auxLetra);
-        rValidar=valCharacter(auxLetra,256);
-        if(largoCadena>2 || rValidar==1)
+
+
+        if( strlen(auxLetra)>1 || (valCharacter(auxLetra,3)==1))
         {
             printf("%s",eMessage);
             intentosAux++;
@@ -300,15 +282,13 @@ int getSex(char* input,char message[],char eMessage[],int intentos)
         {
                 if(auxLetra[0]=='m' && auxLetra[1]=='\0')
                 {
-                    letra=auxLetra[0];
-                    *input=letra;
+                    *input=auxLetra[0];
                     break;
 
                 }
                 else if(auxLetra[0]=='f'&& auxLetra[1]=='\0')
                 {
-                    letra=auxLetra[0];
-                    *input=letra;
+                    *input=auxLetra[0];
                     break;
                 }
                 else
@@ -362,4 +342,15 @@ int botonSeguir(char string[],char* message,char* eMessage,int cantidad)
 
 
     return retorno;
+}
+
+void removerSaltoDeLinea(char* string)
+{
+    for(int i=0;i<strlen(string);i++)
+    {
+        if(string[i]=='\n')
+        {
+            string[i]='\0';
+        }
+    }
 }
