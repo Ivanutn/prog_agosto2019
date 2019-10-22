@@ -148,14 +148,14 @@ int getFloat(float* input,char message[],char eMessage[],float lowLimit,float hi
    float numero;
     int retorno=0;
     int intentos=0;
-    char auxFlotante[8];
+    char auxFlotante[QTY];
 
 
     do{
 
         printf("%s",message);
         fflush(stdin);
-        fgets(auxFlotante,8,stdin);
+        fgets(auxFlotante,QTY,stdin);
         for(int i=0; i<strlen(auxFlotante); i++)
         {
             if(auxFlotante[i]=='\n')
@@ -164,7 +164,7 @@ int getFloat(float* input,char message[],char eMessage[],float lowLimit,float hi
             }
         }
 
-        if(valFloat(auxFlotante,8)==1)
+        if(valFloat(auxFlotante,QTY)==1)
         {
             printf("%s\n",eMessage);
             intentos++;
@@ -222,33 +222,34 @@ int getCharacter(char* input,char message[],char eMessage[],char lowChar,char hi
 int getString(char* input,char message[],char eMessage[],int lowLimit,int highLimit,int reintentos)
 {
     char nombre[MAX_CARACTERES];
-    char auxiliar[256];
     int retorno=0;
     int contReintentos=0;
-    int rValidar;
     do
     {
         printf("%s",message);
         fflush(stdin);
-        gets(auxiliar);
-        rValidar=valCharacter(auxiliar,256);
-        if(rValidar==1)
+        fgets(nombre,MAX_CARACTERES,stdin);
+        for(int i=0;i<strlen(nombre);i++)
+        {
+            if(nombre[i]=='\n')
+            {
+                nombre[i]='\0';
+            }
+        }
+        if(valCharacter(nombre,MAX_CARACTERES)==1)
         {
             contReintentos++;
             printf("%s",eMessage);
-
         }
         else
         {
-            if(strlen(auxiliar)<lowLimit || strlen(auxiliar)>highLimit)
+            if(strlen(nombre)<lowLimit || strlen(nombre)>highLimit)
             {
                 printf("%s",eMessage);
                 contReintentos++;
-                //retorno=1;
             }
             else
             {
-                strcpy(nombre,auxiliar);
                 strcpy(input,nombre);
                 retorno=0;
                 break;
