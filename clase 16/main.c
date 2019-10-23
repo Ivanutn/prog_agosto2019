@@ -43,15 +43,20 @@ int main()
     pEmp3=new_empParametrizado(1234,"alberto",'m',30000,1,2,1985);
     pEmp4=new_empParametrizado(1234,"marcelo",'m',30000,1,2,1985);
 
-     if(agregarEmpleado(lista,&tam,pEmp)==1)
+   /*  if(agregarEmpleado(lista,&tam,pEmp)==1)
      {
          printf("se pudo agregar empleado.\n");
         // mostrarEmpleado(lista+tam);
-        printf("tam:%d",tam);
-     }
-
+     }*/
+    agregarEmpleado(lista,&tam,pEmp);
+    agregarEmpleado(lista,&tam,pEmp2);
+    agregarEmpleado(lista,&tam,pEmp3);
+    agregarEmpleado(lista,&tam,pEmp4);
 
     mostrarTodosEmpleados(lista,&tam);
+
+
+
 
 
     // mostrarTodosEmpleados(lista,&tam);
@@ -134,7 +139,7 @@ int agregarEmpleado(eEmpleado* vec,int* tam,eEmpleado* emp)
         if(aux!=NULL)
         {
             vec=aux;
-
+            *tam=(*tam)+1;
             todoOK=1;
         }
 
