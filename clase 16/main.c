@@ -22,10 +22,13 @@ typedef struct
 eEmpleado* new_empleado(void);
 int mostrarEmpleado(eEmpleado* emp);
 eEmpleado* new_empParametrizado(int legajo,char* nombre,char sexo,float sueldo,int dia,int mes,int anio);
-int agregarEmpleado(eEmpleado* vec,int tam,eEmpleado* emp);
+int agregarEmpleado(eEmpleado* vec,int* tam,eEmpleado* emp);
 int main()
 {
     eEmpleado* pEmp;
+    eEmpleado* pEmp2;
+    eEmpleado* pEmp3;
+    eEmpleado* pEmp4;
     eEmpleado* lista;
     lista=(eEmpleado*)malloc((sizeof(eEmpleado)));
     int tam=0;//cumple 2 funciones . 1ero me inidica el tamanio de la lista, 2do me da el indice de la lista.
@@ -34,14 +37,24 @@ int main()
         printf("No se pudo conseguir memoria.\n");
         exit(EXIT_FAILURE);
     }
-     pEmp=new_empParametrizado(1234,"jorge",'m',30000,1,2,1985);
-     if(agregarEmpleado(lista,tam,pEmp)==1)
+    pEmp=new_empParametrizado(1234,"jorge",'m',30000,1,2,1985);
+    pEmp2=new_empParametrizado(1234,"ana",'m',30000,1,2,1985);
+    pEmp3=new_empParametrizado(1234,"maria",'m',30000,1,2,1985);
+    pEmp3=new_empParametrizado(1234,"alberto",'m',30000,1,2,1985);
+    pEmp4=new_empParametrizado(1234,"marcelo",'m',30000,1,2,1985);
+
+     if(agregarEmpleado(lista,&tam,pEmp)==1)
      {
-         printf("se pudo agregar.\n");
-         mostrarEmpleado(lista+tam);
-
-
+         printf("se pudo agregar empleado.\n");
+        // mostrarEmpleado(lista+tam);
+        printf("tam:%d",tam);
      }
+
+
+    mostrarTodosEmpleados(lista,&tam);
+
+
+    // mostrarTodosEmpleados(lista,&tam);
     // *(lista+tam)=*pEmp;//copio el contenido de una estructura a la primera posicion de la estructura lista.
 
    // mostrarEmpleado(lista+tam);
@@ -109,21 +122,39 @@ eEmpleado* new_empParametrizado(int legajo,char* nombre,char sexo,float sueldo,i
 }
 
 
-int agregarEmpleado(eEmpleado* vec,int tam,eEmpleado* emp)
+int agregarEmpleado(eEmpleado* vec,int* tam,eEmpleado* emp)
  {
      int todoOK=0;
+      int nuevoTamanio=(*tam)+1;
      eEmpleado* aux;
-     if(vec!=NULL && emp!=NULL && tam>=0)
+     if(vec!=NULL && emp!=NULL && tam!=NULL)
      {
-         *(vec+tam)=*emp;
-         aux=(eEmpleado*)realloc(vec,sizeof(eEmpleado)*(tam+1));
-         if(aux!=NULL)
-         {
-             vec=aux;
-             todoOK=1;
-         }
+         *(vec+ (*tam))=*emp;
+        aux=(eEmpleado*)realloc(vec,sizeof(eEmpleado)*nuevoTamanio);
+        if(aux!=NULL)
+        {
+            vec=aux;
+
+            todoOK=1;
+        }
+
      }
 
      return todoOK;
 
+ }
+
+ int mostrarTodosEmpleados(eEmpleado* vec,int tam)
+ {
+     int todoOK=0;
+
+     if(vec!=NULL)
+     {
+         for(int i=0;i<tam;i++)
+         {
+             mostrarEmpleado(vec+i);
+         }
+         todoOK=1;
+     }
+     return todoOK;
  }
