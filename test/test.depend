@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1571776764 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"utn.h"
+
+1571776762 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn.h
+
+1571801379 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\test\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"../BibliotecaUtn/utn.h"
+
