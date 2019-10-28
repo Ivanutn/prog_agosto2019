@@ -24,17 +24,24 @@ int getNombreEmpleado(eEmpleado* e,char* nombre);
 
 //funcion para mostrar
 int mostrarEmpleado(eEmpleado* e);
-int mostrarEmpleados(eEmpleado* e,int tam);
+int mostrarEmpleados(eEmpleado** e,int tam);
 
 //funcion para ordenar, bajo cualquier criterio.
 
+//funcion para agrandar lista.
+
+eEmpleado** agrandarLista(eEmpleado** vec,int tam);
 /** INICIO MAIN  */
 int main()
 {
     //array de punteros a empleados
     //puntero auxiliar estatico que lo guarda en el array de dir de memorias que es dinamica.
     //
-    int tam=0;
+    int tam=0; //cumple 2 funciones . 1ero me inidica el tamanio de la lista, 2do me da el indice de la lista.
+    int auxInt;
+    float auxFloat;
+    char auxCad[100];
+
     eEmpleado* auxEmpleado=NULL; //hasta que no se hace un malloc, una buena practica es mejor asignarle NULL.
     eEmpleado** lista=(eEmpleado**)malloc(sizeof(eEmpleado*));
     //reserva espacio en memoria para un empleado(4 bytes), se castea a doble puntero lista
@@ -46,8 +53,37 @@ int main()
         exit(EXIT_FAILURE);
     }
 
+  /*  printf("Ingrese id:");
+    scanf("%d",&auxInt);
+    printf("\nIngrese nombre:");
+    fflush(stdin);
+    gets(auxCad);
+    printf("\nIngrese sueldo:");
+    scanf("%f",&auxFloat);*/
+
+   // auxEmpleado=newEmpleadoParam(auxInt,auxCad,auxFloat);
+   auxEmpleado=newEmpleadoParam(15000,"jose",15000);
+    if(auxEmpleado==NULL)
+    {
+        printf("no se pudo crear empleado.\n");
+    }
+    else
+    {
+        printf("empleado creado con exito.\n");
+
+        *(lista+tam)=auxEmpleado;
+        if(agrandarLista(lista,tam+1)!=NULL)
+        {
+            printf("Empleado agregado a la lista.\n");
 
 
+            tam++;
+
+        }
+        mostrarEmpleado(auxEmpleado);// OK
+        mostrarEmpleados(lista,tam);//muestra basura
+
+    }
     return 0;
 }
 
@@ -74,11 +110,15 @@ eEmpleado* newEmpleadoParam(int id,char* nombre,float sueldo)
     {
         //setIdEmpleado(nuevo,id); //a la hora de dar de alta si todos los setters devuelven 1 se carga con exito.
         //ejemplo
-        if(setIdEmpleado(nuevo,id) && setSueldoEmpleado(nuevo,sueldo) && setNombreEmpleado(nuevo,nombre)) //no es necesario que sea igual a 1.
+        if((setIdEmpleado(nuevo,id)==1) && (setSueldoEmpleado(nuevo,sueldo)==1) && (setNombreEmpleado(nuevo,nombre)==1)) //no es necesario que sea igual a 1.
         {
-            printf("Empleado cargado con exit.\n");
+            printf("Empleado parametrizado.\n");
         }
 
+    }
+    else
+    {
+        nuevo=NULL;
     }
     //constructor correctamente codeado al uso de los setters y sus validaciones.
     return nuevo;
@@ -89,10 +129,14 @@ eEmpleado* newEmpleadoParam(int id,char* nombre,float sueldo)
 int setIdEmpleado(eEmpleado* e,int id) //recibe el puntero a empleado y el id.
 {
     int todoOK=0;
-    if(e!=NULL && id>=10000 && id<=20000)//id valido segun reglas de negocio.
+    if(e!=NULL)
     {
-        e->id=id;
-        todoOK=1;
+        if(id>=1 && id<20000)//id valido segun reglas de negocio.
+        {
+            e->id=id;
+            todoOK=1;
+        }
+
     }
     return todoOK;
 }
@@ -168,18 +212,28 @@ int mostrarEmpleado(eEmpleado* e)
     return todoOK;
 }
 
-int mostrarEmpleados(eEmpleado* e,int tam)
+int mostrarEmpleados(eEmpleado** e,int tam)
 {
     int todoOK=0;
-    if(e!=NULL && tam>0)
+    if(e!=NULL)
     {
         printf("ID   nombre    Sueldo\n");
         for(int i=0;i<tam;i++)
         {
-            mostrarEmpleado(e+i);
+            mostrarEmpleado(*(e+i));
         }
 
 
     }
     return todoOK;
+}
+
+eEmpleado** agrandarLista(eEmpleado** vec,int tam)
+{
+    eEmpleado** aux=(eEmpleado**)realloc(vec,sizeof(eEmpleado)*tam);
+    if(aux!=NULL)
+    {
+        vec=aux;
+    }
+    return vec;
 }
