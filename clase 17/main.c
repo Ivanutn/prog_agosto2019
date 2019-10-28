@@ -10,16 +10,22 @@ typedef struct
 
 eEmpleado* newEmpleado(void);
 eEmpleado* newEmpleadoParam(int id,char* nombre,float sueldo);
+
+//creacion de setters.
+//los setters al ser compactos, validan y asignan.
 int setIdEmpleado(eEmpleado* e,int id);
 int setSueldoEmpleado(eEmpleado* e,float sueldo);
 int setNombreEmpleado(eEmpleado* e,char* nombre);
-//los setters al ser compactos, validan y asignan.
 
 //getters.
 int getIdEmpleado(eEmpleado* e,int* id);
 int getSueldoEmpleado(eEmpleado* e,float* sueldo);
 int getNombreEmpleado(eEmpleado* e,char* nombre);
 
+//funcion para mostrar
+
+
+//funcion para ordenar, bajo cualquier criterio.
 
 int main()
 {
@@ -33,21 +39,34 @@ int main()
 }
 eEmpleado* newEmpleado(void)
 {
+    //Constructor vacio.
     eEmpleado* nuevo=(eEmpleado*)malloc(sizeof(eEmpleado));
     if(nuevo!=NULL)
     {
         nuevo->id=0;
         strcpy(nuevo->nombre," ");
         nuevo->sueldo=0;
-        return nuevo;
+
     }
+     return nuevo;
 }
 
 eEmpleado* newEmpleadoParam(int id,char* nombre,float sueldo)
 {
 
     eEmpleado* nuevo=newEmpleado();
+    if(nuevo!=NULL)
+    {
+        //setIdEmpleado(nuevo,id); //a la hora de dar de alta si todos los setters devuelven 1 se carga con exito.
+        //ejemplo
+        if(setIdEmpleado(nuevo,id) && setSueldoEmpleado(nuevo,sueldo) && setNombreEmpleado(nuevo,nombre)) //no es necesario que sea igual a 1.
+        {
+            printf("Empleado cargado con exit.\n");
+        }
 
+    }
+    //constructor correctamente codeado al uso de los setters y sus validaciones.
+    return nuevo;
 }
 
 //uso de getters y setters.
@@ -124,3 +143,4 @@ int getNombreEmpleado(eEmpleado* e,char* nombre)
     }
     return todoOK;
 }
+
