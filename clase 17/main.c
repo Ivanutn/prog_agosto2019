@@ -8,7 +8,7 @@ typedef struct
     float sueldo;
 }eEmpleado
 eEmpleado* newEmpleado(void);
-
+eEmpleado* newEmpleadoParam(int id,char* nombre,float sueldo);
 int main()
 {
     //array de punteros a empleados
@@ -30,3 +30,10 @@ eEmpleado* newEmpleado(void)
         return nuevo;
     }
 }
+
+eEmpleado* newEmpleadoParam(int id,char* nombre,float sueldo)
+{
+
+}
+
+//uso de getters y setters.
