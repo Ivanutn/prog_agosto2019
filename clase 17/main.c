@@ -52,17 +52,17 @@ int main()
         printf("no se pudo asignar memoria.\n");
         exit(EXIT_FAILURE);
     }
-
-  /*  printf("Ingrese id:");
+/*
+    printf("Ingrese id:");
     scanf("%d",&auxInt);
     printf("\nIngrese nombre:");
     fflush(stdin);
     gets(auxCad);
     printf("\nIngrese sueldo:");
-    scanf("%f",&auxFloat);*/
+    scanf("%f",&auxFloat);
 
-   // auxEmpleado=newEmpleadoParam(auxInt,auxCad,auxFloat);
-   auxEmpleado=newEmpleadoParam(15000,"jose",15000);
+    auxEmpleado=newEmpleadoParam(auxInt,auxCad,auxFloat);*/
+    auxEmpleado=newEmpleadoParam(15000,"jose",15000);
     if(auxEmpleado==NULL)
     {
         printf("no se pudo crear empleado.\n");
@@ -75,10 +75,7 @@ int main()
         if(agrandarLista(lista,tam+1)!=NULL)
         {
             printf("Empleado agregado a la lista.\n");
-
-
             tam++;
-
         }
         mostrarEmpleado(auxEmpleado);// OK
         mostrarEmpleados(lista,tam);//muestra basura
@@ -206,7 +203,6 @@ int mostrarEmpleado(eEmpleado* e)
     int todoOK=0;
     if(e!=NULL)
     {
-       // printf("%d  %s  %.2f\n",getIdEmpleado(e,e->id),getNombreEmpleado(e,e->nombre),getSueldoEmpleado(e,e->sueldo));
         printf("%d  %s  %.2f\n",e->id,e->nombre,e->sueldo);
     }
     return todoOK;
@@ -215,7 +211,7 @@ int mostrarEmpleado(eEmpleado* e)
 int mostrarEmpleados(eEmpleado** e,int tam)
 {
     int todoOK=0;
-    if(e!=NULL)
+    if(e!=NULL && tam>0)
     {
         printf("ID   nombre    Sueldo\n");
         for(int i=0;i<tam;i++)
