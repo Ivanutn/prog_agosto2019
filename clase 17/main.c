@@ -6,9 +6,21 @@ typedef struct
     int id;
     char nombre[20];
     float sueldo;
-}eEmpleado
+}eEmpleado;
+
 eEmpleado* newEmpleado(void);
 eEmpleado* newEmpleadoParam(int id,char* nombre,float sueldo);
+int setIdEmpleado(eEmpleado* e,int id);
+int setSueldoEmpleado(eEmpleado* e,float sueldo);
+int setNombreEmpleado(eEmpleado* e,char* nombre);
+//los setters al ser compactos, validan y asignan.
+
+//getters.
+int getIdEmpleado(eEmpleado* e,int* id);
+int getSueldoEmpleado(eEmpleado* e,float* sueldo);
+int getNombreEmpleado(eEmpleado* e,char* nombre);
+
+
 int main()
 {
     //array de punteros a empleados
@@ -34,6 +46,81 @@ eEmpleado* newEmpleado(void)
 eEmpleado* newEmpleadoParam(int id,char* nombre,float sueldo)
 {
 
+    eEmpleado* nuevo=newEmpleado();
+
 }
 
 //uso de getters y setters.
+
+int setIdEmpleado(eEmpleado* e,int id) //recibe el puntero a empleado y el id.
+{
+    int todoOK=0;
+    if(e!=NULL && id>=10000 && id<=20000)//id valido segun reglas de negocio.
+    {
+        e->id=id;
+        todoOK=1;
+    }
+    return todoOK;
+}
+
+int setSueldoEmpleado(eEmpleado* e,float sueldo)
+{
+    int todoOK=0;
+    if(e!=NULL && sueldo>0 )
+    {
+        e->sueldo=sueldo;
+        todoOK=1;
+    }
+    return todoOK;
+}
+
+int setNombreEmpleado(eEmpleado* e,char* nombre)
+{
+    int todoOK=0;
+    if(e!=NULL && nombre!=NULL && strlen(nombre)<20 )
+    {
+        strcpy(e->nombre,nombre);
+        todoOK=1;
+    }
+    return todoOK;
+}
+
+//creacion de getters.
+//los datos ya fueron cargados y validados.
+int getIdEmpleado(eEmpleado* e,int* id)
+{
+    //int id=-1; //en caso de no conseguir el id.
+
+    //recibe el id por referencia.
+    int todoOK=0;
+    if(e!=NULL && id!=NULL)
+    {
+        *id=e->id;
+        todoOK=1;
+    }
+    return todoOK;
+}
+
+int getSueldoEmpleado(eEmpleado* e,float* sueldo)
+{
+
+    int todoOK=0;
+    if(e!=NULL && sueldo!=NULL)
+    {
+        *sueldo=e->sueldo;
+        todoOK=1;
+    }
+    return todoOK;
+}
+
+int getNombreEmpleado(eEmpleado* e,char* nombre)
+{
+
+    int todoOK=0;
+    if(e!=NULL && nombre!=NULL)
+    {
+        strcpy(nombre,e->nombre); //copio lo que tengo guardado en la estructura y lo paso a la variable.
+        todoOK=1;
+    }
+    return todoOK;
+}
