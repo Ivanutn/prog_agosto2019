@@ -23,20 +23,35 @@ int getSueldoEmpleado(eEmpleado* e,float* sueldo);
 int getNombreEmpleado(eEmpleado* e,char* nombre);
 
 //funcion para mostrar
-
+int mostrarEmpleado(eEmpleado* e);
+int mostrarEmpleados(eEmpleado* e,int tam);
 
 //funcion para ordenar, bajo cualquier criterio.
 
+/** INICIO MAIN  */
 int main()
 {
     //array de punteros a empleados
     //puntero auxiliar estatico que lo guarda en el array de dir de memorias que es dinamica.
     //
-    eEmpleado* aux;
+    int tam=0;
+    eEmpleado* auxEmpleado=NULL; //hasta que no se hace un malloc, una buena practica es mejor asignarle NULL.
+    eEmpleado** lista=(eEmpleado**)malloc(sizeof(eEmpleado*));
+    //reserva espacio en memoria para un empleado(4 bytes), se castea a doble puntero lista
+    //guardas una direccion de memoria de forma estatica, que a su vez apunta un vector de dir de memoria
+    //que ellas apuntan en memoria a otras direcciones de memoria que contienen datos de tipo eEmpleado.
+    if(lista==NULL)
+    {
+        printf("no se pudo asignar memoria.\n");
+        exit(EXIT_FAILURE);
+    }
+
 
 
     return 0;
 }
+
+/**INICIO DE DESARROLLO DE FUNCIONES */
 eEmpleado* newEmpleado(void)
 {
     //Constructor vacio.
@@ -122,7 +137,6 @@ int getIdEmpleado(eEmpleado* e,int* id)
 
 int getSueldoEmpleado(eEmpleado* e,float* sueldo)
 {
-
     int todoOK=0;
     if(e!=NULL && sueldo!=NULL)
     {
@@ -134,7 +148,6 @@ int getSueldoEmpleado(eEmpleado* e,float* sueldo)
 
 int getNombreEmpleado(eEmpleado* e,char* nombre)
 {
-
     int todoOK=0;
     if(e!=NULL && nombre!=NULL)
     {
@@ -144,3 +157,29 @@ int getNombreEmpleado(eEmpleado* e,char* nombre)
     return todoOK;
 }
 
+int mostrarEmpleado(eEmpleado* e)
+{
+    int todoOK=0;
+    if(e!=NULL)
+    {
+       // printf("%d  %s  %.2f\n",getIdEmpleado(e,e->id),getNombreEmpleado(e,e->nombre),getSueldoEmpleado(e,e->sueldo));
+        printf("%d  %s  %.2f\n",e->id,e->nombre,e->sueldo);
+    }
+    return todoOK;
+}
+
+int mostrarEmpleados(eEmpleado* e,int tam)
+{
+    int todoOK=0;
+    if(e!=NULL && tam>0)
+    {
+        printf("ID   nombre    Sueldo\n");
+        for(int i=0;i<tam;i++)
+        {
+            mostrarEmpleado(e+i);
+        }
+
+
+    }
+    return todoOK;
+}
