@@ -99,15 +99,18 @@ int main()
         {
             auxEmpleado=newEmpleadoParam(atoi(buffer[0]),buffer[1],atof(buffer[2]) );
             if(auxCad!=NULL)
+            {
+
                 *(lista+tam)=auxEmpleado;
                 if(agrandarLista(lista,tam+1)!=NULL)
                 {
                     printf("Empleado agregado a la lista.\n");
                     tam++;
                 }
-
             }
+
         }
+    }
         mostrarEmpleados(lista,tam);
 
 
