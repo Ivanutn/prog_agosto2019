@@ -22,7 +22,7 @@ typedef struct
 eEmpleado* new_empleado(void);
 int mostrarEmpleado(eEmpleado* emp);
 eEmpleado* new_empParametrizado(int legajo,char* nombre,char sexo,float sueldo,int dia,int mes,int anio);
-int agregarEmpleado(eEmpleado* vec,int* tam,eEmpleado* emp);
+eEmpleado agregarEmpleado(eEmpleado* vec,int* tam,eEmpleado* emp);
 int main()
 {
     eEmpleado* pEmp;
@@ -127,25 +127,24 @@ eEmpleado* new_empParametrizado(int legajo,char* nombre,char sexo,float sueldo,i
 }
 
 
-int agregarEmpleado(eEmpleado* vec,int* tam,eEmpleado* emp)
+eEmpleado agregarEmpleado(eEmpleado* vec,int* tam,eEmpleado* emp)
  {
-     int todoOK=0;
       int nuevoTamanio=(*tam)+1;
      eEmpleado* aux;
      if(vec!=NULL && emp!=NULL && tam!=NULL)
      {
          *(vec+ (*tam))=*emp;
-        aux=(eEmpleado*)realloc(vec,sizeof(eEmpleado)*nuevoTamanio);
+        aux=(eEmpleado*)realloc(vec,sizeof(eEmpleado)*(*tam+2));
         if(aux!=NULL)
         {
             vec=aux;
             *tam=(*tam)+1;
-            todoOK=1;
+
         }
 
      }
 
-     return todoOK;
+     return vec;
 
  }
 
