@@ -62,7 +62,8 @@ int main()
     scanf("%f",&auxFloat);
 
     auxEmpleado=newEmpleadoParam(auxInt,auxCad,auxFloat);*/
-    auxEmpleado=newEmpleadoParam(15000,"jose",15000);
+
+    /*auxEmpleado=newEmpleadoParam(15000,"jose",15000);
     if(auxEmpleado==NULL)
     {
         printf("no se pudo crear empleado.\n");
@@ -80,7 +81,36 @@ int main()
         mostrarEmpleado(auxEmpleado);// OK
         mostrarEmpleados(lista,tam);//muestra basura
 
+    }*/
+    char buffer[3][30];
+    int cant;
+    FILE* f= fopen("MOCK_DATA.csv","r");
+    if(f==NULL)
+    {
+        exit(1);
     }
+    fscanf(f,"%[^,],%[^,],[^\n]\n",buffer[0],buffer[1],buffer[2]); //expresiones regulares ^ (acento circunflejo) significa todo. la expresion[^,] significa lee todo hasta que encuentres la coma(,)
+    //lectura fantasma.
+
+    while(!feof(f))
+    {
+        cant=fscanf(f,"%[^,],%[^,],[^\n]\n",buffer[0],buffer[1],buffer[2]);
+        if(cant==3)
+        {
+            auxEmpleado=newEmpleadoParam(atoi(buffer[0]),buffer[1],atof(buffer[2]) );
+            if(auxCad!=NULL)
+                *(lista+tam)=auxEmpleado;
+                if(agrandarLista(lista,tam+1)!=NULL)
+                {
+                    printf("Empleado agregado a la lista.\n");
+                    tam++;
+                }
+
+            }
+        }
+        mostrarEmpleados(lista,tam);
+
+
     return 0;
 }
 

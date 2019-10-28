@@ -11,18 +11,57 @@ typedef struct
 int mostrarEmpleado(eEmpleado* e);
 int main()
 {
-    eEmpleado unEmpleado={1,"ana",15000};
-    FILE* f=fopen("data.bin","wb"); //modo escritura binaria
+    int cant;
+    eEmpleado unEmpleado={1,"julia",15000};
+    eEmpleado clonEmpleado;
+    eEmpleado otroClonardo;
+   /* FILE* f=fopen("data.bin","wb"); //modo escritura binaria
     if(f==NULL)
     {
         printf("no se pudo crear un archivo.\n");
+        exit(EXIT_FAILURE);
     }
     else
     {
+       cant=fwrite(&unEmpleado,sizeof(eEmpleado),1,f); //devuelve la cantidad de elementos que pudo escribir
+       if(cant<1)
+       {
+           printf("problemas para guardar en el archivo.\n");
+
+       }
+       else
+       {
+           printf("se guardo de manera exitosa.\n");
+           fclose(f);
+       }
+
+
+    }*/
+
+    FILE* f=fopen("data.bin","rb");
+    if(f==NULL)
+    {
+        printf("no se pudo crear un archivo.\n");
+        exit(EXIT_FAILURE);
+    }
+    else
+    {
+       cant=fread(&otroClonardo,sizeof(eEmpleado),1,f); //devuelve la cantidad de elementos que pudo escribir
+       if(cant<1)
+       {
+           printf("problemas para leer en el archivo.\n");
+
+       }
+       else
+       {
+           printf("se leyo el archivo de manera exitosa.\n");
+           fclose(f);
+       }
+
 
     }
 
-    mostrarEmpleado(&unEmpleado);
+    mostrarEmpleado(&otroClonardo);
     return 0;
 }
 int mostrarEmpleado(eEmpleado* e)
