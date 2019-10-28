@@ -22,7 +22,7 @@ typedef struct
 eEmpleado* new_empleado(void);
 int mostrarEmpleado(eEmpleado* emp);
 eEmpleado* new_empParametrizado(int legajo,char* nombre,char sexo,float sueldo,int dia,int mes,int anio);
-eEmpleado agregarEmpleado(eEmpleado* vec,int* tam,eEmpleado* emp);
+eEmpleado* agregarEmpleado(eEmpleado* vec,int* tam,eEmpleado* emp);
 int main()
 {
     eEmpleado* pEmp;
@@ -53,7 +53,7 @@ int main()
     agregarEmpleado(lista,&tam,pEmp3);
     agregarEmpleado(lista,&tam,pEmp4);
 
-    mostrarTodosEmpleados(lista,&tam);
+    mostrarTodosEmpleados(lista,tam);
 
 
 
@@ -127,7 +127,7 @@ eEmpleado* new_empParametrizado(int legajo,char* nombre,char sexo,float sueldo,i
 }
 
 
-eEmpleado agregarEmpleado(eEmpleado* vec,int* tam,eEmpleado* emp)
+eEmpleado* agregarEmpleado(eEmpleado* vec,int* tam,eEmpleado* emp)
  {
       int nuevoTamanio=(*tam)+1;
      eEmpleado* aux;
@@ -138,7 +138,7 @@ eEmpleado agregarEmpleado(eEmpleado* vec,int* tam,eEmpleado* emp)
         if(aux!=NULL)
         {
             vec=aux;
-            *tam=(*tam)+1;
+            (*tam)++;
 
         }
 
