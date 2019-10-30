@@ -35,8 +35,7 @@ eEmpleado** agrandarLista(eEmpleado** vec,int tam);
 
 //quiero guardar en un archivo binario
 int guardarEmpleadosBinario(eEmpleado** lista,int tam,char* path);
-
-//cargar desde binario.
+int guardarEmpleadosCSV(eEmpleado** lista,int tam,char* path);
 
 
 
@@ -155,7 +154,16 @@ int main()
 
 
     fclose(f);
+        /**----------------------------------------------*/
 
+    if(guardarEmpleadosCSV(lista2,tam2,"ListaEmpleados.csv"))
+    {
+        printf("Lsta de empleados csv creada con exito.\n");
+    }
+    else
+    {
+        printf("hubo problemas al crear la lista.\n");
+    }
     return 0;
 }
 
@@ -336,5 +344,38 @@ int guardarEmpleadosBinario(eEmpleado** lista,int tam,char* path)
         fclose(f);
         todoOK=1;
     }
+    return todoOK;
+}
+
+int guardarEmpleadosCSV(eEmpleado** lista,int tam,char* path)
+{
+    int todoOK=0;
+    int cant;
+    FILE* f;
+
+    if(lista!=NULL && path!=NULL && tam >0)
+    {
+        f=fopen(path,"w");
+        if(f==NULL)
+        {
+            return todoOK;
+        }
+         fprintf(f,"ID,nombre,sueldo\n");
+        for(int i=0;i<tam;i++)
+        {
+            cant=fprintf(f,"%d,%s,%.2f\n",(*(lista+i))->id,(*(lista+i))->nombre,(*(lista+i))->sueldo);
+            if(cant<1)
+            {
+                return todoOK;
+            }
+            else
+            {
+                todoOK=1;
+            }
+        }
+
+
+    }
+    fclose(f);
     return todoOK;
 }
