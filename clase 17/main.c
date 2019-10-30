@@ -259,7 +259,7 @@ int mostrarEmpleados(eEmpleado** e,int tam)
 
 eEmpleado** agrandarLista(eEmpleado** vec,int tam)
 {
-    eEmpleado** aux=(eEmpleado**)realloc(vec,sizeof(eEmpleado)*tam);
+    eEmpleado** aux=(eEmpleado**)realloc(vec,sizeof(eEmpleado*)+tam); //sizeof por tipo de dato puntero (eEmpleado*)
     if(aux!=NULL)
     {
         vec=aux;
