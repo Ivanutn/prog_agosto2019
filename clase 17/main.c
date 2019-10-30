@@ -38,6 +38,7 @@ int main()
     //puntero auxiliar estatico que lo guarda en el array de dir de memorias que es dinamica.
     //
     char buffer[3][30];
+    char bu[30];
     int cant;
     int tam=0; //cumple 2 funciones . 1ero me inidica el tamanio de la lista, 2do me da el indice de la lista.
     eEmpleado* auxEmpleado=NULL; //hasta que no se hace un malloc, una buena practica es mejor asignarle NULL.
@@ -84,8 +85,6 @@ int main()
         {
             break;
         }
-
-        // system("pause");
     }
     mostrarEmpleados(lista,tam);
 
