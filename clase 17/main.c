@@ -35,6 +35,11 @@ eEmpleado** agrandarLista(eEmpleado** vec,int tam);
 
 //quiero guardar en un archivo binario
 int guardarEmpleadosBinario(eEmpleado** lista,int tam,char* path);
+
+//cargar desde binario.
+
+
+
 /** INICIO MAIN  */
 int main()
 {
@@ -89,6 +94,7 @@ int main()
             break;
         }
     }
+    fclose(f);
     mostrarEmpleados(lista,tam);
     if(guardarEmpleadosBinario(lista,tam,"empleados.bin"))
     {
@@ -98,8 +104,57 @@ int main()
     {
         printf("empleados no fueron guardados.\n");// se llama serializar o deserializar
     }
+
+  /**--------------------------------------------------*/
+
+    /** levanto el archivo o leerlo de  binario */
+
+
+    printf("\n\nEMPLEADOS DE LA LISTA 2\n\n");
+    eEmpleado** lista2 =(eEmpleado**)malloc(sizeof(eEmpleado));//me sirve para levantarlo de archivo binario
+
+
+    int tam2=0;
+    if(lista2==NULL)
+    {
+        printf("no se pudo asignar memoria.\n");
+        exit(EXIT_FAILURE);
+    }
+
+
+    f= fopen("empleados.bin","rb");
+    if(f==NULL)
+    {
+        exit(EXIT_FAILURE);
+    }
+
+    while(!feof(f))
+    {
+        auxEmpleado=newEmpleado();
+        if(auxEmpleado!=NULL)
+        {
+            cant=fread( auxEmpleado,sizeof(eEmpleado),1,f);
+            if(cant==1)
+            {
+                *(lista2+tam2)=auxEmpleado;
+                tam2++;
+                if((lista2=agrandarLista(lista2,tam2+1))!=NULL)
+                {
+                    //printf("Empleado agregado a la lista.\n");
+                }
+            }
+            else
+            {
+                break;
+            }
+
+        }
+    }
+
+    mostrarEmpleados(lista2,tam2);
+
+
     fclose(f);
-    //necesito una funcion para guardar
 
     return 0;
 }
