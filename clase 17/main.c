@@ -31,6 +31,10 @@ int mostrarEmpleados(eEmpleado** e,int tam);
 //funcion para agrandar lista.
 
 eEmpleado** agrandarLista(eEmpleado** vec,int tam);
+
+
+//quiero guardar en un archivo binario
+int guardarEmpleadosBinario(eEmpleado** lista,int tam,char* path);
 /** INICIO MAIN  */
 int main()
 {
@@ -86,8 +90,16 @@ int main()
         }
     }
     mostrarEmpleados(lista,tam);
-
+    if(guardarEmpleadosBinario(lista,tam,"empleados.bin"))
+    {
+        printf("empleados guardados con exito.\n");
+    }
+    else
+    {
+        printf("empleados no fueron guardados.\n");// se llama serializar o deserializar
+    }
     fclose(f);
+    //necesito una funcion para guardar
 
     return 0;
 }
@@ -242,4 +254,32 @@ eEmpleado** agrandarLista(eEmpleado** vec,int tam)
         vec=aux;
     }
     return vec;
+}
+
+int guardarEmpleadosBinario(eEmpleado** lista,int tam,char* path)
+{
+    int todoOK=0;
+    int cant;
+    FILE* f;
+
+    if(lista!=NULL && tam>0 && path!=NULL)
+    {
+        f=fopen(path,"wb");
+        if(f==NULL)
+        {
+            return todoOK;
+        }
+        for(int i=0;i<tam;i++)
+        {
+          cant=fwrite(*(lista+i),sizeof(eEmpleado),1,f);//funciona como fscanf "viaja" de origen a destino
+            //*(lista+i) me posiciono en esa direccion de memoria, con el * accedo al dato y eso es lo que escribo en el archivo.
+           if(cant<1)
+           {
+               return todoOK;
+           }
+        }
+        fclose(f);
+        todoOK=1;
+    }
+    return todoOK;
 }
