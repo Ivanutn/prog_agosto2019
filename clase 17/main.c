@@ -37,11 +37,9 @@ int main()
     //array de punteros a empleados
     //puntero auxiliar estatico que lo guarda en el array de dir de memorias que es dinamica.
     //
+    char buffer[3][30];
+    int cant;
     int tam=0; //cumple 2 funciones . 1ero me inidica el tamanio de la lista, 2do me da el indice de la lista.
-    int auxInt;
-    float auxFloat;
-    char auxCad[100];
-
     eEmpleado* auxEmpleado=NULL; //hasta que no se hace un malloc, una buena practica es mejor asignarle NULL.
     eEmpleado** lista=(eEmpleado**)malloc(sizeof(eEmpleado*));
     //reserva espacio en memoria para un empleado(4 bytes), se castea a doble puntero lista
@@ -52,67 +50,46 @@ int main()
         printf("no se pudo asignar memoria.\n");
         exit(EXIT_FAILURE);
     }
-/*
-    printf("Ingrese id:");
-    scanf("%d",&auxInt);
-    printf("\nIngrese nombre:");
-    fflush(stdin);
-    gets(auxCad);
-    printf("\nIngrese sueldo:");
-    scanf("%f",&auxFloat);
 
-    auxEmpleado=newEmpleadoParam(auxInt,auxCad,auxFloat);*/
 
-    /*auxEmpleado=newEmpleadoParam(15000,"jose",15000);
-    if(auxEmpleado==NULL)
-    {
-        printf("no se pudo crear empleado.\n");
-    }
-    else
-    {
-        printf("empleado creado con exito.\n");
-
-        *(lista+tam)=auxEmpleado;
-        if(agrandarLista(lista,tam+1)!=NULL)
-        {
-            printf("Empleado agregado a la lista.\n");
-            tam++;
-        }
-        mostrarEmpleado(auxEmpleado);// OK
-        mostrarEmpleados(lista,tam);//muestra basura
-
-    }*/
-    char buffer[3][30];
-    int cant;
-    FILE* f= fopen("MOCK_DATA.csv","r");
+    FILE* f= fopen("personas.csv","r");
     if(f==NULL)
     {
-        exit(1);
+        exit(EXIT_FAILURE);
     }
-    fscanf(f,"%[^,],%[^,],[^\n]\n",buffer[0],buffer[1],buffer[2]); //expresiones regulares ^ (acento circunflejo) significa todo. la expresion[^,] significa lee todo hasta que encuentres la coma(,)
+    fscanf(f,"%[^,],%[^,],%[^\n]\n",buffer[0],buffer[1],buffer[2]); //expresiones regulares ^ (acento circunflejo) significa todo. la expresion[^,] significa lee todo hasta que encuentres la coma(,)
     //lectura fantasma.
 
     while(!feof(f))
     {
-        cant=fscanf(f,"%[^,],%[^,],[^\n]\n",buffer[0],buffer[1],buffer[2]);
+        cant=fscanf(f,"%[^,],%[^,],%[^\n]\n",buffer[0],buffer[1],buffer[2]);
         if(cant==3)
         {
             auxEmpleado=newEmpleadoParam(atoi(buffer[0]),buffer[1],atof(buffer[2]) );
-            if(auxCad!=NULL)
+            //antes fallaba porque los parametros del newEmpleadoParam, no estaban en orden.
+            if(auxEmpleado!=NULL)
             {
 
                 *(lista+tam)=auxEmpleado;
-                if(agrandarLista(lista,tam+1)!=NULL)
+                tam++;
+                if((lista=agrandarLista(lista,tam+1))!=NULL)
                 {
-                    printf("Empleado agregado a la lista.\n");
-                    tam++;
+                    //printf("Empleado agregado a la lista.\n");
                 }
             }
 
-        }
-    }
-        mostrarEmpleados(lista,tam);
 
+        }
+        else
+        {
+            break;
+        }
+
+        // system("pause");
+    }
+    mostrarEmpleados(lista,tam);
+
+    fclose(f);
 
     return 0;
 }
@@ -140,9 +117,10 @@ eEmpleado* newEmpleadoParam(int id,char* nombre,float sueldo)
     {
         //setIdEmpleado(nuevo,id); //a la hora de dar de alta si todos los setters devuelven 1 se carga con exito.
         //ejemplo
-        if((setIdEmpleado(nuevo,id)==1) && (setSueldoEmpleado(nuevo,sueldo)==1) && (setNombreEmpleado(nuevo,nombre)==1)) //no es necesario que sea igual a 1.
+        if(setIdEmpleado(nuevo,id) && setNombreEmpleado(nuevo,nombre) && setSueldoEmpleado(nuevo,sueldo)) //no es necesario que sea igual a 1.
+        //los seteos se deben respetar en orden a la hora de llamar a la funcion.
         {
-            printf("Empleado parametrizado.\n");
+            //printf("Empleado parametrizado.\n");
         }
 
     }
@@ -236,7 +214,8 @@ int mostrarEmpleado(eEmpleado* e)
     int todoOK=0;
     if(e!=NULL)
     {
-        printf("%d  %s  %.2f\n",e->id,e->nombre,e->sueldo);
+        printf("%d\t%s   \t%5.2f\n",e->id,e->nombre,e->sueldo);
+        todoOK=1;
     }
     return todoOK;
 }
@@ -246,12 +225,12 @@ int mostrarEmpleados(eEmpleado** e,int tam)
     int todoOK=0;
     if(e!=NULL && tam>0)
     {
-        printf("ID   nombre    Sueldo\n");
+        printf("ID      NOMBRE       Sueldo\n");
         for(int i=0;i<tam;i++)
         {
             mostrarEmpleado(*(e+i));
         }
-
+        todoOK=1;
 
     }
     return todoOK;
@@ -259,7 +238,7 @@ int mostrarEmpleados(eEmpleado** e,int tam)
 
 eEmpleado** agrandarLista(eEmpleado** vec,int tam)
 {
-    eEmpleado** aux=(eEmpleado**)realloc(vec,sizeof(eEmpleado*)+tam); //sizeof por tipo de dato puntero (eEmpleado*)
+    eEmpleado** aux=(eEmpleado**)realloc(vec,sizeof(eEmpleado*)*tam); //sizeof por tipo de dato puntero (eEmpleado*)
     if(aux!=NULL)
     {
         vec=aux;
