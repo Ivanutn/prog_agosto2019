@@ -15,7 +15,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     int todoOK=0;//1 esta bien, 0 todo mal.
     int cant;
     char buffer[4][30];
-
+    Employee* auxEmployee=NULL;
     if(pFile!=NULL && pArrayListEmployee!=NULL)
     {
         pFile=fopen("data.csv","r");
@@ -31,8 +31,8 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
                 cant=fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n],\n",buffer[0],buffer[1],buffer[2],buffer[3]);
                 if(cant==4)
                 {
-
-
+                    auxEmployee=employee_newParametros(buffer[0],buffer[1],buffer[2],buffer[3]);
+                    ll_add(pArrayListEmployee,auxEmployee);
                 }
                 else
                 {
@@ -40,12 +40,11 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
                 }
 
             }
+            todoOK=1;
 
 
         }
 
-
-        todoOK=1;
     }
     else
     {
@@ -53,7 +52,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
         todoOK=0;
     }
 
-
+    fclose(pFile);
     return todoOK;
 }
 

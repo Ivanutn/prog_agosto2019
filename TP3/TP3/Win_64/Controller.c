@@ -15,11 +15,9 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
     int todoOK=0;//1 esta bien, 0 todo mal
     FILE* f;
-    if(path!=NULL && pArrayListEmployee!=NULL)
+    if(path!=NULL && pArrayListEmployee!=NULL && f!=NULL)
     {
         parser_EmployeeFromText(f,pArrayListEmployee);
-
-
 
     }
 
