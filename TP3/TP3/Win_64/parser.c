@@ -21,14 +21,14 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
         pFile=fopen("data.csv","r");
         if(pFile==NULL)
         {
-            todoOK;
+            todoOK=0;
         }
         else
         {
-            fscanf(f,"%[^,],%[^,],%[^,],%[^\n],\n",buffer[0],buffer[1],buffer[2],buffer[3]);
-            while(!feof(f))
+            fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n],\n",buffer[0],buffer[1],buffer[2],buffer[3]);
+            while(!feof(pFile))
             {
-                cant=fscanf(f,"%[^,],%[^,],%[^,],%[^\n],\n",buffer[0],buffer[1],buffer[2],buffer[3]);
+                cant=fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n],\n",buffer[0],buffer[1],buffer[2],buffer[3]);
                 if(cant==4)
                 {
 
@@ -50,7 +50,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     else
     {
         printf("Error al parsear empleado en modo texto.\n");
-        todoOK;
+        todoOK=0;
     }
 
 
