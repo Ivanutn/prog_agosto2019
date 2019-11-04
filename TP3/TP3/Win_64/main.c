@@ -21,15 +21,9 @@
 
 int main()
 {
-    int option = 0;
-    LinkedList* listaEmpleados = ll_newLinkedList();
-    do{
-        switch(option)
-        {
-            case 1:
-                controller_loadFromText("data.csv",listaEmpleados);
-                break;
-        }
-    }while(option != 10);
+    menu();
+
+
+
     return 0;
 }

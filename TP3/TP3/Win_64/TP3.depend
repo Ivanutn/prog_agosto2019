@@ -53,3 +53,48 @@
 	"LinkedList.h"
 	"Employee.h"
 
+1572867399 source:c:\users\alumno\desktop\prog_agosto2019\tp3\tp3\win_64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1572867399 c:\users\alumno\desktop\prog_agosto2019\tp3\tp3\win_64\linkedlist.h
+
+1572867399 c:\users\alumno\desktop\prog_agosto2019\tp3\tp3\win_64\employee.h
+
+1572867399 source:c:\users\alumno\desktop\prog_agosto2019\tp3\tp3\win_64\employee.c
+
+1572872057 source:c:\users\alumno\desktop\prog_agosto2019\tp3\tp3\win_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+
+1572867399 c:\users\alumno\desktop\prog_agosto2019\tp3\tp3\win_64\controller.h
+
+1572867399 source:c:\users\alumno\desktop\prog_agosto2019\tp3\tp3\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1572872133 source:c:\users\alumno\desktop\prog_agosto2019\tp3\tp3\win_64\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn_validaciones.h"
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+
+1572871553 source:c:\users\alumno\desktop\prog_agosto2019\tp3\tp3\win_64\utn_validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"utn_validaciones.h"
+
+1572871541 c:\users\alumno\desktop\prog_agosto2019\tp3\tp3\win_64\utn_validaciones.h
+
