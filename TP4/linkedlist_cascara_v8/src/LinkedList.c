@@ -105,30 +105,43 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
     Node* nodoActual=NULL;
     Node* nodoSiguiente=NULL;
     Node* auxiliar=NULL;
+    int indice=0;
     auxNode=(Node*)malloc(sizeof(Node));
-    if(auxNode!=NULL)
+
+    if(this!=NULL &&auxNode!=NULL && pElement!=NULL && nodeIndex>=0 && nodeIndex<ll_len(this))
     {
-        auxNode->pElement=NULL;
-        auxNode->pNextNode=NULL;
-    }
-    if(this!=NULL && pElement!=NULL && nodeIndex>0 && nodeIndex<=ll_len(this))
-    {
-        if(this->pFirstNode==NULL)
+        auxNode->pElement=pElement;
+        if(nodeIndex==0)
+        //if(this->pFirstNode==NULL)
         {
+            auxNode->pNextNode=this->pFirstNode;
             this->pFirstNode=auxNode;
+            this->size++;
             returnAux=0;
+
         }
-        else if(this->pFirstNode!=NULL)
+       // else if(this->pFirstNode!=NULL)
+          else if(nodeIndex<ll_len(this))
         {
             nodoActual=this->pFirstNode;
             for(int i=0;i<nodeIndex;i++)
             {
+                indice=nodeIndex;
                 nodoSiguiente=nodoActual->pNextNode;
-                auxiliar=nodoSiguiente;
-                nodoActual->pNextNode=auxNode;
-                auxNode->pNextNode=auxiliar;
-                this->size++;
-                returnAux=0;
+                if(indice==nodeIndex)
+                {
+                    auxiliar=nodoActual->pNextNode;
+                    nodoActual->pNextNode=auxNode;
+                    auxNode->pNextNode=auxiliar;
+                    auxiliar->pNextNode=nodoSiguiente;
+                    this->size++;
+                    returnAux=0;
+                }
+                else
+                {
+                    returnAux=-1;
+                }
+
 
             }
 
