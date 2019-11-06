@@ -1,0 +1,177 @@
+# depslib dependency file v1.0
+1570629447 source:d:\pp_ivanpacheco\autos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"autos.h"
+	"utn_validaciones.h"
+
+1570630849 d:\pp_ivanpacheco\autos.h
+	<stdio.h>
+	<stdlib.h>
+	"utn_validaciones.h"
+	"fechas.h"
+	"marcas.h"
+
+1570621787 d:\pp_ivanpacheco\utn_validaciones.h
+
+1570628606 source:d:\pp_ivanpacheco\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn_menu.h"
+	"autos.h"
+
+1570621731 d:\pp_ivanpacheco\utn_menu.h
+
+1570621774 source:d:\pp_ivanpacheco\utn_validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn_validaciones.h"
+
+1570624732 d:\pp_ivanpacheco\fechas.h
+	<stdio.h>
+	<stdlib.h>
+
+1570625525 source:d:\pp_ivanpacheco\color.c
+	<stdio.h>
+	<stdlib.h>
+	"color.h"
+
+1570625524 d:\pp_ivanpacheco\color.h
+	<stdio.h>
+	<stdlib.h>
+
+1570624486 source:d:\pp_ivanpacheco\fechas.c
+	<stdio.h>
+	<stdlib.h>
+	"fechas.h"
+
+1570629007 source:d:\pp_ivanpacheco\marcas.c
+	<stdio.h>
+	<stdlib.h>
+	"marcas.h"
+
+1570629030 d:\pp_ivanpacheco\marcas.h
+	<stdio.h>
+	<stdlib.h>
+
+1570625557 source:d:\pp_ivanpacheco\servicios.c
+	<stdio.h>
+	<stdlib.h>
+	"servicios.h"
+
+1570625554 d:\pp_ivanpacheco\servicios.h
+
+1570625721 source:d:\pp_ivanpacheco\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	"trabajo.h"
+
+1570625710 d:\pp_ivanpacheco\trabajo.h
+	<stdio.h>
+	<stdlib.h>
+
+1570630602 source:d:\pp_ivanpacheco\utn_menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"autos.h"
+	"utn_validaciones.h"
+	"color.h"
+	"servicios.h"
+
+1571228424 source:c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\autos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"autos.h"
+	"utn_validaciones.h"
+
+1571227880 c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\autos.h
+	<stdio.h>
+	<stdlib.h>
+	"utn_validaciones.h"
+	"fechas.h"
+	"marcas.h"
+
+1571225861 c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\utn_validaciones.h
+
+1571225861 c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\fechas.h
+	<stdio.h>
+	<stdlib.h>
+
+1571225861 c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\marcas.h
+	<stdio.h>
+	<stdlib.h>
+
+1571225861 source:c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\color.c
+	<stdio.h>
+	<stdlib.h>
+	"color.h"
+
+1571225861 c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\color.h
+	<stdio.h>
+	<stdlib.h>
+
+1571226268 source:c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\fechas.c
+	<stdio.h>
+	<stdlib.h>
+	"fechas.h"
+
+1571225861 source:c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn_menu.h"
+	"autos.h"
+
+1571225861 c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\utn_menu.h
+
+1571225861 source:c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\marcas.c
+	<stdio.h>
+	<stdlib.h>
+	"marcas.h"
+
+1571225861 source:c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\servicios.c
+	<stdio.h>
+	<stdlib.h>
+	"servicios.h"
+
+1571225861 c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\servicios.h
+
+1571225861 source:c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	"trabajo.h"
+
+1571225861 c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\trabajo.h
+	<stdio.h>
+	<stdlib.h>
+
+1571228877 source:c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\utn_menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"autos.h"
+	"utn_validaciones.h"
+	"color.h"
+	"servicios.h"
+	"cliente.h"
+
+1571225861 source:c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\utn_validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn_validaciones.h"
+
+1571226495 source:c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	"cliente.h"
+
+1571226630 c:\users\alumno\desktop\prog_agosto2019\pp_ivanpacheco\cliente.h
+	<stdio.h>
+	<stdlib.h>
+

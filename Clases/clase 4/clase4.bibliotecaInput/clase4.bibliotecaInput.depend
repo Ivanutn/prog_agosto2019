@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1567535726 source:c:\users\ik_pa\onedrive\desktop\programacion\clase4.bibliotecainput\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+
+1567535420 c:\users\ik_pa\onedrive\desktop\programacion\clase4.bibliotecainput\utn.h
+
+1567535435 source:c:\users\ik_pa\onedrive\desktop\programacion\clase4.bibliotecainput\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"utn.h"
+
+1567608794 source:c:\users\alumno\desktop\prog_agosto2019\clase 4\clase4.bibliotecainput\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"utn.h"
+
+1567607868 c:\users\alumno\desktop\prog_agosto2019\clase 4\clase4.bibliotecainput\utn.h
+

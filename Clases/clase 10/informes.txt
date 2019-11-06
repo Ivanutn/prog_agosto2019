@@ -1,0 +1,4 @@
+1) Ingresar nombre del alumno, informar todas las materias (nombres) que cursa.
+2) Nombres del alumno y nombre de materias cuya nota es >4.
+3) Ingresando el nombre de la maateria , informar nombre del alumno y nota de todos los que cursan.
+4) Nombre del alumno y nota de aquellos que tienen la nota mas alta de cada materia.

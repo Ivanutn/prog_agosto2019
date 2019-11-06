@@ -1,0 +1,71 @@
+# depslib dependency file v1.0
+1569238512 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"utn.h"
+
+1569238512 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn.h
+
+1569242329 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_array.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn_array.h"
+	"utn.h"
+
+1569239575 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_array.h
+
+1569242284 source:c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn_array.h"
+	"utn.h"
+
+1569238512 source:c:\users\alumno\desktop\prog_agosto2019\clase 9\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../BibliotecaUtn/utn.h"
+	"../BibliotecaUtn/utn_array.h"
+	"../BibliotecaUtn/utn_menu.h"
+
+1569238512 c:\users\alumno\desktop\prog_agosto2019\bibliotecautn\utn_menu.h
+
+1568932297 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"utn.h"
+
+1568932285 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn.h
+
+1569206269 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn_array.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn_array.h"
+	"utn.h"
+
+1569207258 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn_array.h
+
+1569206310 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn_menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn_array.h"
+	"utn.h"
+
+1569204405 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\clase 9\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../BibliotecaUtn/utn.h"
+	"../BibliotecaUtn/utn_array.h"
+	"../BibliotecaUtn/utn_menu.h"
+
+1568929373 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\bibliotecautn\utn_menu.h
+
