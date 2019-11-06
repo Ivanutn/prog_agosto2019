@@ -15,8 +15,13 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement);
  */
 LinkedList* ll_newLinkedList(void)
 {
-    LinkedList* this= NULL;
-
+    LinkedList* this= NULL;// siempre es aconsejable asignar NULL a un puntero.
+    this = (LinkedList*)malloc(sizeof(LinkedList));
+    if(this!=NULL) //valido para poder settear los campos.
+    {
+        this->size=0;
+        this->pFirstNode=NULL;
+    }
     return this;
 }
 
@@ -29,6 +34,10 @@ LinkedList* ll_newLinkedList(void)
 int ll_len(LinkedList* this)
 {
     int returnAux = -1;
+    if(this!=NULL)
+    {
+        returnAux=this->size;//size
+    }
     return returnAux;
 }
 
@@ -43,6 +52,11 @@ int ll_len(LinkedList* this)
  */
 static Node* getNode(LinkedList* this, int nodeIndex)
 {
+    if(this!=NULL && nodeIndex>0 && nodeIndex <= ll_len(this))
+    {
+
+    }
+
     return NULL;
 }
 
