@@ -1,2 +1,0 @@
-fecha ingreso es la struct
-dia mes y anio
