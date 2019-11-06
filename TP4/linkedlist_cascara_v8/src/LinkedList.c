@@ -52,8 +52,22 @@ int ll_len(LinkedList* this)
  */
 static Node* getNode(LinkedList* this, int nodeIndex)
 {
-    if(this!=NULL && nodeIndex>0 && nodeIndex <= ll_len(this))
+    Node* nodoActual=NULL;
+    Node* nodoSiguiente=NULL;
+
+    if(this!=NULL && nodeIndex>=0 && nodeIndex < ll_len(this))//nodeIndex puede ser mayor o igual a cero, pero no puede ser menor o igual a lo que devuelve ll_len.
     {
+        nodoActual=this->pFirstNode;
+        if(nodeIndex==0)
+        {
+            return nodoActual;
+        }
+
+        for(int i=0; i<=nodeIndex; i++)
+        {
+            nodoSiguiente=nodoActual->pNextNode;
+            return nodoSiguiente;
+        }
 
     }
 
@@ -70,6 +84,7 @@ static Node* getNode(LinkedList* this, int nodeIndex)
  */
 Node* test_getNode(LinkedList* this, int nodeIndex)
 {
+
     return getNode(this, nodeIndex);
 }
 
@@ -86,6 +101,41 @@ Node* test_getNode(LinkedList* this, int nodeIndex)
 static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 {
     int returnAux = -1;
+    Node* auxNode=NULL;
+    Node* nodoActual=NULL;
+    Node* nodoSiguiente=NULL;
+    Node* auxiliar=NULL;
+    auxNode=(Node*)malloc(sizeof(Node));
+    if(auxNode!=NULL)
+    {
+        auxNode->pElement=NULL;
+        auxNode->pNextNode=NULL;
+    }
+    if(this!=NULL && pElement!=NULL && nodeIndex>0 && nodeIndex<=ll_len(this))
+    {
+        if(this->pFirstNode==NULL)
+        {
+            this->pFirstNode=auxNode;
+            returnAux=0;
+        }
+        else if(this->pFirstNode!=NULL)
+        {
+            nodoActual=this->pFirstNode;
+            for(int i=0;i<nodeIndex;i++)
+            {
+                nodoSiguiente=nodoActual->pNextNode;
+                auxiliar=nodoSiguiente;
+                nodoActual->pNextNode=auxNode;
+                auxNode->pNextNode=auxiliar;
+                this->size++;
+                returnAux=0;
+
+            }
+
+        }
+
+
+    }
     return returnAux;
 }
 
