@@ -237,6 +237,10 @@ int ll_set(LinkedList* this, int index,void* pElement)
 {
     int returnAux = -1;
 
+    if(this!=NULL && index>=0 && index<ll_len(this))
+    {
+
+    }
     return returnAux;
 }
 
