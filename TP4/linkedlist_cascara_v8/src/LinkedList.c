@@ -157,29 +157,17 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
 int ll_add(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
-    Node* aux=NULL;
-    Node* nuevoNodo=NULL;
-    nuevoNodo=(Node*)malloc(sizeof(Node));
-
-    if(nuevoNodo!=NULL)
-    {
-        nuevoNodo->pElement=pElement;
-        nuevoNodo->pNextNode=NULL;
-    }
 
     if(this!=NULL)
     {
         if(ll_len(this)==0)//si el unico elemento es el LL, lo agrego en el primer nodo.
         {
-            this->pFirstNode=nuevoNodo;
+            addNode(this,0,pElement);
         }
         else
         {
-            aux=getNode(this,ll_len(this)-1);
-            aux->pNextNode=nuevoNodo;
+            addNode(this,ll_len(this),pElement);
         }
-
-         this->size++;
          returnAux=0;
     }
 
@@ -444,6 +432,7 @@ int ll_push(LinkedList* this, int index, void* pElement)
         }
         else if(index>0 && index<ll_len(this))
         {
+            ll_add(this,pElement);
 
         }
 
