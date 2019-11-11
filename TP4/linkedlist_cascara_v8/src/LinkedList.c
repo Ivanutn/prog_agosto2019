@@ -270,7 +270,7 @@ int ll_remove(LinkedList* this,int index)
         if(index==0)
         {
             this->pFirstNode=NULL;
-            free(this); // ¿ es necesario hacer un free ?
+            free(this); // es necesario hacer un free
         }
         else if(index>0)
         {
@@ -415,25 +415,12 @@ int ll_isEmpty(LinkedList* this)
 int ll_push(LinkedList* this, int index, void* pElement)
 {
     int returnAux = -1;
-
+    Node* aux=NULL;
     if(this!=NULL && index >=0 && index<ll_len(this))
     {
-        if(ll_len(this)==0)
+        if(this->pFirstNode==NULL)
         {
-            //addNode(this,0,pElement);
-            ll_add(this,pElement);
-
-        }
-        else if(index==ll_len(this)-1)
-        {
-            //addNode(this,ll_len(this),pElement);
-            ll_add(this,pElement);
-
-        }
-        else if(index>0 && index<ll_len(this))
-        {
-            ll_add(this,pElement);
-
+            ll_add(this,aux->pElement);
         }
 
         returnAux=0;
