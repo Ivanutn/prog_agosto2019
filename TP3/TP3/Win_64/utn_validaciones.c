@@ -105,6 +105,7 @@ int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit,
         {
             contReintentos++;
             printf("%s",eMessage);
+            cls_pause();
         }
         else
         {
@@ -112,6 +113,7 @@ int getInt(int* input,char message[],char eMessage[],int lowLimit,int highLimit,
              if(numero<lowLimit || numero>highLimit)
              {
                 printf("%s",eMessage);
+                cls_pause();
                 contReintentos++;
              }
              else
@@ -319,6 +321,7 @@ int botonSeguir(char string[],char* message,char* eMessage)
     char auxiliar[3];
 
     printf("%s",message);
+    fflush(stdin);
     fgets(auxiliar,3,stdin);
     removerSaltoDeLinea(auxiliar);
     if((valCharacter(auxiliar,3)==0) && (strlen(auxiliar)<2))
@@ -352,5 +355,12 @@ void removerSaltoDeLinea(char* string)
             string[i]='\0';
         }
     }
+}
+
+void cls_pause(void)
+{
+    system("pause");
+    system("cls");
+
 }
 
