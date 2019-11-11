@@ -383,7 +383,7 @@ int ll_indexOf(LinkedList* this, void* pElement)
         }
 
     }
-
+    free(aux);
     return returnAux;
 }
 
@@ -398,7 +398,18 @@ int ll_indexOf(LinkedList* this, void* pElement)
 int ll_isEmpty(LinkedList* this)
 {
     int returnAux = -1;
+    if(this!=NULL)
+    {
+        if(ll_len(this)==0)
+        {
+            returnAux=1;
+        }
+        else
+        {
+            returnAux=0;
+        }
 
+    }
     return returnAux;
 }
 
@@ -414,7 +425,31 @@ int ll_isEmpty(LinkedList* this)
 int ll_push(LinkedList* this, int index, void* pElement)
 {
     int returnAux = -1;
+    Node* nuevoNodo=NULL;
+    nuevoNodo=(Node*)malloc(sizeof(Node));
+    if(nuevoNodo!=NULL)
+    {
+        nuevoNodo->pElement=pElement;
+        nuevoNodo->pNextNode=NULL;
+    }
+    if(this!=NULL && index >=0 && index<ll_len(this))
+    {
+        if(ll_len(this)==0)
+        {
+            addNode(this,0,pElement);
+        }
+        else if(ll_len(this)-1)
+        {
+            addNode(this,ll_len(this)-1,pElement);
+        }
+        else if(index>0 && index<ll_len(this))
+        {
 
+        }
+
+        returnAux=0;
+
+    }
     return returnAux;
 }
 
