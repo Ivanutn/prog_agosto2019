@@ -110,9 +110,9 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
         {
             this->pFirstNode=nuevoNodo;
         }
-        else if(nodeIndex==0) //signicica que elije la posicion cero pero el LL tiene datos
+        else if(nodeIndex==0 &&ll_len(this)>0) //signicica que elije la posicion cero pero el LL tiene datos
         {
-            aux=getNode(this,0);
+            aux=getNode(this,nodeIndex);
             nuevoNodo->pNextNode=aux;
             this->pFirstNode=nuevoNodo;
 
@@ -123,9 +123,9 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
             nuevoNodo->pNextNode=aux->pNextNode;
             aux->pNextNode=nuevoNodo;
         }
+
         this->size++;
         returnAux=0;
-
     }
 
 
@@ -168,6 +168,8 @@ int ll_add(LinkedList* this, void* pElement)
         {
             addNode(this,ll_len(this),pElement);
         }
+
+
          returnAux=0;
     }
 
@@ -413,22 +415,20 @@ int ll_isEmpty(LinkedList* this)
 int ll_push(LinkedList* this, int index, void* pElement)
 {
     int returnAux = -1;
-    Node* nuevoNodo=NULL;
-    nuevoNodo=(Node*)malloc(sizeof(Node));
-    if(nuevoNodo!=NULL)
-    {
-        nuevoNodo->pElement=pElement;
-        nuevoNodo->pNextNode=NULL;
-    }
+
     if(this!=NULL && index >=0 && index<ll_len(this))
     {
         if(ll_len(this)==0)
         {
-            addNode(this,0,pElement);
+            //addNode(this,0,pElement);
+            ll_add(this,pElement);
+
         }
         else if(index==ll_len(this)-1)
         {
-            addNode(this,ll_len(this)-1,pElement);
+            //addNode(this,ll_len(this),pElement);
+            ll_add(this,pElement);
+
         }
         else if(index>0 && index<ll_len(this))
         {
