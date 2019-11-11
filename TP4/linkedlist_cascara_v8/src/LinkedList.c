@@ -52,26 +52,18 @@ int ll_len(LinkedList* this)
  */
 static Node* getNode(LinkedList* this, int nodeIndex)
 {
-    Node* nodoActual=NULL;
-    Node* nodoSiguiente=NULL;
+    Node* retornoNodo=NULL;
 
-    if(this!=NULL && nodeIndex>=0 && nodeIndex < ll_len(this))//nodeIndex puede ser mayor o igual a cero, pero no puede ser menor o igual a lo que devuelve ll_len.
+    if(this!=NULL && nodeIndex>=0 && nodeIndex<ll_len(this))
     {
-        nodoActual=this->pFirstNode;
-        if(nodeIndex==0)
+        retornoNodo=this->pFirstNode;
+        for(int i=0; i<nodeIndex; i++)
         {
-            return nodoActual;
+            retornoNodo=retornoNodo->pNextNode;
         }
-
-        for(int i=0; i<=nodeIndex; i++)
-        {
-            nodoSiguiente=nodoActual->pNextNode;
-            return nodoSiguiente;
-        }
-
     }
 
-    return NULL;
+    return retornoNodo;
 }
 
 /** \brief  Permite realizar el test de la funcion getNode la cual es privada
@@ -101,45 +93,42 @@ Node* test_getNode(LinkedList* this, int nodeIndex)
 static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 {
     int returnAux = -1;
+    Node* nuevoNodo=NULL; //nodo que contiene el pElement y que se va a insertar en alguna posicion.
+    Node* aux=NULL;
 
-    Node* auxNode=NULL;
-    Node* nodoActual=NULL;
-    Node* nodoSiguiente=NULL;
 
-    Node* auxiliar=NULL;
-    int indice=0;
-    auxNode=(Node*)malloc(sizeof(Node));
-
-    if(this!=NULL &&auxNode!=NULL && pElement!=NULL && nodeIndex>=0 && nodeIndex<ll_len(this))
+    if(this!=NULL && nodeIndex>=0 && nodeIndex<=ll_len(this))
     {
-        auxNode->pElement=pElement;
-        if(nodeIndex==0)
-        //if(this->pFirstNode==NULL)
+        nuevoNodo=(Node*)malloc(sizeof(Node));
+        if(nuevoNodo!=NULL)
         {
-            auxNode->pNextNode=this->pFirstNode;
-            this->pFirstNode=auxNode;
-            this->size++;
-            returnAux=0;
-
-        }
-       // else if(this->pFirstNode!=NULL)
-          else if(nodeIndex<=ll_len(this))
-        {
-            nodoActual=this->pFirstNode;
-            auxiliar=getNode(this,nodeIndex-1);
-            nodoSiguiente=nodoActual->pNextNode;
-
-            auxiliar=nodoActual->pNextNode;
-            nodoActual->pNextNode=auxNode;
-            auxNode->pNextNode=auxiliar;
-            auxiliar->pNextNode=nodoSiguiente;
-            this->size++;
-            returnAux=0;
-
+            nuevoNodo->pElement=pElement;
+            nuevoNodo->pNextNode=NULL;
         }
 
+        if(nodeIndex==0 && ll_len(this)==0) //LL solamente tiene al LL
+        {
+            this->pFirstNode=nuevoNodo;
+        }
+        else if(nodeIndex==0) //signicica que elije la posicion cero pero el LL tiene datos
+        {
+            aux=getNode(this,0);
+            nuevoNodo->pNextNode=aux;
+            this->pFirstNode=nuevoNodo;
+
+        }
+        else if(nodeIndex>0 && ll_len(this)>0)
+        {
+            aux=getNode(this,nodeIndex-1);
+            nuevoNodo->pNextNode=aux->pNextNode;
+            aux->pNextNode=nuevoNodo;
+        }
+        this->size++;
+        returnAux=0;
 
     }
+
+
     return returnAux;
 }
 
@@ -168,6 +157,32 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
 int ll_add(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
+    Node* aux=NULL;
+    Node* nuevoNodo=NULL;
+    nuevoNodo=(Node*)malloc(sizeof(Node));
+
+    if(nuevoNodo!=NULL)
+    {
+        nuevoNodo->pElement=pElement;
+        nuevoNodo->pNextNode=NULL;
+    }
+
+    if(this!=NULL)
+    {
+        if(ll_len(this)==0)//si el unico elemento es el LL, lo agrego en el primer nodo.
+        {
+            this->pFirstNode=nuevoNodo;
+        }
+        else
+        {
+            aux=getNode(this,ll_len(this)-1);
+            aux->pNextNode=nuevoNodo;
+        }
+
+         this->size++;
+         returnAux=0;
+    }
+
 
     return returnAux;
 }
@@ -183,7 +198,28 @@ int ll_add(LinkedList* this, void* pElement)
 void* ll_get(LinkedList* this, int index)
 {
     void* returnAux = NULL;
+    Node* aux=NULL;
+    aux=(Node*)malloc(sizeof(Node));
+    if(aux!=NULL)
+    {
+        aux->pElement=NULL;
+        aux->pNextNode=NULL;
+    }
+    if(this!=NULL && index>=0 && index < ll_len(this))
+    {
+        if(index==0)
+        {
+            aux=getNode(this,index);
+            returnAux=aux->pElement;
+        }
+        else if(index>0 && index< ll_len(this))
+        {
+           aux=getNode(this,index);
+           returnAux=aux->pElement;
+        }
 
+
+    }
     return returnAux;
 }
 
