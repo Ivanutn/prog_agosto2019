@@ -236,9 +236,26 @@ void* ll_get(LinkedList* this, int index)
 int ll_set(LinkedList* this, int index,void* pElement)
 {
     int returnAux = -1;
-
+    Node* setNode=NULL;
+    setNode=(Node*)malloc(sizeof(Node));
+    if(setNode!=NULL)
+    {
+        setNode->pElement=NULL;
+        setNode->pNextNode=NULL;
+    }
     if(this!=NULL && index>=0 && index<ll_len(this))
     {
+        if(index==0)
+        {
+            setNode=getNode(this,index);
+            setNode->pElement=pElement;
+        }
+        else if(index>0)
+        {
+            setNode=getNode(this,index);
+            setNode->pElement=pElement;
+        }
+        returnAux=0;
 
     }
     return returnAux;
