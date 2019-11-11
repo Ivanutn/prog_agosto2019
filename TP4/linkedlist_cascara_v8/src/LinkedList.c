@@ -334,7 +334,20 @@ int ll_clear(LinkedList* this)
 int ll_deleteLinkedList(LinkedList* this)
 {
     int returnAux = -1;
-
+    if(this!=NULL)
+    {
+        if(ll_len(this)==0)
+        {
+            free(this);
+            returnAux=1;
+        }
+        else if(ll_len(this)>0)
+        {
+            ll_clear(this);
+            free(this);
+            returnAux=0;
+        }
+    }
     return returnAux;
 }
 
