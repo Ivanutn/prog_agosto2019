@@ -270,8 +270,9 @@ int ll_remove(LinkedList* this,int index)
         if(index==0)
         {
             this->pFirstNode=NULL;
-            free(this); // es necesario hacer un free
+            free(this);
         }
+
         else if(index>0)
         {
             deleteNode=getNode(this,index);
@@ -279,6 +280,14 @@ int ll_remove(LinkedList* this,int index)
             aux->pNextNode=deleteNode->pNextNode;
             free(deleteNode);
         }
+        else if(index==ll_len(this)-1)
+        {
+            deleteNode=getNode(this,index);
+            aux=getNode(this,index-1);
+            aux->pNextNode=NULL;
+            free(deleteNode);
+        }
+
         this->size--;
         returnAux=0;
     }
@@ -453,7 +462,8 @@ void* ll_pop(LinkedList* this,int index)
     void* returnAux = NULL;
     if(this!=NULL && index>=0 && index<ll_len(this))
     {
-
+        returnAux=ll_get(this,index);
+        ll_remove(this,index);
     }
     return returnAux;
 }
@@ -470,7 +480,18 @@ void* ll_pop(LinkedList* this,int index)
 int ll_contains(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
+    if(this!=NULL)
+    {
+        if(ll_indexOf(this,pElement)!=-1)
+        {
+            returnAux=1;
+        }
+        else
+        {
+            returnAux=0;
+        }
 
+    }
     return returnAux;
 }
 
