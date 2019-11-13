@@ -59,8 +59,9 @@ static Node* getNode(LinkedList* this, int nodeIndex)
         retornoNodo=this->pFirstNode;
         for(int i=0; i<nodeIndex; i++)
         {
-            retornoNodo=retornoNodo->pNextNode;
+                retornoNodo=retornoNodo->pNextNode;
         }
+
     }
 
     return retornoNodo;
@@ -122,6 +123,12 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
             aux=getNode(this,nodeIndex-1);
             nuevoNodo->pNextNode=aux->pNextNode;
             aux->pNextNode=nuevoNodo;
+        }
+        else if(nodeIndex==ll_len(this))
+        {
+            aux=getNode(this,nodeIndex-1);
+            aux->pNextNode=nuevoNodo;
+            nuevoNodo->pNextNode=NULL;
         }
 
         this->size++;
@@ -227,24 +234,23 @@ int ll_set(LinkedList* this, int index,void* pElement)
 {
     int returnAux = -1;
     Node* setNode=NULL;
-    setNode=(Node*)malloc(sizeof(Node));
-    if(setNode!=NULL)
-    {
-        setNode->pElement=NULL;
-        setNode->pNextNode=NULL;
-    }
+
     if(this!=NULL && index>=0 && index<ll_len(this))
     {
         if(index==0)
         {
-            setNode=getNode(this,index);
-            setNode->pElement=pElement;
+            addNode(this,index,pElement);
         }
-        else if(index>0)
+        if(index==ll_len(this))
+        {
+            addNode(this,index,pElement);
+        }
+        else if(index>0 && index<ll_len(this))
         {
             setNode=getNode(this,index);
             setNode->pElement=pElement;
         }
+
         returnAux=0;
 
     }
@@ -429,15 +435,18 @@ int ll_push(LinkedList* this, int index, void* pElement)
 
         if(index==0)
         {
-            ll_add(this,pElement);
+           // ll_add(this,pElement);
+           addNode(this,index,pElement);
         }
 
         else if(index==ll_len(this))
         {
-            ll_add(this,pElement);
+            //ll_add(this,pElement);
+            addNode(this,index,pElement);
         }
         else if(index>0&&ll_len(this)>0)
         {
+           // ll_add(this,pElement);
             addNode(this,index,pElement);
         }
 
