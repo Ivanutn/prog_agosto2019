@@ -195,28 +195,14 @@ int ll_add(LinkedList* this, void* pElement)
 void* ll_get(LinkedList* this, int index)
 {
     void* returnAux = NULL;
-    Node* aux=NULL;
-    aux=(Node*)malloc(sizeof(Node));
-    if(aux!=NULL)
-    {
-        aux->pElement=NULL;
-        aux->pNextNode=NULL;
-    }
+    Node* aux = NULL;
+
     if(this!=NULL && index>=0 && index < ll_len(this))
     {
-        if(index==0)
-        {
             aux=getNode(this,index);
             returnAux=aux->pElement;
-        }
-        else if(index>0 && index< ll_len(this))
-        {
-           aux=getNode(this,index);
-           returnAux=aux->pElement;
-        }
-
-
     }
+
     return returnAux;
 }
 
@@ -313,14 +299,10 @@ int ll_clear(LinkedList* this)
     int returnAux = -1;
     if(this!=NULL)
     {
-        if(ll_len(this)==0)
+        while(!ll_isEmpty(this))
         {
            ll_remove(this,0);
 
-        }
-        for(int i=0; i<ll_len(this); i++)
-        {
-            ll_remove(this,i);
         }
 
        returnAux=0;
@@ -605,30 +587,31 @@ int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
 {
     int returnAux =-1;
     void* aux=NULL;
+
     if(this!=NULL && pFunc!=NULL && order>=0 && order<=1)
     {
+         int tam =  ll_len(this);
 
-        for(int i=0; i<(ll_len(this)-1); i++)
+        for(int i=0; i< tam-1; i++)
         {
-            for(int j=i+1; j<ll_len(this); j++)
+            for(int j=i+1; j< tam; j++)
             {
-                if(order==1 && pFunc(ll_get(this,i),ll_get(this,j))>0)
+                if(pFunc( ll_get(this,i) , ll_get(this,j) )<0 && !order)
                 {
                     aux=ll_get(this,i);
                     ll_set(this,i,ll_get(this,j));
                     ll_set(this,j,aux);
                 }
-                else if(order==0 && pFunc(ll_get(this,i),ll_get(this,j))<0)
-
+                else if(pFunc( ll_get(this,i) , ll_get(this,j) )>0 && order )
                 {
-                    aux=ll_get(this,j);
-                    ll_set(this,j,ll_get(this,i));
-                    ll_set(this,i,aux);
+                    aux=ll_get(this,i);
+                    ll_set(this,i,ll_get(this,j));
+                    ll_set(this,j,aux);
                 }
             }
         }
+        returnAux=0;
 
-    returnAux=0;
     }
     return returnAux;
 
