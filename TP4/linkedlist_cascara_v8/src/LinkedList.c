@@ -111,7 +111,7 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
         {
             this->pFirstNode=nuevoNodo;
         }
-        else if(nodeIndex==0 &&ll_len(this)>0) //signicica que elije la posicion cero pero el LL tiene datos
+        else if(nodeIndex==0 && ll_len(this)>0) //signicica que elije la posicion cero pero el LL tiene datos
         {
             aux=getNode(this,nodeIndex);
             nuevoNodo->pNextNode=aux;
@@ -223,22 +223,9 @@ int ll_set(LinkedList* this, int index,void* pElement)
 
     if(this!=NULL && index>=0 && index<ll_len(this))
     {
-        if(index==0)
-        {
-            addNode(this,index,pElement);
-        }
-        if(index==ll_len(this))
-        {
-            addNode(this,index,pElement);
-        }
-        else if(index>0 && index<ll_len(this))
-        {
-            setNode=getNode(this,index);
-            setNode->pElement=pElement;
-        }
-
+        setNode=getNode(this,index);
+        setNode->pElement=pElement;
         returnAux=0;
-
     }
     return returnAux;
 }
@@ -496,10 +483,10 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
     int flag=0;
     if(this!=NULL && this2!=NULL)
     {
-        for(int i=0;i<ll_len(this);i++)
+       for(int i=0;i<ll_len(this2);i++)
         {
             flag=0;
-             if(ll_contains(this2,ll_get(this,i)))
+            if(ll_contains(this,ll_get(this,i)))
             {
                 flag=1;
             }
@@ -513,7 +500,7 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
         {
             returnAux=1;
         }
-        else
+        else if(flag==0)
         {
             returnAux=0;
         }
