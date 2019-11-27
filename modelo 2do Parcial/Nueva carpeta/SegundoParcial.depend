@@ -1,0 +1,54 @@
+# depslib dependency file v1.0
+1561508114 source:c:\users\axel\desktop\ghio axel, 1a seg. parcial\axelutn.c
+	<stdio.h>
+	<stdint.h>
+	<string.h>
+	<stdlib.h>
+	<ctype.h>
+	"LinkedList.h"
+
+1561506908 c:\users\axel\desktop\ghio axel, 1a seg. parcial\linkedlist.h
+
+1561508110 source:c:\users\axel\desktop\ghio axel, 1a seg. parcial\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"AxelUTN.h"
+	"parser.h"
+
+1561507613 c:\users\axel\desktop\ghio axel, 1a seg. parcial\employee.h
+
+1560956769 c:\users\axel\desktop\ghio axel, 1a seg. parcial\axelutn.h
+
+1560956769 c:\users\axel\desktop\ghio axel, 1a seg. parcial\parser.h
+
+1561508515 source:c:\users\axel\desktop\ghio axel, 1a seg. parcial\employee.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	"Employee.h"
+
+1561506908 source:c:\users\axel\desktop\ghio axel, 1a seg. parcial\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1560956769 source:c:\users\axel\desktop\ghio axel, 1a seg. parcial\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1561507917 source:c:\users\axel\desktop\ghio axel, 1a seg. parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+
+1560956769 c:\users\axel\desktop\ghio axel, 1a seg. parcial\controller.h
+
