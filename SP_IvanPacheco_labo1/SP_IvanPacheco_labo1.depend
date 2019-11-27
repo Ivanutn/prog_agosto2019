@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1574861234 source:d:\sp_ivanpacheco_labo1\cachorro.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cachorro.h"
+
+1574861069 d:\sp_ivanpacheco_labo1\cachorro.h
+	<stdio.h>
+	<stdlib.h>
+
+1574854403 source:d:\sp_ivanpacheco_labo1\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1574862913 d:\sp_ivanpacheco_labo1\linkedlist.h
+
+1574854743 source:d:\sp_ivanpacheco_labo1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"utn_menu.h"
+
+1574859622 d:\sp_ivanpacheco_labo1\utn_menu.h
+
+1574862661 source:d:\sp_ivanpacheco_labo1\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"utn.h"
+
+1574862665 d:\sp_ivanpacheco_labo1\utn.h
+
+1574862377 source:d:\sp_ivanpacheco_labo1\utn_menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"controller.h"
+
+1574860815 source:d:\sp_ivanpacheco_labo1\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"parser.h"
+	"cachorro.h"
+	"LinkedList.h"
+
+1574859025 d:\sp_ivanpacheco_labo1\parser.h
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+
+1574860932 d:\sp_ivanpacheco_labo1\controller.h
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"cachorro.h"
+
+1574862337 source:d:\sp_ivanpacheco_labo1\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"controller.h"
+	"parser.h"
+	"LinkedList.h"
+	"utn.h"
+
