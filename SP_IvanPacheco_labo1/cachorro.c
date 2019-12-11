@@ -19,7 +19,7 @@ eCachorro* cachorro_new()
 
 }
 
-eCachorro* cachorro_newParametros(char* idStr,char* nombreStr,char* diasStr,char* razaStr,char* reservadoStr,char* genero)
+eCachorro* cachorro_newParametros(char* idStr,char* nombreStr,char* diasStr,char* razaStr,char* reservadoStr,char genero)
 {
     eCachorro* nuevo=cachorro_new();
     if(nuevo!=NULL)
@@ -166,12 +166,12 @@ int cachorro_getReservado(eCachorro* this,char* reservado)
 
 }
 
-int cachorro_setGenero(eCachorro* this,char* genero)
+int cachorro_setGenero(eCachorro* this,char genero)
 {
     int todoOK=0;
-    if(this!=NULL && genero!=NULL && strlen(genero)<2)
+    if(this!=NULL)
     {
-        for(int i=0;i<strlen(genero);i++)
+        /*for(int i=0;i<strlen(genero);i++)
         {
             if(genero[i]=='m' || genero[i]=='M')
             {
@@ -183,7 +183,18 @@ int cachorro_setGenero(eCachorro* this,char* genero)
                 this->genero=genero[i];
                 todoOK=1;
             }
+        }*/
+        if(genero=='m'|| genero=='M')
+        {
+            this->genero=genero;
+            todoOK=1;
         }
+        else if(genero=='h' || genero=='H')
+        {
+            this->genero=genero;
+            todoOK=1;
+        }
+
 
     }
 
@@ -196,17 +207,18 @@ int cachorro_getGenero(eCachorro* this,char* genero)
     int todoOK=0;
     if(this!=NULL && genero!=NULL)
     {
-        if(genero[0]=='m' || genero[0]=='M')
+        /*if(genero=='m' || genero=='M')
         {
             genero[0]=this->genero;
             todoOK=1;
         }
-        else if(genero[0]=='h' || genero[0]=='H')
+        else if(genero=='h' || genero =='H')
         {
             genero[0]=this->genero;
             todoOK=1;
-        }
-
+        }*/
+         genero[0]=this->genero;
+         todoOK=1;
 
 
     }

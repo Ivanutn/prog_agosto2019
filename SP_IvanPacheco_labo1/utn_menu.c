@@ -38,9 +38,10 @@ int menu(void)
             switch (numero)
             {
             case 1:
-                getString(nombreArchivo,"nombre del archivo 'cachorros' en minuscula\nIngrese el nombre del archivo a cargar:","Error, ingrese minimo 1 y maximo 20 caracteres.\n",1,20,3);
+               // getString(nombreArchivo,"nombre del archivo 'cachorros'\nIngrese el nombre del archivo a cargar:","Error, ingrese minimo 1 y maximo 20 caracteres.\n",1,20,3);
 
-                strcat(nombreArchivo,extension);
+                //strcat(nombreArchivo,extension);
+                strcpy(nombreArchivo,"cachorros.csv");
                 if(controller_loadFromText(nombreArchivo,misCachorros))
                 {
                     printf("Archivo cargado con exito.\n");
@@ -60,7 +61,7 @@ int menu(void)
                  pauseAndClear();
                 break;
             case 3:
-                if(flag==0)
+               /* if(flag==0)
                 {
                    printf("Primero hay que cargar el archivo\n");
                 }
@@ -68,7 +69,7 @@ int menu(void)
                 {
                     ll_filter(misCachorros,))
                     controller_guardarFiltrado("filtrar menores de 45",misCachorros);
-                }
+                }*/
                  pauseAndClear();
 
                 break;

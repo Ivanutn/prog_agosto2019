@@ -610,7 +610,7 @@ LinkedList* ll_filter(LinkedList* this,int (*fn)(void* element))
     {
         if(filter!=NULL)
         {
-           for(int i=0;i<ll_len(this);i++)
+           /*for(int i=0;i<ll_len(this);i++)
             {
                 aux=ll_get(this,i);
                 fn(aux)
@@ -621,7 +621,7 @@ LinkedList* ll_filter(LinkedList* this,int (*fn)(void* element))
                        ll_add(filter,(eCachorro*)aux);
                     }
                 }
-            }
+            }*/
         }
 
     }
