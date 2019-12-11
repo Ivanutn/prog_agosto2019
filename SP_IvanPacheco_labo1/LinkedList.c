@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "LinkedList.h"
-
+#include "cachorro.h"
 
 static Node* getNode(LinkedList* this, int nodeIndex);
 static int addNode(LinkedList* this, int nodeIndex,void* pElement);
@@ -602,7 +602,6 @@ int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
 
 LinkedList* ll_filter(LinkedList* this,int (*fn)(void* element))
 {
-    int retorno=0;
     LinkedList* filter = NULL;
     void* aux=NULL;
     filter=ll_newLinkedList();
@@ -610,18 +609,16 @@ LinkedList* ll_filter(LinkedList* this,int (*fn)(void* element))
     {
         if(filter!=NULL)
         {
-           /*for(int i=0;i<ll_len(this);i++)
+            for(int i=0; i<ll_len(this); i++)
             {
                 aux=ll_get(this,i);
-                fn(aux)
+                if(fn(aux))
                 {
-                    if(aux > 45)
-                    {
-                       retorno=1;
-                       ll_add(filter,(eCachorro*)aux);
-                    }
+                    ll_add(filter,(eCachorro*)aux);
+
                 }
-            }*/
+
+            }
         }
 
     }

@@ -67,17 +67,17 @@
 	"LinkedList.h"
 	"utn.h"
 
-1576026515 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\cachorro.c
+1576029726 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\cachorro.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"cachorro.h"
 
-1576026472 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\cachorro.h
+1576029518 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\cachorro.h
 	<stdio.h>
 	<stdlib.h>
 
-1576026229 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\controller.c
+1576029799 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\controller.c
 	<stdio.h>
 	<stdlib.h>
 	"controller.h"
@@ -85,7 +85,7 @@
 	"LinkedList.h"
 	"utn.h"
 
-1576023025 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\controller.h
+1576029537 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\controller.h
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -100,11 +100,12 @@
 
 1576023025 c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\utn.h
 
-1576023824 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\linkedlist.c
+1576028728 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\linkedlist.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"LinkedList.h"
+	"cachorro.h"
 
 1576023025 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\main.c
 	<stdio.h>
@@ -128,10 +129,11 @@
 	<string.h>
 	"utn.h"
 
-1576024905 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\utn_menu.c
+1576029438 source:c:\users\ik_pa\onedrive\desktop\programacion\prog_agosto2019\sp_ivanpacheco_labo1\utn_menu.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"LinkedList.h"
 	"controller.h"
+	"utn.h"
 

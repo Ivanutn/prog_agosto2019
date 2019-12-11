@@ -1,101 +1,0 @@
-id_cachorro,nombre,dias,raza,reservado,genero
-    1   Colmillo    91    Bulldog         NO       NO
-    2     Spunky    87     Collie         NO       NO
-    3      Pluto    47  Salchicha         NO       NO
-    4        Max    70     Collie         SI       SI
-    5       Milo    70   Pequines         SI       SI
-    6      Reina    16     Beagle         SI       SI
-    7     Buster    44    Caniche         SI       SI
-    8     Scooby    27    Bulldog         SI       SI
-    9     Spunky    13     Beagle         SI       SI
-   10   Firulais    95  Callejero         NO       NO
-   11      Peggy    40   Pequines         SI       SI
-   12  Beethoven     1    Caniche         NO       NO
-   13     Scooby    55   Labrador         NO       NO
-   14   Einstein     2  Callejero         NO       NO
-   15       Boby    30    Bulldog         SI       SI
-   16  Beethoven    61    Bulldog         SI       SI
-   17      Pluto    10  Callejero         NO       NO
-   18     Spunky    18     Collie         NO       NO
-   19     Lassie    31       Dogo         SI       SI
-   20   Colmillo    25       Dogo         NO       NO
-   21      Benji    97  Salchicha         SI       SI
-   22      Reina    93      Boxer         NO       NO
-   23      Benji    11     Collie         NO       NO
-   24       Milo    74    Caniche         SI       SI
-   25        Max    69       Dogo         NO       NO
-   26  Beethoven    17  Salchicha         NO       NO
-   27     Buster    54      Boxer         NO       NO
-   28    Charlie    15    Caniche         SI       SI
-   29      Peggy    52  Callejero         NO       NO
-   30     Snoopy    57     Beagle         SI       SI
-   31      Benji    54       Dogo         NO       NO
-   32      Pluto    77   Labrador         SI       SI
-   33     Buster    19   Pequines         NO       NO
-   34     Bonnie    84   Pequines         SI       SI
-   35    Charlie    37       Dogo         SI       SI
-   36    Charlie    53      Boxer         SI       SI
-   37     Scooby    10  Callejero         NO       NO
-   38  Beethoven     4    Caniche         NO       NO
-   39     Bonnie    93     Collie         NO       NO
-   40   Einstein    31   Labrador         NO       NO
-   41      Benji     4       Dogo         SI       SI
-   42   Firulais    59      Boxer         NO       NO
-   43     Buster    11  Callejero         NO       NO
-   44      Benji    99     Beagle         NO       NO
-   45     Lassie    61    Caniche         SI       SI
-   46     Lassie     3   Pequines         NO       NO
-   47     Scooby    35  Salchicha         NO       NO
-   48     Buster    30       Dogo         NO       NO
-   49   Colmillo     2  Callejero         NO       NO
-   50     Buster     3     Beagle         NO       NO
-   51        Max    16  Salchicha         NO       NO
-   52   Einstein    96  Callejero         NO       NO
-   53   Einstein    72  Callejero         SI       SI
-   54     Buster    15   Labrador         NO       NO
-   55        Max    43      Boxer         NO       NO
-   56      Reina    78      Boxer         NO       NO
-   57      Reina    85     Collie         SI       SI
-   58     Scooby    51     Collie         SI       SI
-   59   Colmillo    14       Dogo         NO       NO
-   60       Milo    12    Caniche         NO       NO
-   61   Firulais     8  Callejero         SI       SI
-   62   Colmillo    26       Dogo         SI       SI
-   63      Benji    59     Collie         NO       NO
-   64       Milo    20    Caniche         SI       SI
-   65       Milo    32    Bulldog         NO       NO
-   66      Reina    79     Collie         SI       SI
-   67    Charlie    52   Labrador         NO       NO
-   68      Pluto    50    Bulldog         NO       NO
-   69     Spunky    86    Bulldog         NO       NO
-   70   Firulais    47   Labrador         SI       SI
-   71     Spunky    61  Callejero         SI       SI
-   72     Snoopy    36  Salchicha         NO       NO
-   73      Pluto    44      Boxer         NO       NO
-   74    Charlie    17   Pequines         SI       SI
-   75        Max    21  Salchicha         NO       NO
-   76       Boby    36      Boxer         NO       NO
-   77     Lassie    62    Caniche         SI       SI
-   78     Bonnie    36  Salchicha         SI       SI
-   79        Max    65     Beagle         SI       SI
-   80    Charlie     5  Callejero         NO       NO
-   81      Reina    83       Dogo         NO       NO
-   82    Charlie    72    Bulldog         NO       NO
-   83     Lassie    31       Dogo         SI       SI
-   84    Charlie    78  Salchicha         SI       SI
-   85    Charlie    26       Dogo         SI       SI
-   86     Snoopy     8    Bulldog         NO       NO
-   87   Colmillo    13  Callejero         SI       SI
-   88   Colmillo    90   Pequines         SI       SI
-   89    Charlie     4       Dogo         NO       NO
-   90     Buster    93  Salchicha         NO       NO
-   91   Einstein     8  Callejero         SI       SI
-   92   Einstein     1  Salchicha         SI       SI
-   93        Max    81     Beagle         SI       SI
-   94       Milo    95    Bulldog         SI       SI
-   95      Benji    70      Boxer         SI       SI
-   96        Max    53      Boxer         NO       NO
-   97  Beethoven    79    Caniche         SI       SI
-   98      Reina    78     Beagle         SI       SI
-   99      Peggy    98  Callejero         NO       NO
-  100     Buster     6   Pequines         SI       SI

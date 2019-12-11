@@ -78,7 +78,7 @@ int controller_listarCachorros(LinkedList* pLinkedListCachorros)
 
 }
 
-int controller_guardarFiltrado(char* path , LinkedList* pLinkedListCachorros)
+int controller_guardarFiltroMayores45Dias(char* path , LinkedList* pLinkedListCachorros)
 {
     int retorno = 0;
     eCachorro* perrinhos=NULL;
@@ -89,14 +89,20 @@ int controller_guardarFiltrado(char* path , LinkedList* pLinkedListCachorros)
     char aux_reservado[3];
     char aux_genero;
 
+    LinkedList* nuevaListaFiltrada=NULL;
     FILE* newArchivo = fopen(path, "w");
 
     if(newArchivo != NULL && pLinkedListCachorros != NULL)
     {
+
+
         fprintf(newArchivo, "id_cachorro,nombre,dias,raza,reservado,genero\n");
-        for(int i = 0; i<ll_len(pLinkedListCachorros); i++)
+        nuevaListaFiltrada=ll_filter(pLinkedListCachorros,filtro_menores45dias);
+        if(nuevaListaFiltrada!=NULL)
         {
-            perrinhos = ll_get(pLinkedListCachorros,i);
+          for(int i = 0; i<ll_len(nuevaListaFiltrada); i++)
+            {
+            perrinhos = ll_get(nuevaListaFiltrada,i);
             cachorro_getId(perrinhos, &aux_id_cachorro);
             cachorro_getNombre(perrinhos, aux_nombre);
             cachorro_getDias(perrinhos, &aux_dias);
@@ -104,9 +110,53 @@ int controller_guardarFiltrado(char* path , LinkedList* pLinkedListCachorros)
             cachorro_getReservado(perrinhos,aux_reservado);
             cachorro_getGenero(perrinhos,&aux_genero);
             fprintf(newArchivo,"%5d %10s %5d %10s %10s %c\n",aux_id_cachorro,aux_nombre,aux_dias,aux_raza,aux_reservado,aux_genero);
+            }
         }
+
         fclose(newArchivo);
         retorno = 1;
     }
     return retorno;
+}
+
+int controller_guardarFiltroMachos(char* path , LinkedList* pLinkedListCachorros)
+{
+        int retorno = 0;
+    eCachorro* perrinhos=NULL;
+    int aux_id_cachorro;
+    char aux_nombre[30];
+    int aux_dias;
+    char aux_raza[30];
+    char aux_reservado[3];
+    char aux_genero;
+
+    LinkedList* nuevaListaFiltrada=NULL;
+    FILE* newArchivo = fopen(path, "w");
+
+    if(newArchivo != NULL && pLinkedListCachorros != NULL)
+    {
+
+
+        fprintf(newArchivo, "id_cachorro,nombre,dias,raza,reservado,genero\n");
+        nuevaListaFiltrada=ll_filter(pLinkedListCachorros,filtro_machos);
+        if(nuevaListaFiltrada!=NULL)
+        {
+          for(int i = 0; i<ll_len(nuevaListaFiltrada); i++)
+            {
+            perrinhos = ll_get(nuevaListaFiltrada,i);
+            cachorro_getId(perrinhos, &aux_id_cachorro);
+            cachorro_getNombre(perrinhos, aux_nombre);
+            cachorro_getDias(perrinhos, &aux_dias);
+            cachorro_getRaza(perrinhos,aux_raza);
+            cachorro_getReservado(perrinhos,aux_reservado);
+            cachorro_getGenero(perrinhos,&aux_genero);
+            fprintf(newArchivo,"%5d %10s %5d %10s %10s %c\n",aux_id_cachorro,aux_nombre,aux_dias,aux_raza,aux_reservado,aux_genero);
+            }
+        }
+
+        fclose(newArchivo);
+        retorno = 1;
+    }
+    return retorno;
+
 }

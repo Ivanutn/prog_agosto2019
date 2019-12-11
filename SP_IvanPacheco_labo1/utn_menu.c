@@ -3,7 +3,7 @@
 #include <string.h>
 #include "LinkedList.h"
 #include "controller.h"
-
+#include "utn.h"
 
 int opcion(void)
 {
@@ -22,7 +22,6 @@ int menu(void)
 {
     int numero;
     int retorno=0;//todo bien.
-    int flag=0;
     char nombreArchivo[20];
     char extension[]=".csv";
 
@@ -45,12 +44,11 @@ int menu(void)
                 if(controller_loadFromText(nombreArchivo,misCachorros))
                 {
                     printf("Archivo cargado con exito.\n");
-                    flag=1;
                 }
                 pauseAndClear();
                 break;
             case 2:
-                if(flag==0)
+                if(ll_isEmpty(misCachorros))
                 {
                    printf("Primero hay que cargar el archivo\n");
                 }
@@ -61,19 +59,35 @@ int menu(void)
                  pauseAndClear();
                 break;
             case 3:
-               /* if(flag==0)
+                if(ll_isEmpty(misCachorros))
                 {
                    printf("Primero hay que cargar el archivo\n");
                 }
                 else
                 {
-                    ll_filter(misCachorros,))
-                    controller_guardarFiltrado("filtrar menores de 45",misCachorros);
-                }*/
+                   if(controller_guardarFiltroMayores45Dias("cachorros mayores a 45 dias.csv",misCachorros))
+                   {
+                       printf("archivo creado sin problemas.\n");
+                   }
+
+                }
                  pauseAndClear();
 
                 break;
             case 4:
+                if(ll_isEmpty(misCachorros))
+                {
+                   printf("Primero hay que cargar el archivo\n");
+                }
+                else
+                {
+                   if(controller_guardarFiltroMachos("cachorros machos.csv",misCachorros))
+                   {
+                       printf("archivo creado sin problemas.\n");
+                   }
+
+                }
+                 pauseAndClear();
 
                 break;
             case 5:

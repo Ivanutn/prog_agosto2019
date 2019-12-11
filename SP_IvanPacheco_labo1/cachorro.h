@@ -33,4 +33,8 @@ int cachorro_getReservado(eCachorro* this,char* reservado);
 int cachorro_setGenero(eCachorro* this,char genero);
 int cachorro_getGenero(eCachorro* this,char* genero);
 
+int filtro_menores45dias(void* pElement);
+int filtro_machos(void* pElement);
+
+LinkedList* map_nombre_raza(void* pElement);
 

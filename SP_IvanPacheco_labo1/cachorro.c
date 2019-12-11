@@ -171,19 +171,6 @@ int cachorro_setGenero(eCachorro* this,char genero)
     int todoOK=0;
     if(this!=NULL)
     {
-        /*for(int i=0;i<strlen(genero);i++)
-        {
-            if(genero[i]=='m' || genero[i]=='M')
-            {
-                this->genero=genero[i];
-                todoOK=1;
-            }
-            else if(genero[i]=='h' || genero[i]=='H')
-            {
-                this->genero=genero[i];
-                todoOK=1;
-            }
-        }*/
         if(genero=='m'|| genero=='M')
         {
             this->genero=genero;
@@ -207,22 +194,40 @@ int cachorro_getGenero(eCachorro* this,char* genero)
     int todoOK=0;
     if(this!=NULL && genero!=NULL)
     {
-        /*if(genero=='m' || genero=='M')
-        {
-            genero[0]=this->genero;
-            todoOK=1;
-        }
-        else if(genero=='h' || genero =='H')
-        {
-            genero[0]=this->genero;
-            todoOK=1;
-        }*/
          genero[0]=this->genero;
          todoOK=1;
-
-
     }
     return todoOK;
 
 }
 
+int filtro_menores45dias(void* pElement)
+{
+    int todoOK=0;
+    int dias;
+    eCachorro* cachorros=NULL;
+
+    cachorros=(eCachorro*)pElement;
+    cachorro_getDias(cachorros,&dias);
+    if(dias>45)
+    {
+        todoOK=1;
+    }
+
+    return todoOK;
+}
+
+int filtro_machos(void* pElement)
+{
+    int todoOK=0;
+    char genero;
+    eCachorro* machos=NULL;
+    machos=(eCachorro*)pElement;
+    cachorro_getGenero(machos,&genero);
+    if(genero=='m' || genero=='M')
+    {
+        todoOK=1;
+    }
+
+    return todoOK;
+}
