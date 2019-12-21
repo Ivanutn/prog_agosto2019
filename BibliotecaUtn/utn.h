@@ -25,3 +25,4 @@ int getString(char* input,char message[],char eMessage[],int lowLimit,int highLi
 int getSex(char* input,char message[],char eMessage[],int intentos);
 int botonSeguir(char string[],char* message,char* eMessage);
 void removerSaltoDeLinea(char* string);
+int validarPatente(char* string,int tam);

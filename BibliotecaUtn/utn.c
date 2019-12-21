@@ -353,3 +353,39 @@ void removerSaltoDeLinea(char* string)
         }
     }
 }
+
+int validarPatente(char* string,int tam)
+{
+    int todoOK=1;
+    if(string!=NULL && tam >0 )
+    {
+        if(strlen(string)>6)
+        {
+           todoOK=0;
+        }
+        else
+        {
+           for(int i=0;i<3;i++)
+           {
+              if(!isalpha(*(string+i)))
+              {
+                  todoOK=0;
+                  break;
+              }
+           }
+           for(int i=3;i<=5;i++)
+           {
+               if(!isdigit(*(string+i)))
+               {
+                   todoOK=0;
+                   break;
+               }
+           }
+
+        }
+
+
+
+    }
+    return todoOK;
+}
